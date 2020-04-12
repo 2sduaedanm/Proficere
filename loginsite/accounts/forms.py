@@ -5,13 +5,13 @@ from django import forms
 
 
 
-from .models import Order
+#from .models import Order
 
 
-class OrderForm(ModelForm):
-	class Meta:
-		model = Order
-		fields = '__all__'
+#class OrderForm(ModelForm):
+#	class Meta:
+#		model = Order
+#		fields = '__all__'
 
 class CreateUserForm(UserCreationForm):
 	class Meta:
