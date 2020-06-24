@@ -1,6 +1,29 @@
+from django.contrib.auth import get_user_model
 from django.db import models
+from datetime import datetime
+
+User = get_user_model()
+
+#d = datetime(2999, 12, 31, 23, 55, 59, 342380)
+datetime_str = '12/31/2999 23:59:59'
 
 # Create your models here.
+
+class SecurityQuestion(models.Model):
+  securityquestion = models.CharField(max_length=60)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#  enddate = models.DateTimeField(default=d)
+  lastmodifyby = models.ForeignKey(
+    get_user_model(),
+    null=True,
+    on_delete=models.CASCADE
+    )
+#  lastmodifydate = models.DateTimeField(auto_now_add=True, auto_now=False)
+
+  def __str__(self):
+      return self.securityquestion
 
 #class Customer(models.Model):
 #	name = models.CharField(max_length=200, null=True)
