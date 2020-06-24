@@ -25,6 +25,15 @@ class SecurityQuestion(models.Model):
   def __str__(self):
       return self.securityquestion
 
+class UserProfile(models.Model):
+  user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+  birthdate = models.DateField()
+#  userphoto = models.ImageField(default='profile1.png', null=True, blank=True)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#  enddate = models.DateTimeField(default=d)
+
 #class Customer(models.Model):
 #	name = models.CharField(max_length=200, null=True)
 #	phone = models.CharField(max_length=200, null=True)
