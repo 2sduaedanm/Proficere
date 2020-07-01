@@ -15,12 +15,8 @@ class SecurityQuestion(models.Model):
   startdate = models.DateTimeField(default=datetime.now)
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
-  lastmodifyby = models.ForeignKey(
-    get_user_model(),
-    null=True,
-    on_delete=models.CASCADE
-    )
-#  lastmodifydate = models.DateTimeField(auto_now_add=True, auto_now=False)
+  lastmodifyby = models.ForeignKey(get_user_model(), null=True, on_delete=models.CASCADE)
+  lastmodifydate = models.DateTimeField(auto_now=True)
 
   def __str__(self):
       return self.securityquestion
@@ -33,6 +29,8 @@ class UserProfile(models.Model):
   startdate = models.DateTimeField(default=datetime.now)
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
+  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+  lastmodifydate = models.DateTimeField(auto_now=True)
 
 #class Customer(models.Model):
 #	name = models.CharField(max_length=200, null=True)

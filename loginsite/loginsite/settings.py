@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     'accounts.apps.AccountsConfig',
 
-    'django_filters',
+#    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +120,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Chicago'
+#TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
