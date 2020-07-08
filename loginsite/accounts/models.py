@@ -15,8 +15,8 @@ class SecurityQuestion(models.Model):
   startdate = models.DateTimeField(default=datetime.now)
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
-  lastmodifyby = models.ForeignKey(get_user_model(), null=True, on_delete=models.CASCADE)
   lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
 
   def __str__(self):
       return self.securityquestion
@@ -29,8 +29,121 @@ class UserProfile(models.Model):
   startdate = models.DateTimeField(default=datetime.now)
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
-  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
   lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+
+class AddressType(models.Model):
+  addresstype = models.CharField(max_length=10)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#  enddate = models.DateTimeField(default=d)
+  lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+
+  def __str__(self):
+      return self.addresstype
+
+class Country(models.Model):
+  country = models.CharField(max_length=60)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#  enddate = models.DateTimeField(default=d)
+  lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+
+  def __str__(self):
+      return self.country
+
+class State(models.Model):
+  country = models.ForeignKey(Country, null=True, default=1, on_delete= models.SET_NULL)
+  state = models.CharField(max_length=2)
+  statename = models.CharField(max_length=60)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#  enddate = models.DateTimeField(default=d)
+  lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+
+  def __str__(self):
+      return self.state
+
+class Address(models.Model):
+  addresstype = models.ForeignKey(AddressType, null=True, on_delete= models.SET_NULL)
+  country = models.ForeignKey(Country, null=True, on_delete= models.SET_NULL)
+  addressline01 = models.CharField(max_length=60, null=True, blank=True)
+  addressline02 = models.CharField(max_length=60, null=True, blank=True)
+  addressline03 = models.CharField(max_length=60, null=True, blank=True)
+  city = models.CharField(max_length=30, null=True, blank=True)
+  state = models.ForeignKey(State, null=True, blank=True, on_delete= models.SET_NULL)
+  postalcode = models.CharField(max_length=10, null=True, blank=True)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#  enddate = models.DateTimeField(default=d)
+  lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+
+class PhoneType(models.Model):
+  phonetype = models.CharField(max_length=10)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#  enddate = models.DateTimeField(default=d)
+  lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+
+  def __str__(self):
+      return self.phonetype
+
+class CountryExchange(models.Model):
+  country = models.ForeignKey(Country, null=True, on_delete= models.SET_NULL)
+  countryexchange = models.CharField(max_length=5)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#  enddate = models.DateTimeField(default=d)
+  lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+
+  def __str__(self):
+      return self.countryexchange
+
+class Phone(models.Model):
+  phonetype = models.ForeignKey(PhoneType, null=True, on_delete= models.SET_NULL)
+  countryexchange  = models.ForeignKey(CountryExchange, null=True, on_delete= models.SET_NULL)
+  phoneno = models.CharField(max_length=10)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#  enddate = models.DateTimeField(default=d)
+  lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+
+class EmailType(models.Model):
+  emailtype = models.CharField(max_length=10)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#  enddate = models.DateTimeField(default=d)
+  lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+
+  def __str__(self):
+      return self.emailtype
+
+class EmailAddress(models.Model):
+  emailtype = models.ForeignKey(EmailType, null=True, on_delete= models.SET_NULL)
+  emailaddress = models.EmailField(max_length=60, null=True, blank=True)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#  enddate = models.DateTimeField(default=d)
+  lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+
 
 #class Customer(models.Model):
 #	name = models.CharField(max_length=200, null=True)
