@@ -13,7 +13,7 @@ class SecurityQuestionAdmin(admin.ModelAdmin):
     list_filter = ('active', 'startdate', 'lastmodifydate',)
     
 class UserProfileAdmin(admin.ModelAdmin):
-    fields = ['user', 'birthdate', 'active', 'startdate', 'enddate']
+    fields = ['user', 'birthdate', 'securityquestion01', 'securityanswer01', 'active', 'startdate', 'enddate']
     list_display = ('user', 'birthdate', 'active', 'startdate', 'lastmodifydate')
     ordering = ('user',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
