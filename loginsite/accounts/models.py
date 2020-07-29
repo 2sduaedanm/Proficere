@@ -24,7 +24,7 @@ class SecurityQuestion(models.Model):
 class UserProfile(models.Model):
   user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
   birthdate = models.DateField()
-#  userphoto = models.ImageField(default='profile1.png', null=True, blank=True)
+  userphoto = models.ImageField(default='profile2.png', upload_to = 'profile_pics', null=True, blank=True)
   securityquestion01 = models.ForeignKey(SecurityQuestion, null=True, on_delete= models.SET_NULL)
   securityanswer01 = models.CharField(max_length=60)
 #  securityquestion02 = models.ForeignKey(SecurityQuestion, null=True, on_delete= models.SET_NULL)
@@ -37,6 +37,9 @@ class UserProfile(models.Model):
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
 #  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+
+  def __str__(self):
+      return f'{self.user.username} Profile'
 
 class AddressType(models.Model):
   addresstype = models.CharField(max_length=10)
@@ -76,20 +79,20 @@ class State(models.Model):
   def __str__(self):
       return self.state
 
-class Address(models.Model):
-  addresstype = models.ForeignKey(AddressType, null=True, on_delete= models.SET_NULL)
-  country = models.ForeignKey(Country, null=True, on_delete= models.SET_NULL)
-  addressline01 = models.CharField(max_length=60, null=True, blank=True)
-  addressline02 = models.CharField(max_length=60, null=True, blank=True)
-  addressline03 = models.CharField(max_length=60, null=True, blank=True)
-  city = models.CharField(max_length=30, null=True, blank=True)
-  state = models.ForeignKey(State, null=True, blank=True, on_delete= models.SET_NULL)
-  postalcode = models.CharField(max_length=10, null=True, blank=True)
-  active = models.BooleanField(default=True)
-  startdate = models.DateTimeField(default=datetime.now)
-  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#class Address(models.Model):
+#  addresstype = models.ForeignKey(AddressType, null=True, on_delete= models.SET_NULL)
+#  country = models.ForeignKey(Country, null=True, on_delete= models.SET_NULL)
+#  addressline01 = models.CharField(max_length=60, null=True, blank=True)
+#  addressline02 = models.CharField(max_length=60, null=True, blank=True)
+#  addressline03 = models.CharField(max_length=60, null=True, blank=True)
+#  city = models.CharField(max_length=30, null=True, blank=True)
+#  state = models.ForeignKey(State, null=True, blank=True, on_delete= models.SET_NULL)
+#  postalcode = models.CharField(max_length=10, null=True, blank=True)
+#  active = models.BooleanField(default=True)
+#  startdate = models.DateTimeField(default=datetime.now)
+#  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
-  lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifydate = models.DateTimeField(auto_now=True)
 #  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
 
 class PhoneType(models.Model):

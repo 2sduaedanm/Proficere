@@ -13,8 +13,8 @@ class SecurityQuestionAdmin(admin.ModelAdmin):
     list_filter = ('active', 'startdate', 'lastmodifydate',)
     
 class UserProfileAdmin(admin.ModelAdmin):
-    fields = ['user', 'birthdate', 'securityquestion01', 'securityanswer01', 'active', 'startdate', 'enddate']
-    list_display = ('user', 'birthdate', 'active', 'startdate', 'lastmodifydate')
+    fields = ['user', 'birthdate', 'userphoto', 'securityquestion01', 'securityanswer01', 'active', 'startdate', 'enddate']
+    list_display = ('user', 'birthdate', 'userphoto', 'active', 'startdate', 'lastmodifydate')
     ordering = ('user',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
     
@@ -36,11 +36,11 @@ class StateAdmin(admin.ModelAdmin):
     ordering = ('country', 'state',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
     
-class AddressAdmin(admin.ModelAdmin):
-    fields = ['addresstype', 'country', 'addressline01', 'addressline02', 'addressline03', 'city', 'state', 'postalcode', 'active', 'startdate', 'enddate']
-    list_display = ('addresstype', 'country', 'city', 'state', 'addressline01', 'active', 'startdate', 'lastmodifydate')
-    ordering = ('addresstype', 'country', 'city', 'state', 'addressline01',)
-    list_filter = ('active', 'startdate', 'lastmodifydate',)
+#class AddressAdmin(admin.ModelAdmin):
+#    fields = ['addresstype', 'country', 'addressline01', 'addressline02', 'addressline03', 'city', 'state', 'postalcode', 'active', 'startdate', 'enddate']
+#    list_display = ('addresstype', 'country', 'city', 'state', 'addressline01', 'active', 'startdate', 'lastmodifydate')
+#    ordering = ('addresstype', 'country', 'city', 'state', 'addressline01',)
+#    list_filter = ('active', 'startdate', 'lastmodifydate',)
     
 class PhoneTypeAdmin(admin.ModelAdmin):
     fields = ['phonetype', 'active', 'startdate', 'enddate']
@@ -79,7 +79,7 @@ admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(AddressType, AddressTypeAdmin)
 admin.site.register(Country, CountryAdmin)
 admin.site.register(State, StateAdmin)
-admin.site.register(Address, AddressAdmin)
+#admin.site.register(Address, AddressAdmin)
 admin.site.register(PhoneType, PhoneTypeAdmin)
 admin.site.register(CountryExchange, CountryExchangeAdmin)
 admin.site.register(Phone, PhoneAdmin)
