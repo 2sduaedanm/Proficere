@@ -36,11 +36,17 @@ class StateAdmin(admin.ModelAdmin):
     ordering = ('country', 'state',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
     
-#class AddressAdmin(admin.ModelAdmin):
-#    fields = ['addresstype', 'country', 'addressline01', 'addressline02', 'addressline03', 'city', 'state', 'postalcode', 'active', 'startdate', 'enddate']
-#    list_display = ('addresstype', 'country', 'city', 'state', 'addressline01', 'active', 'startdate', 'lastmodifydate')
-#    ordering = ('addresstype', 'country', 'city', 'state', 'addressline01',)
-#    list_filter = ('active', 'startdate', 'lastmodifydate',)
+class AddressAdmin(admin.ModelAdmin):
+    fields = ['addresstype', 'country', 'addressline01', 'addressline02', 'addressline03', 'city', 'state', 'postalcode', 'active', 'startdate', 'enddate']
+    list_display = ('addresstype', 'country', 'city', 'state', 'addressline01', 'active', 'startdate', 'lastmodifydate')
+    ordering = ('addresstype', 'country', 'city', 'state', 'addressline01',)
+    list_filter = ('active', 'startdate', 'lastmodifydate',)
+    
+class UserAddressAdmin(admin.ModelAdmin):
+    fields = ['user', 'address', 'primaryuseraddress', 'active', 'startdate', 'enddate']
+    list_display = ('user', 'address', 'primaryuseraddress', 'active', 'startdate', 'lastmodifydate')
+    ordering = ('user', 'primaryuseraddress', 'address',)
+    list_filter = ('active', 'startdate', 'lastmodifydate',)
     
 class PhoneTypeAdmin(admin.ModelAdmin):
     fields = ['phonetype', 'active', 'startdate', 'enddate']
@@ -58,6 +64,12 @@ class PhoneAdmin(admin.ModelAdmin):
     fields = ['phonetype', 'countryexchange', 'phoneno', 'active', 'startdate', 'enddate']
     list_display = ('phonetype', 'countryexchange', 'phoneno', 'active', 'startdate', 'lastmodifydate')
     ordering = ('id',)
+    list_filter = ('active', 'startdate', 'lastmodifydate',)
+    
+class UserPhoneAdmin(admin.ModelAdmin):
+    fields = ['user', 'phone', 'primaryuserphone', 'active', 'startdate', 'enddate']
+    list_display = ('user', 'phone', 'primaryuserphone', 'active', 'startdate', 'lastmodifydate')
+    ordering = ('user', 'primaryuserphone', 'phone',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
     
 class EmailTypeAdmin(admin.ModelAdmin):
@@ -79,10 +91,12 @@ admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(AddressType, AddressTypeAdmin)
 admin.site.register(Country, CountryAdmin)
 admin.site.register(State, StateAdmin)
-#admin.site.register(Address, AddressAdmin)
+admin.site.register(Address, AddressAdmin)
+admin.site.register(UserAddress, UserAddressAdmin)
 admin.site.register(PhoneType, PhoneTypeAdmin)
 admin.site.register(CountryExchange, CountryExchangeAdmin)
 admin.site.register(Phone, PhoneAdmin)
+admin.site.register(UserPhone, UserPhoneAdmin)
 admin.site.register(EmailType, EmailTypeAdmin)
 admin.site.register(EmailAddress, EmailAddressAdmin)
 

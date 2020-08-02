@@ -79,20 +79,34 @@ class State(models.Model):
   def __str__(self):
       return self.state
 
-#class Address(models.Model):
-#  addresstype = models.ForeignKey(AddressType, null=True, on_delete= models.SET_NULL)
-#  country = models.ForeignKey(Country, null=True, on_delete= models.SET_NULL)
-#  addressline01 = models.CharField(max_length=60, null=True, blank=True)
-#  addressline02 = models.CharField(max_length=60, null=True, blank=True)
-#  addressline03 = models.CharField(max_length=60, null=True, blank=True)
-#  city = models.CharField(max_length=30, null=True, blank=True)
-#  state = models.ForeignKey(State, null=True, blank=True, on_delete= models.SET_NULL)
-#  postalcode = models.CharField(max_length=10, null=True, blank=True)
-#  active = models.BooleanField(default=True)
-#  startdate = models.DateTimeField(default=datetime.now)
-#  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+class Address(models.Model):
+  addresstype = models.ForeignKey(AddressType, null=True, on_delete= models.SET_NULL)
+  country = models.ForeignKey(Country, null=True, on_delete= models.SET_NULL)
+  addressline01 = models.CharField(max_length=60, null=True, blank=True)
+  addressline02 = models.CharField(max_length=60, null=True, blank=True)
+  addressline03 = models.CharField(max_length=60, null=True, blank=True)
+  city = models.CharField(max_length=30, null=True, blank=True)
+  state = models.ForeignKey(State, null=True, blank=True, on_delete= models.SET_NULL)
+  postalcode = models.CharField(max_length=10, null=True, blank=True)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
-#  lastmodifydate = models.DateTimeField(auto_now=True)
+  lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+
+  def __str__(self):
+      return self.addressline01
+
+class UserAddress(models.Model):
+  user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+  address = models.ForeignKey(Address, null=True, blank=True, on_delete= models.SET_NULL)
+  primaryuseraddress = models.BooleanField(default=True)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#  enddate = models.DateTimeField(default=d)
+  lastmodifydate = models.DateTimeField(auto_now=True)
 #  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
 
 class PhoneType(models.Model):
@@ -124,6 +138,20 @@ class Phone(models.Model):
   phonetype = models.ForeignKey(PhoneType, null=True, on_delete= models.SET_NULL)
   countryexchange  = models.ForeignKey(CountryExchange, null=True, on_delete= models.SET_NULL)
   phoneno = models.CharField(max_length=10)
+  active = models.BooleanField(default=True)
+  startdate = models.DateTimeField(default=datetime.now)
+  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#  enddate = models.DateTimeField(default=d)
+  lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+
+  def __str__(self):
+      return self.phoneno
+
+class UserPhone(models.Model):
+  user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+  phone = models.ForeignKey(Phone, null=True, blank=True, on_delete= models.SET_NULL)
+  primaryuserphone = models.BooleanField(default=True)
   active = models.BooleanField(default=True)
   startdate = models.DateTimeField(default=datetime.now)
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
