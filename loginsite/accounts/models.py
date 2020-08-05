@@ -1,5 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+#from django.db.models import Q
+#from django.db.models.constraints import UniqueConstraint
 from datetime import datetime
 
 User = get_user_model()
@@ -97,9 +99,12 @@ class Address(models.Model):
 
   def __str__(self):
       return self.addressline01
-
+    
+  class Meta:
+        unique_together = ("country", "addressline01", "city", "state", "postalcode")
+       
 class UserAddress(models.Model):
-  user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+  user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
   address = models.ForeignKey(Address, null=True, blank=True, on_delete= models.SET_NULL)
   primaryuseraddress = models.BooleanField(default=True)
   active = models.BooleanField(default=True)
@@ -108,6 +113,17 @@ class UserAddress(models.Model):
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
 #  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+    
+  class Meta:
+        unique_together = ("user", "address")
+        unique_together = ("user", "primaryuseraddress")
+#        constraints = [
+#            UniqueConstraint(fields=['user', 'address'],
+#                             name='unique_useraddress'),
+#            UniqueConstraint(fields=['user', 'primaryuseraddress'],
+#                             condition=Q(optional=None),
+#                             name='unique_userprimary'),
+#        ]
 
 class PhoneType(models.Model):
   phonetype = models.CharField(max_length=10)
@@ -137,7 +153,7 @@ class CountryExchange(models.Model):
 class Phone(models.Model):
   phonetype = models.ForeignKey(PhoneType, null=True, on_delete= models.SET_NULL)
   countryexchange  = models.ForeignKey(CountryExchange, null=True, on_delete= models.SET_NULL)
-  phoneno = models.CharField(max_length=10)
+  phoneno = models.CharField(max_length=10, unique=True)
   active = models.BooleanField(default=True)
   startdate = models.DateTimeField(default=datetime.now)
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
@@ -149,7 +165,7 @@ class Phone(models.Model):
       return self.phoneno
 
 class UserPhone(models.Model):
-  user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+  user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
   phone = models.ForeignKey(Phone, null=True, blank=True, on_delete= models.SET_NULL)
   primaryuserphone = models.BooleanField(default=True)
   active = models.BooleanField(default=True)
@@ -158,6 +174,10 @@ class UserPhone(models.Model):
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
 #  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+    
+  class Meta:
+        unique_together = ("user", "phone")
+        unique_together = ("user", "primaryuserphone")
 
 class EmailType(models.Model):
   emailtype = models.CharField(max_length=10)
@@ -173,7 +193,7 @@ class EmailType(models.Model):
 
 class EmailAddress(models.Model):
   emailtype = models.ForeignKey(EmailType, null=True, on_delete= models.SET_NULL)
-  emailaddress = models.EmailField(max_length=60, null=True, blank=True)
+  emailaddress = models.EmailField(max_length=60, null=True, blank=True, unique=True)
   active = models.BooleanField(default=True)
   startdate = models.DateTimeField(default=datetime.now)
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
