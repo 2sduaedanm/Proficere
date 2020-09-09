@@ -5,6 +5,7 @@ from django.db import models
 from datetime import datetime
 
 User = get_user_model()
+User2 = get_user_model()
 
 #d = datetime(2999, 12, 31, 23, 55, 59, 342380)
 datetime_str = '12/31/2999 23:59:59'
@@ -38,7 +39,7 @@ class UserProfile(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.DO_NOTHING)
+  lastmodifyby = models.ForeignKey(User, related_name="Profilemodifier", on_delete=models.DO_NOTHING)
 
   def __str__(self):
       return f'{self.user.username} Profile'
@@ -50,7 +51,7 @@ class AddressType(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-  lastmodifyby = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+  lastmodifyby = models.ForeignKey(User, related_name="AddressTypemodifier", on_delete=models.DO_NOTHING)
 
   def __str__(self):
       return self.addresstype
@@ -62,7 +63,7 @@ class Country(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-  lastmodifyby = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+  lastmodifyby = models.ForeignKey(User, related_name="Countrymodifier", on_delete=models.DO_NOTHING)
 
   def __str__(self):
       return self.country
@@ -76,7 +77,7 @@ class State(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-  lastmodifyby = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+  lastmodifyby = models.ForeignKey(User, related_name="Statemodifier", on_delete=models.DO_NOTHING)
 
   def __str__(self):
       return self.state
@@ -95,7 +96,7 @@ class Address(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-  lastmodifyby = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+  lastmodifyby = models.ForeignKey(User, related_name="Addressmodifier", on_delete=models.DO_NOTHING)
 
   def __str__(self):
       return self.addressline01
@@ -112,7 +113,7 @@ class UserAddress(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+  lastmodifyby = models.ForeignKey(User2, related_name="UserAddressmodifier", on_delete=models.DO_NOTHING)
     
   class Meta:
         unique_together = ("user", "address")
@@ -132,7 +133,7 @@ class PhoneType(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-  lastmodifyby = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+  lastmodifyby = models.ForeignKey(User, related_name="PhoneTypemodifier", on_delete=models.DO_NOTHING)
 
   def __str__(self):
       return self.phonetype
@@ -145,7 +146,7 @@ class CountryExchange(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-  lastmodifyby = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+  lastmodifyby = models.ForeignKey(User, related_name="CountryExchangemodifier", on_delete=models.DO_NOTHING)
 
   def __str__(self):
       return self.countryexchange
@@ -159,7 +160,7 @@ class Phone(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-  lastmodifyby = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+  lastmodifyby = models.ForeignKey(User, related_name="Phonemodifier", on_delete=models.DO_NOTHING)
 
   def __str__(self):
       return self.phoneno
@@ -173,7 +174,7 @@ class UserPhone(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+  lastmodifyby = models.ForeignKey(User2, related_name="UserPhonemodifier", on_delete=models.DO_NOTHING)
     
   class Meta:
         unique_together = ("user", "phone")
@@ -186,7 +187,7 @@ class EmailType(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-  lastmodifyby = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+  lastmodifyby = models.ForeignKey(User, related_name="EmailTypemodifier", on_delete=models.DO_NOTHING)
 
   def __str__(self):
       return self.emailtype
@@ -199,7 +200,7 @@ class EmailAddress(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-  lastmodifyby = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+  lastmodifyby = models.ForeignKey(User, related_name="EmailAddressmodifier", on_delete=models.DO_NOTHING)
 
 
 #class Customer(models.Model):

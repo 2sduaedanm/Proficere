@@ -22,6 +22,14 @@ class SecurityQuestionAdmin(admin.ModelAdmin):
     
 class UserProfileAdmin(admin.ModelAdmin):
     fields = ['user', 'birthdate', 'userphoto', 'securityquestion01', 'securityanswer01', 'active', 'startdate', 'enddate']
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
     list_display = ('user', 'birthdate', 'userphoto', 'active', 'startdate', 'lastmodifydate')
     ordering = ('user',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
@@ -84,6 +92,14 @@ class AddressAdmin(admin.ModelAdmin):
     
 class UserAddressAdmin(admin.ModelAdmin):
     fields = ['user', 'address', 'primaryuseraddress', 'active', 'startdate', 'enddate']
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
     list_display = ('user', 'address', 'primaryuseraddress', 'active', 'startdate', 'lastmodifydate')
     ordering = ('user', 'primaryuseraddress', 'address',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
@@ -132,6 +148,14 @@ class PhoneAdmin(admin.ModelAdmin):
     
 class UserPhoneAdmin(admin.ModelAdmin):
     fields = ['user', 'phone', 'primaryuserphone', 'active', 'startdate', 'enddate']
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
     list_display = ('user', 'phone', 'primaryuserphone', 'active', 'startdate', 'lastmodifydate')
     ordering = ('user', 'primaryuserphone', 'phone',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
