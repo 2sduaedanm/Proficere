@@ -7,6 +7,14 @@ from .models import *
 
 class SecurityQuestionAdmin(admin.ModelAdmin):
     fields = ['securityquestion', 'active', 'startdate','enddate']
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
     list_display = ('securityquestion', 'active', 'startdate', 'lastmodifydate',)
 #    search_fields = ('securityquestion')
     ordering = ('id',)

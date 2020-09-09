@@ -18,7 +18,7 @@ class SecurityQuestion(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.CASCADE)
+  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.DO_NOTHING)
 
   def __str__(self):
       return self.securityquestion
