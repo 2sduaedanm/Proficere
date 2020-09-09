@@ -5,7 +5,6 @@ from django.db import models
 from datetime import datetime
 
 User = get_user_model()
-User2 = get_user_model()
 
 #d = datetime(2999, 12, 31, 23, 55, 59, 342380)
 datetime_str = '12/31/2999 23:59:59'
@@ -113,7 +112,7 @@ class UserAddress(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-  lastmodifyby = models.ForeignKey(User2, related_name="UserAddressmodifier", on_delete=models.DO_NOTHING)
+  lastmodifyby = models.ForeignKey(User, related_name="UserAddressmodifier", on_delete=models.DO_NOTHING)
     
   class Meta:
         unique_together = ("user", "address")
@@ -174,7 +173,7 @@ class UserPhone(models.Model):
   enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
   lastmodifydate = models.DateTimeField(auto_now=True)
-  lastmodifyby = models.ForeignKey(User2, related_name="UserPhonemodifier", on_delete=models.DO_NOTHING)
+  lastmodifyby = models.ForeignKey(User, related_name="UserPhonemodifier", on_delete=models.DO_NOTHING)
     
   class Meta:
         unique_together = ("user", "phone")
