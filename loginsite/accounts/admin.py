@@ -28,24 +28,56 @@ class UserProfileAdmin(admin.ModelAdmin):
     
 class AddressTypeAdmin(admin.ModelAdmin):
     fields = ['addresstype', 'active', 'startdate', 'enddate']
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
     list_display = ('addresstype', 'active', 'startdate', 'lastmodifydate')
     ordering = ('id',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
     
 class CountryAdmin(admin.ModelAdmin):
     fields = ['country', 'active', 'startdate', 'enddate']
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
     list_display = ('country', 'active', 'startdate', 'lastmodifydate')
     ordering = ('id',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
     
 class StateAdmin(admin.ModelAdmin):
     fields = ['country', 'state', 'statename', 'active', 'startdate', 'enddate']
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
     list_display = ('state', 'statename','country',  'active', 'startdate', 'lastmodifydate')
     ordering = ('country', 'state',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
     
 class AddressAdmin(admin.ModelAdmin):
     fields = ['addresstype', 'country', 'addressline01', 'addressline02', 'addressline03', 'city', 'state', 'postalcode', 'active', 'startdate', 'enddate']
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
     list_display = ('addresstype', 'country', 'city', 'state', 'addressline01', 'active', 'startdate', 'lastmodifydate')
     ordering = ('addresstype', 'country', 'city', 'state', 'addressline01',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
@@ -58,18 +90,42 @@ class UserAddressAdmin(admin.ModelAdmin):
     
 class PhoneTypeAdmin(admin.ModelAdmin):
     fields = ['phonetype', 'active', 'startdate', 'enddate']
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
     list_display = ('phonetype', 'active', 'startdate', 'lastmodifydate')
     ordering = ('id',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
     
 class CountryExchangeAdmin(admin.ModelAdmin):
     fields = ['country', 'countryexchange', 'active', 'startdate', 'enddate']
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
     list_display = ('country', 'countryexchange', 'active', 'startdate', 'lastmodifydate')
     ordering = ('countryexchange',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
     
 class PhoneAdmin(admin.ModelAdmin):
     fields = ['phonetype', 'countryexchange', 'phoneno', 'active', 'startdate', 'enddate']
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
     list_display = ('phonetype', 'countryexchange', 'phoneno', 'active', 'startdate', 'lastmodifydate')
     ordering = ('id',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
@@ -82,12 +138,28 @@ class UserPhoneAdmin(admin.ModelAdmin):
     
 class EmailTypeAdmin(admin.ModelAdmin):
     fields = ['emailtype', 'active', 'startdate', 'enddate']
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
     list_display = ('emailtype', 'active', 'startdate', 'lastmodifydate')
     ordering = ('id',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
     
 class EmailAddressAdmin(admin.ModelAdmin):
     fields = ['emailtype', 'emailaddress', 'active', 'startdate', 'enddate']
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
     list_display = ('emailtype', 'emailaddress', 'active', 'startdate', 'lastmodifydate')
     ordering = ('emailtype', 'emailaddress',)
     list_filter = ('active', 'startdate', 'lastmodifydate',)
