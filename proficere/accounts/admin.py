@@ -189,7 +189,7 @@ class EmailAddressAdmin(admin.ModelAdmin):
     list_filter = ('active', 'startdate', 'lastmodifydate',)
 
 
-admin.site.site_header = 'BaseDjango Admin Dashboard'
+admin.site.site_header = 'Proficere Admin Dashboard'
 admin.site.register(SecurityQuestion, SecurityQuestionAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(AddressType, AddressTypeAdmin)
