@@ -203,8 +203,3 @@ admin.site.register(Phone, PhoneAdmin)
 admin.site.register(UserPhone, UserPhoneAdmin)
 admin.site.register(EmailType, EmailTypeAdmin)
 admin.site.register(EmailAddress, EmailAddressAdmin)
-
-#admin.site.register(Customer)
-#admin.site.register(Product)
-#admin.site.register(Tag)
-#admin.site.register(Order)
