@@ -26,7 +26,7 @@ urlpatterns = [
         auth_views.PasswordResetDoneView.as_view(template_name="accounts/password_reset_sent.html"), 
         name="password_reset_done"),
 
-#- Link to password Rest form in email       //PasswordResetConfirmView.as_view()
+#- Link to password Reset form in email       //PasswordResetConfirmView.as_view()
     path('reset/<uidb64>/<token>/',
      auth_views.PasswordResetConfirmView.as_view(template_name="accounts/password_reset_form.html"), 
      name="password_reset_confirm"),

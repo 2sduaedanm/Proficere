@@ -30,7 +30,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 #    path('', home),
 #    path('about/', contact),
-    path('', include('accounts.urls'))
+    path('', include('accounts.urls')),
+    path('', include('instruct.urls'))
 
 ]
 
