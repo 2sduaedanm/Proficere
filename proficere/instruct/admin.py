@@ -41,9 +41,9 @@ class CurriculumAdmin(admin.ModelAdmin):
     list_filter = ('active', 'startdate',)
 
 class ChallengeCurriculumAdmin(admin.ModelAdmin):
-    fields = ['displayorder', 'progressionid', 'curriculumid', 'challengeid', 'active', 'startdate','enddate', 'lastmodifyby']
-    list_display = ('challengeid', 'curriculumid', 'progressionid', 'displayorder', 'active', 'startdate', 'lastmodifyby')
-    search_fields = ('progressionid','curriculumid', 'challengeid')
+    fields = ['displayorder', 'curriculumid', 'challengeid', 'active', 'startdate','enddate', 'lastmodifyby']
+    list_display = ('challengeid', 'curriculumid', 'displayorder', 'active', 'startdate', 'lastmodifyby')
+    search_fields = ('curriculumid', 'challengeid')
     ordering = ('displayorder',)
     list_filter = ('active', 'startdate',)
 
