@@ -70,3 +70,11 @@ def instructor_home(request):
 
 	return render(request, 'instruct/dashboard.html', context)
 
+
+@login_required(login_url='login')
+def student_home(request):
+
+	context = {}
+
+	return render(request, 'instruct/studentHome.html', context)
+
