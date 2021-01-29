@@ -62,3 +62,11 @@ def home(request):
 
 	return render(request, 'accounts/dashboard.html', context)
 
+
+@login_required(login_url='login')
+def staff_home(request):
+
+	context = {}
+
+	return render(request, 'accounts/staffHome.html', context)
+
