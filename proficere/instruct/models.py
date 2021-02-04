@@ -125,16 +125,17 @@ class ChallengeCurriculum (models.Model):
 #      on_delete=models.CASCADE
 #    )
 
-#class StudentCurriculum (models.Model):
-#    studentid = models.ForeignKey(User, on_delete=models.CASCADE)
-#    curriculumid = models.ForeignKey(Curriculum, on_delete=models.CASCADE)
-#    progressionid = models.ForeignKey(Progression, default=1, on_delete=models.CASCADE)
-#    active = models.BooleanField(default=True)
-#    startdate = models.DateTimeField(default=datetime.now)
-#    enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
-#    lastmodifyby = models.ForeignKey(
-#      get_user_model(),
-#      null=True,
-#      on_delete=models.CASCADE
-#    )
+class StudentCurriculum (models.Model):
+    studentid = models.ForeignKey(User, on_delete=models.CASCADE)
+    curriculumid = models.ForeignKey(Curriculum, on_delete=models.CASCADE)
+    progressionid = models.ForeignKey(Progression, default=1, on_delete=models.CASCADE)
+    active = models.BooleanField(default=True)
+    startdate = models.DateTimeField(default=datetime.now)
+    enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+    lastmodifyby = models.ForeignKey(
+      get_user_model(),
+      related_name='%(class)s_requests_created', 
+      null=True,
+      on_delete=models.CASCADE
+    )
 

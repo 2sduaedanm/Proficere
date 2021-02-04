@@ -47,6 +47,12 @@ class ChallengeCurriculumAdmin(admin.ModelAdmin):
     ordering = ('displayorder',)
     list_filter = ('active', 'startdate',)
 
+class StudentCurriculumAdmin(admin.ModelAdmin):
+    fields = ['studentid', 'progressionid', 'curriculumid', 'active', 'startdate','enddate', 'lastmodifyby']
+    list_display = ('studentid', 'progressionid', 'curriculumid', 'active', 'startdate', 'lastmodifyby')
+    search_fields = ('studentid', 'progressionid', 'curriculumid')
+    list_filter = ('active', 'startdate',)
+
 
 admin.site.register(Progression, ProgressionAdmin)
 admin.site.register(AnswerType, AnswerTypeAdmin)
@@ -54,3 +60,4 @@ admin.site.register(ChallengeType, ChallengeTypeAdmin)
 admin.site.register(Challenge, ChallengeAdmin)
 admin.site.register(Curriculum, CurriculumAdmin)
 admin.site.register(ChallengeCurriculum, ChallengeCurriculumAdmin)
+admin.site.register(StudentCurriculum, StudentCurriculumAdmin)
