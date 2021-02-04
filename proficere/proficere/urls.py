@@ -31,7 +31,7 @@ urlpatterns = [
 #    path('', home),
 #    path('about/', contact),
     path('', include('accounts.urls')),
-    path('', include('instruct.urls'))
+    path('instruct/', include('instruct.urls'))
 
 ]
 

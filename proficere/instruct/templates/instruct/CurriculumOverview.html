@@ -1,0 +1,26 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<h2>{{curriculum.progressionid}}: {{curriculum}}</h2>
+
+<h2>Challenges</h2>
+<table class="table table-sm">
+	<tr>
+		<th>Challenge</th>
+		<th>Type of Review</th>
+		<th>Type of Answer</th>
+		<th>HintsLink</th>
+		<th>HintsVideo</th>
+	</tr>
+	{% for challenge in challengeList %}
+	<tr>
+		<td>{{challenge.challengeid.longname}}</td>
+		<td>{{challenge.challengeid.challengetypeid}}</td>
+		<td>{{challenge.challengeid.answertypeid}}</td>
+		<td>{{challenge.challengeid.hints}}</td>
+		<td>{{challenge.challengeid.hintsvideo}}</td>
+	</tr>
+	{% endfor %}
+</table>
+
+{% endblock %}
