@@ -1,7 +1,9 @@
 {% extends 'accounts/main.html' %}
 
 {% block content %}
-<h2>{{curriculum.progressionid}}: {{curriculum}}</h2>
+<h1><a class="nav-link" style="display:contents;"
+		href="{% url 'display_progression_curriculums' curriculum.progressionid.id %}">{{curriculum.progressionid}}</a>:
+	{{curriculum}}</h1>
 
 <h2>Challenges</h2>
 <table class="table table-sm">

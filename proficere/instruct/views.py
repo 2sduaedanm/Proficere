@@ -89,3 +89,11 @@ def display_curriculum_challenges(request,curriculumid):
 
 	return render(request, 'instruct/CurriculumOverview.html', context)
 
+@login_required(login_url='login')
+def display_progression_curriculums(request,progressionid):
+
+	curriculumList = Curriculum.objects.filter(progressionid= progressionid)
+	context = {"curriculumList":curriculumList}
+
+	return render(request, 'instruct/ProgressionOverview.html', context)
+

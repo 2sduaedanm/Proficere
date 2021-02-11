@@ -31,6 +31,12 @@ def registerPage(request):
 		context = {'form':form}
 		return render(request, 'accounts/register.html', context)
 
+def privacyPolicy(request):
+
+	context = {}
+
+	return render(request, 'accounts/privacyPolicy.html', context)
+
 def loginPage(request):
 	if request.user.is_authenticated:
 		return redirect('home')
@@ -69,4 +75,18 @@ def staff_home(request):
 	context = {}
 
 	return render(request, 'accounts/staffHome.html', context)
+
+@login_required(login_url='login')
+def contactUs(request):
+
+	context = {}
+
+	return render(request, 'accounts/contactUs.html', context)
+
+@login_required(login_url='login')
+def signUpClass(request):
+
+	context = {}
+
+	return render(request, 'accounts/signUpClass.html', context)
 

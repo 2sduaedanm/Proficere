@@ -13,10 +13,12 @@
 	{% for pastProgression in pastProgressions %}
 	<tr>
 		<td><a class="nav-link"
-				href="{% url 'display_curriculum_challenges' pastProgression.curriculumid.id %}">{{pastProgression.progressionid}}</a>
+				href="{% url 'display_progression_curriculums' pastProgression.progressionid.id %}">{{pastProgression.progressionid}}</a>
 		</td>
-		<td>{{pastProgression.curriculumid}}</td>
-		<td>{{pastProgression.active}}</td>
+		<td><a class="nav-link"
+				href="{% url 'display_curriculum_challenges' pastProgression.curriculumid.id %}">{{pastProgression.curriculumid}}</a>
+		</td>
+		<td>{% if pastProgression.active %}In Progress{% endif %}</td>
 	</tr>
 	{% endfor %}
 </table>
