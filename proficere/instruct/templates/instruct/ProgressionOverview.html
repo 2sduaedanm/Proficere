@@ -1,0 +1,24 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+{% with curriculumList|first as firstCurriculum %}
+<h1>{{firstCurriculum.progressionid}}</h1>
+{% endwith %}
+
+<h2>Challenges</h2>
+<table class="table table-sm">
+	<tr>
+		<th>Curriculum</th>
+		<th>Belt</th>
+	</tr>
+	{% for curriculum in curriculumList %}
+	<tr>
+		<td><a class="nav-link"
+				href="{% url 'display_curriculum_challenges' curriculum.id %}">{{curriculum.longname}}</a>
+		</td>
+		<td>{{curriculum.belt}}</td>
+	</tr>
+	{% endfor %}
+</table>
+
+{% endblock %}

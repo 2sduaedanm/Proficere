@@ -1,0 +1,62 @@
+{% load static %}
+{% load groupAuth %}
+
+
+<style>
+  .hello-msg {
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+
+  .footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+</style>
+
+<nav class="footer navbar navbar-expand-lg navbar-dark bg-dark">
+  <!-- I'm following along with this site here: https://www.orbitmedia.com/blog/website-footer-design-best-practices/ -->
+  <div class="container-fluid">
+    <a class="nav-link" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
+
+    <button class="navbar-toggler" style="float:left" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <h4></h4>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'admin:index' %}">DjangoAdmin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'instructHome' %}">Instruct Students</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'studentHome' %}">Student Portal</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'staffHome' %}">Staff Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <h4>About Us</h4>
+      <ul class="navbar-nav" style="display:block;float:none;">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signUpClass' %}">Take a Class</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contactUs' %}">ContactUs</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div style="width:100%;">
+    <p><a class="nav-link" href="{% url 'privacyPolicy' %}">Privacy Policy</a></p>
+    <!--? Sitemap supposedly helps with SEO ?-->
+    <span class="hello-msg">&copy; Copyright 2021 2SD</span>
+  </div>
+</nav>
