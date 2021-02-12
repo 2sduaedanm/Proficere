@@ -19,16 +19,9 @@ class ChallengeTypeAdmin(admin.ModelAdmin):
     ordering = ('displayorder',)
     list_filter = ('active', 'startdate',)
 
-class AnswerTypeAdmin(admin.ModelAdmin):
-    fields = ['displayorder', 'shortname', 'longname', 'active', 'startdate','enddate', 'lastmodifyby']
-    list_display = ('shortname', 'longname','displayorder', 'active', 'startdate', 'lastmodifyby')
-    search_fields = ('shortname','longname')
-    ordering = ('displayorder',)
-    list_filter = ('active', 'startdate',)
-
 class ChallengeAdmin(admin.ModelAdmin):
-    fields = ['displayorder', 'shortname', 'longname', 'challengetypeid', 'answertypeid', 'hints', 'hintsvideo', 'active', 'startdate','enddate', 'lastmodifyby']
-    list_display = ('shortname', 'longname','displayorder', 'challengetypeid', 'answertypeid', 'hints', 'active', 'startdate', 'lastmodifyby')
+    fields = ['displayorder', 'shortname', 'longname', 'challengetypeid', 'hints', 'hintsvideo', 'active', 'startdate','enddate', 'lastmodifyby']
+    list_display = ('shortname', 'longname','displayorder', 'challengetypeid', 'hints', 'active', 'startdate', 'lastmodifyby')
     search_fields = ('shortname','longname')
     ordering = ('displayorder',)
     list_filter = ('active', 'startdate', 'hintsvideo',)
@@ -55,7 +48,6 @@ class StudentCurriculumAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Progression, ProgressionAdmin)
-admin.site.register(AnswerType, AnswerTypeAdmin)
 admin.site.register(ChallengeType, ChallengeTypeAdmin)
 admin.site.register(Challenge, ChallengeAdmin)
 admin.site.register(Curriculum, CurriculumAdmin)

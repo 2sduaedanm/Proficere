@@ -45,27 +45,10 @@ class ChallengeType(models.Model):
     def __str__(self):
         return self.shortname
 
-class AnswerType(models.Model):
-    shortname = models.CharField(max_length=60)
-    longname = models.CharField(max_length=255)
-    displayorder = models.IntegerField()
-    active = models.BooleanField(default=True)
-    startdate = models.DateTimeField(default=datetime.now)
-    enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
-    lastmodifyby = models.ForeignKey(
-      get_user_model(),
-      null=True,
-      on_delete=models.CASCADE
-    )
-
-    def __str__(self):
-        return self.shortname
-
 class Challenge (models.Model):
     shortname = models.CharField(max_length=60)
     longname = models.CharField(max_length=255)
     challengetypeid = models.ForeignKey(ChallengeType, on_delete=models.CASCADE)
-    answertypeid = models.ForeignKey(AnswerType, on_delete=models.CASCADE)
     displayorder = models.IntegerField()
     hints = models.CharField(max_length=255, blank=True)
     hintsvideo = models.CharField(max_length=255, blank=True)
