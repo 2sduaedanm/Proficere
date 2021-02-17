@@ -1,0 +1,1850 @@
+[
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 1,
+        "fields": {
+            "app_label": "admin",
+            "model": "logentry"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 2,
+        "fields": {
+            "app_label": "auth",
+            "model": "permission"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 3,
+        "fields": {
+            "app_label": "auth",
+            "model": "group"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 4,
+        "fields": {
+            "app_label": "auth",
+            "model": "user"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 5,
+        "fields": {
+            "app_label": "contenttypes",
+            "model": "contenttype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 6,
+        "fields": {
+            "app_label": "sessions",
+            "model": "session"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 7,
+        "fields": {
+            "app_label": "accounts",
+            "model": "securityquestion"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 8,
+        "fields": {
+            "app_label": "accounts",
+            "model": "userprofile"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 9,
+        "fields": {
+            "app_label": "accounts",
+            "model": "addresstype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 10,
+        "fields": {
+            "app_label": "accounts",
+            "model": "country"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 11,
+        "fields": {
+            "app_label": "accounts",
+            "model": "countryexchange"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 12,
+        "fields": {
+            "app_label": "accounts",
+            "model": "phonetype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 13,
+        "fields": {
+            "app_label": "accounts",
+            "model": "phone"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 14,
+        "fields": {
+            "app_label": "accounts",
+            "model": "state"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 15,
+        "fields": {
+            "app_label": "accounts",
+            "model": "emailtype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 16,
+        "fields": {
+            "app_label": "accounts",
+            "model": "emailaddress"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 17,
+        "fields": {
+            "app_label": "accounts",
+            "model": "address"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 18,
+        "fields": {
+            "app_label": "accounts",
+            "model": "useraddress"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 19,
+        "fields": {
+            "app_label": "accounts",
+            "model": "userphone"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 20,
+        "fields": {
+            "app_label": "instruct",
+            "model": "answertype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 21,
+        "fields": {
+            "app_label": "instruct",
+            "model": "challenge"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 22,
+        "fields": {
+            "app_label": "instruct",
+            "model": "progression"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 23,
+        "fields": {
+            "app_label": "instruct",
+            "model": "curriculum"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 24,
+        "fields": {
+            "app_label": "instruct",
+            "model": "challengetype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 25,
+        "fields": {
+            "app_label": "instruct",
+            "model": "challengecurriculum"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 26,
+        "fields": {
+            "app_label": "instruct",
+            "model": "studentcurriculum"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "8b0yw1g6c3bgqynmcp6ami4hhy0cnumz",
+        "fields": {
+            "session_data": "NzgyYWRjZjBmN2VkZDZmNDNmODlkOGEzNzExYjc1ZjJmMjE0MGRmYzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJkZjVhMzc1MDAwOGRmMGM0ZWYzZDgyYzRhNDc1OWNjZGQ4Y2Q0MmUxIn0=",
+            "expire_date": "2021-01-22T03:13:39.745Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "bcynls2sn1hfx8u1bzhei9x8x23h20x7",
+        "fields": {
+            "session_data": "NzgyYWRjZjBmN2VkZDZmNDNmODlkOGEzNzExYjc1ZjJmMjE0MGRmYzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJkZjVhMzc1MDAwOGRmMGM0ZWYzZDgyYzRhNDc1OWNjZGQ4Y2Q0MmUxIn0=",
+            "expire_date": "2021-02-05T03:28:49.034Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "c93t3ga4oswe5glpao6pdo7hnct9d5ed",
+        "fields": {
+            "session_data": "ZWU0MGIwYzk3NDI0NjQ1MjcwODYwY2EyMTJmMjUwMWY1MTA4MDc4Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYWQyZjMxYTY1ZjFlYjU1NzM0Y2Q5ZmNkN2FlNzBjYzIwOTE5YTYyIn0=",
+            "expire_date": "2021-02-23T18:34:23.309Z"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 1,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": 1,
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 2,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": 1,
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 3,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": 1,
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 4,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": 1,
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 5,
+        "fields": {
+            "name": "Can add permission",
+            "content_type": 2,
+            "codename": "add_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 6,
+        "fields": {
+            "name": "Can change permission",
+            "content_type": 2,
+            "codename": "change_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 7,
+        "fields": {
+            "name": "Can delete permission",
+            "content_type": 2,
+            "codename": "delete_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 8,
+        "fields": {
+            "name": "Can view permission",
+            "content_type": 2,
+            "codename": "view_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 9,
+        "fields": {
+            "name": "Can add group",
+            "content_type": 3,
+            "codename": "add_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 10,
+        "fields": {
+            "name": "Can change group",
+            "content_type": 3,
+            "codename": "change_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 11,
+        "fields": {
+            "name": "Can delete group",
+            "content_type": 3,
+            "codename": "delete_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 12,
+        "fields": {
+            "name": "Can view group",
+            "content_type": 3,
+            "codename": "view_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 13,
+        "fields": {
+            "name": "Can add user",
+            "content_type": 4,
+            "codename": "add_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 14,
+        "fields": {
+            "name": "Can change user",
+            "content_type": 4,
+            "codename": "change_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 15,
+        "fields": {
+            "name": "Can delete user",
+            "content_type": 4,
+            "codename": "delete_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 16,
+        "fields": {
+            "name": "Can view user",
+            "content_type": 4,
+            "codename": "view_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 17,
+        "fields": {
+            "name": "Can add content type",
+            "content_type": 5,
+            "codename": "add_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 18,
+        "fields": {
+            "name": "Can change content type",
+            "content_type": 5,
+            "codename": "change_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 19,
+        "fields": {
+            "name": "Can delete content type",
+            "content_type": 5,
+            "codename": "delete_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 20,
+        "fields": {
+            "name": "Can view content type",
+            "content_type": 5,
+            "codename": "view_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 21,
+        "fields": {
+            "name": "Can add session",
+            "content_type": 6,
+            "codename": "add_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 22,
+        "fields": {
+            "name": "Can change session",
+            "content_type": 6,
+            "codename": "change_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 23,
+        "fields": {
+            "name": "Can delete session",
+            "content_type": 6,
+            "codename": "delete_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 24,
+        "fields": {
+            "name": "Can view session",
+            "content_type": 6,
+            "codename": "view_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 25,
+        "fields": {
+            "name": "Can add security question",
+            "content_type": 7,
+            "codename": "add_securityquestion"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 26,
+        "fields": {
+            "name": "Can change security question",
+            "content_type": 7,
+            "codename": "change_securityquestion"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 27,
+        "fields": {
+            "name": "Can delete security question",
+            "content_type": 7,
+            "codename": "delete_securityquestion"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 28,
+        "fields": {
+            "name": "Can view security question",
+            "content_type": 7,
+            "codename": "view_securityquestion"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 29,
+        "fields": {
+            "name": "Can add user profile",
+            "content_type": 8,
+            "codename": "add_userprofile"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 30,
+        "fields": {
+            "name": "Can change user profile",
+            "content_type": 8,
+            "codename": "change_userprofile"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 31,
+        "fields": {
+            "name": "Can delete user profile",
+            "content_type": 8,
+            "codename": "delete_userprofile"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 32,
+        "fields": {
+            "name": "Can view user profile",
+            "content_type": 8,
+            "codename": "view_userprofile"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 33,
+        "fields": {
+            "name": "Can add address type",
+            "content_type": 9,
+            "codename": "add_addresstype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 34,
+        "fields": {
+            "name": "Can change address type",
+            "content_type": 9,
+            "codename": "change_addresstype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 35,
+        "fields": {
+            "name": "Can delete address type",
+            "content_type": 9,
+            "codename": "delete_addresstype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 36,
+        "fields": {
+            "name": "Can view address type",
+            "content_type": 9,
+            "codename": "view_addresstype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 37,
+        "fields": {
+            "name": "Can add country",
+            "content_type": 10,
+            "codename": "add_country"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 38,
+        "fields": {
+            "name": "Can change country",
+            "content_type": 10,
+            "codename": "change_country"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 39,
+        "fields": {
+            "name": "Can delete country",
+            "content_type": 10,
+            "codename": "delete_country"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 40,
+        "fields": {
+            "name": "Can view country",
+            "content_type": 10,
+            "codename": "view_country"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 41,
+        "fields": {
+            "name": "Can add country exchange",
+            "content_type": 11,
+            "codename": "add_countryexchange"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 42,
+        "fields": {
+            "name": "Can change country exchange",
+            "content_type": 11,
+            "codename": "change_countryexchange"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 43,
+        "fields": {
+            "name": "Can delete country exchange",
+            "content_type": 11,
+            "codename": "delete_countryexchange"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 44,
+        "fields": {
+            "name": "Can view country exchange",
+            "content_type": 11,
+            "codename": "view_countryexchange"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 45,
+        "fields": {
+            "name": "Can add phone type",
+            "content_type": 12,
+            "codename": "add_phonetype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 46,
+        "fields": {
+            "name": "Can change phone type",
+            "content_type": 12,
+            "codename": "change_phonetype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 47,
+        "fields": {
+            "name": "Can delete phone type",
+            "content_type": 12,
+            "codename": "delete_phonetype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 48,
+        "fields": {
+            "name": "Can view phone type",
+            "content_type": 12,
+            "codename": "view_phonetype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 49,
+        "fields": {
+            "name": "Can add phone",
+            "content_type": 13,
+            "codename": "add_phone"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 50,
+        "fields": {
+            "name": "Can change phone",
+            "content_type": 13,
+            "codename": "change_phone"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 51,
+        "fields": {
+            "name": "Can delete phone",
+            "content_type": 13,
+            "codename": "delete_phone"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 52,
+        "fields": {
+            "name": "Can view phone",
+            "content_type": 13,
+            "codename": "view_phone"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 53,
+        "fields": {
+            "name": "Can add state",
+            "content_type": 14,
+            "codename": "add_state"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 54,
+        "fields": {
+            "name": "Can change state",
+            "content_type": 14,
+            "codename": "change_state"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 55,
+        "fields": {
+            "name": "Can delete state",
+            "content_type": 14,
+            "codename": "delete_state"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 56,
+        "fields": {
+            "name": "Can view state",
+            "content_type": 14,
+            "codename": "view_state"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 57,
+        "fields": {
+            "name": "Can add email type",
+            "content_type": 15,
+            "codename": "add_emailtype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 58,
+        "fields": {
+            "name": "Can change email type",
+            "content_type": 15,
+            "codename": "change_emailtype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 59,
+        "fields": {
+            "name": "Can delete email type",
+            "content_type": 15,
+            "codename": "delete_emailtype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 60,
+        "fields": {
+            "name": "Can view email type",
+            "content_type": 15,
+            "codename": "view_emailtype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 61,
+        "fields": {
+            "name": "Can add email address",
+            "content_type": 16,
+            "codename": "add_emailaddress"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 62,
+        "fields": {
+            "name": "Can change email address",
+            "content_type": 16,
+            "codename": "change_emailaddress"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 63,
+        "fields": {
+            "name": "Can delete email address",
+            "content_type": 16,
+            "codename": "delete_emailaddress"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 64,
+        "fields": {
+            "name": "Can view email address",
+            "content_type": 16,
+            "codename": "view_emailaddress"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 65,
+        "fields": {
+            "name": "Can add address",
+            "content_type": 17,
+            "codename": "add_address"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 66,
+        "fields": {
+            "name": "Can change address",
+            "content_type": 17,
+            "codename": "change_address"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 67,
+        "fields": {
+            "name": "Can delete address",
+            "content_type": 17,
+            "codename": "delete_address"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 68,
+        "fields": {
+            "name": "Can view address",
+            "content_type": 17,
+            "codename": "view_address"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 69,
+        "fields": {
+            "name": "Can add user address",
+            "content_type": 18,
+            "codename": "add_useraddress"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 70,
+        "fields": {
+            "name": "Can change user address",
+            "content_type": 18,
+            "codename": "change_useraddress"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 71,
+        "fields": {
+            "name": "Can delete user address",
+            "content_type": 18,
+            "codename": "delete_useraddress"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 72,
+        "fields": {
+            "name": "Can view user address",
+            "content_type": 18,
+            "codename": "view_useraddress"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 73,
+        "fields": {
+            "name": "Can add user phone",
+            "content_type": 19,
+            "codename": "add_userphone"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 74,
+        "fields": {
+            "name": "Can change user phone",
+            "content_type": 19,
+            "codename": "change_userphone"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 75,
+        "fields": {
+            "name": "Can delete user phone",
+            "content_type": 19,
+            "codename": "delete_userphone"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 76,
+        "fields": {
+            "name": "Can view user phone",
+            "content_type": 19,
+            "codename": "view_userphone"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 77,
+        "fields": {
+            "name": "Can add answer type",
+            "content_type": 20,
+            "codename": "add_answertype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 78,
+        "fields": {
+            "name": "Can change answer type",
+            "content_type": 20,
+            "codename": "change_answertype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 79,
+        "fields": {
+            "name": "Can delete answer type",
+            "content_type": 20,
+            "codename": "delete_answertype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 80,
+        "fields": {
+            "name": "Can view answer type",
+            "content_type": 20,
+            "codename": "view_answertype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 81,
+        "fields": {
+            "name": "Can add challenge",
+            "content_type": 21,
+            "codename": "add_challenge"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 82,
+        "fields": {
+            "name": "Can change challenge",
+            "content_type": 21,
+            "codename": "change_challenge"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 83,
+        "fields": {
+            "name": "Can delete challenge",
+            "content_type": 21,
+            "codename": "delete_challenge"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 84,
+        "fields": {
+            "name": "Can view challenge",
+            "content_type": 21,
+            "codename": "view_challenge"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 85,
+        "fields": {
+            "name": "Can add progression",
+            "content_type": 22,
+            "codename": "add_progression"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 86,
+        "fields": {
+            "name": "Can change progression",
+            "content_type": 22,
+            "codename": "change_progression"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 87,
+        "fields": {
+            "name": "Can delete progression",
+            "content_type": 22,
+            "codename": "delete_progression"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 88,
+        "fields": {
+            "name": "Can view progression",
+            "content_type": 22,
+            "codename": "view_progression"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 89,
+        "fields": {
+            "name": "Can add curriculum",
+            "content_type": 23,
+            "codename": "add_curriculum"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 90,
+        "fields": {
+            "name": "Can change curriculum",
+            "content_type": 23,
+            "codename": "change_curriculum"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 91,
+        "fields": {
+            "name": "Can delete curriculum",
+            "content_type": 23,
+            "codename": "delete_curriculum"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 92,
+        "fields": {
+            "name": "Can view curriculum",
+            "content_type": 23,
+            "codename": "view_curriculum"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 93,
+        "fields": {
+            "name": "Can add challenge type",
+            "content_type": 24,
+            "codename": "add_challengetype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 94,
+        "fields": {
+            "name": "Can change challenge type",
+            "content_type": 24,
+            "codename": "change_challengetype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 95,
+        "fields": {
+            "name": "Can delete challenge type",
+            "content_type": 24,
+            "codename": "delete_challengetype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 96,
+        "fields": {
+            "name": "Can view challenge type",
+            "content_type": 24,
+            "codename": "view_challengetype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 97,
+        "fields": {
+            "name": "Can add challenge curriculum",
+            "content_type": 25,
+            "codename": "add_challengecurriculum"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 98,
+        "fields": {
+            "name": "Can change challenge curriculum",
+            "content_type": 25,
+            "codename": "change_challengecurriculum"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 99,
+        "fields": {
+            "name": "Can delete challenge curriculum",
+            "content_type": 25,
+            "codename": "delete_challengecurriculum"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 100,
+        "fields": {
+            "name": "Can view challenge curriculum",
+            "content_type": 25,
+            "codename": "view_challengecurriculum"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 101,
+        "fields": {
+            "name": "Can add student curriculum",
+            "content_type": 26,
+            "codename": "add_studentcurriculum"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 102,
+        "fields": {
+            "name": "Can change student curriculum",
+            "content_type": 26,
+            "codename": "change_studentcurriculum"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 103,
+        "fields": {
+            "name": "Can delete student curriculum",
+            "content_type": 26,
+            "codename": "delete_studentcurriculum"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 104,
+        "fields": {
+            "name": "Can view student curriculum",
+            "content_type": 26,
+            "codename": "view_studentcurriculum"
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 1,
+        "fields": {
+            "name": "Student",
+            "permissions": []
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 2,
+        "fields": {
+            "name": "Instructor",
+            "permissions": []
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 3,
+        "fields": {
+            "name": "Staff",
+            "permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$180000$TRZ1I73sHs3e$MQW8SGzSAzvuEXI/1euBgwT9CMaSbth79OXx/bj8UeI=",
+            "last_login": "2021-02-09T18:34:23.307Z",
+            "is_superuser": true,
+            "username": "david",
+            "first_name": "",
+            "last_name": "",
+            "email": "nadeaud.d@gmail.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2021-01-08T03:13:16Z",
+            "groups": [
+                1,
+                2,
+                3
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$180000$TRZ1I73sHs3e$MQW8SGzSAzvuEXI/1euBgwT9CMaSbth79OXx/bj8UeI=",
+            "last_login": "2021-02-09T18:34:07.799Z",
+            "is_superuser": false,
+            "username": "test001",
+            "first_name": "David",
+            "last_name": "Nadeau",
+            "email": "nadeaud.d@gmail.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2021-02-09T17:54:47Z",
+            "groups": [
+                1
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "instruct.progression",
+        "pk": 1,
+        "fields": {
+            "shortname": "Karate",
+            "longname": "Karate",
+            "displayorder": 1,
+            "active": true,
+            "startdate": "2021-01-21T02:09:18Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.progression",
+        "pk": 2,
+        "fields": {
+            "shortname": "Kickboxing",
+            "longname": "Kickboxing",
+            "displayorder": 2,
+            "active": true,
+            "startdate": "2021-01-21T02:09:34Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengetype",
+        "pk": 1,
+        "fields": {
+            "shortname": "Demonstration",
+            "longname": "Demonstration",
+            "displayorder": 1,
+            "active": true,
+            "startdate": "2021-01-21T02:33:32Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.answertype",
+        "pk": 1,
+        "fields": {
+            "shortname": "Pass/TryAgain",
+            "longname": "Pass/Try Again",
+            "displayorder": 1,
+            "active": true,
+            "startdate": "2021-01-21T02:33:51Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 1,
+        "fields": {
+            "shortname": "Roundhouse Kick",
+            "longname": "Roundhouse Kick",
+            "challengetypeid": 1,
+            "answertypeid": 1,
+            "displayorder": 1,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-01-21T02:33:13Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 2,
+        "fields": {
+            "shortname": "Jab",
+            "longname": "Jab",
+            "challengetypeid": 1,
+            "answertypeid": 1,
+            "displayorder": 2,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-01-21T02:34:22Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 1,
+        "fields": {
+            "shortname": "Karate - White Belt",
+            "longname": "Karate - White Belt",
+            "belt": "White",
+            "progressionid": 1,
+            "displayorder": 1,
+            "active": true,
+            "startdate": "2021-01-21T02:10:17Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 2,
+        "fields": {
+            "shortname": "Karate - White-Yellow Belt",
+            "longname": "Karate - White Belt with Yellow stripe",
+            "belt": "White-Yellow",
+            "progressionid": 1,
+            "displayorder": 2,
+            "active": true,
+            "startdate": "2021-01-21T02:11:35Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 3,
+        "fields": {
+            "shortname": "Kick - SmallFoot",
+            "longname": "Kickboxing - Small Foot",
+            "belt": "White",
+            "progressionid": 2,
+            "displayorder": 3,
+            "active": true,
+            "startdate": "2021-01-21T02:12:23Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 4,
+        "fields": {
+            "shortname": "Kick - BigFoot",
+            "longname": "Kickboxing - Big Foot",
+            "belt": "Black",
+            "progressionid": 2,
+            "displayorder": 4,
+            "active": true,
+            "startdate": "2021-01-21T02:12:51Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 1,
+        "fields": {
+            "challengeid": 2,
+            "curriculumid": 1,
+            "displayorder": 1,
+            "active": true,
+            "startdate": "2021-01-21T02:34:46Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 2,
+        "fields": {
+            "challengeid": 1,
+            "curriculumid": 2,
+            "displayorder": 2,
+            "active": true,
+            "startdate": "2021-01-21T02:34:55Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 3,
+        "fields": {
+            "challengeid": 2,
+            "curriculumid": 3,
+            "displayorder": 3,
+            "active": true,
+            "startdate": "2021-01-21T02:35:13Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 4,
+        "fields": {
+            "challengeid": 1,
+            "curriculumid": 4,
+            "displayorder": 4,
+            "active": true,
+            "startdate": "2021-01-21T02:35:24Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.studentcurriculum",
+        "pk": 1,
+        "fields": {
+            "studentid": 1,
+            "curriculumid": 1,
+            "progressionid": 1,
+            "active": true,
+            "startdate": "2021-02-04T02:59:15Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2021-01-21T03:09:34.162Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "1",
+            "object_repr": "Karate",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2021-01-21T03:09:52.634Z",
+            "user": 1,
+            "content_type": 22,
+            "object_id": "2",
+            "object_repr": "Kickboxing",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2021-01-21T03:11:35.480Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "1",
+            "object_repr": "White Belt",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2021-01-21T03:12:23.343Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "2",
+            "object_repr": "White-Yellow Belt",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2021-01-21T03:12:51.265Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "3",
+            "object_repr": "SmallFoot",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2021-01-21T03:13:07.078Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "4",
+            "object_repr": "BigFoot",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2021-01-21T03:13:14.808Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "3",
+            "object_repr": "SmallFoot",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Longname\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2021-01-21T03:32:03.373Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "1",
+            "object_repr": "K - White Belt",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Shortname\", \"Longname\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2021-01-21T03:32:16.164Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "2",
+            "object_repr": "K - White-Yellow Belt",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Shortname\", \"Longname\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2021-01-21T03:32:34.332Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "3",
+            "object_repr": "Kick - SmallFoot",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Shortname\", \"Longname\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2021-01-21T03:32:48.107Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "4",
+            "object_repr": "Kick - BigFoot",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Shortname\", \"Longname\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2021-01-21T03:33:03.035Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "1",
+            "object_repr": "Karate - White Belt",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Shortname\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2021-01-21T03:33:06.931Z",
+            "user": 1,
+            "content_type": 23,
+            "object_id": "2",
+            "object_repr": "Karate - White-Yellow Belt",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Shortname\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2021-01-21T03:33:49.396Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "1",
+            "object_repr": "Demonstration",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2021-01-21T03:34:15.798Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "1",
+            "object_repr": "Pass/TryAgain",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2021-01-21T03:34:22.282Z",
+            "user": 1,
+            "content_type": 21,
+            "object_id": "1",
+            "object_repr": "Roundhouse Kick",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 17,
+        "fields": {
+            "action_time": "2021-01-21T03:34:39.347Z",
+            "user": 1,
+            "content_type": 21,
+            "object_id": "2",
+            "object_repr": "Jab",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 18,
+        "fields": {
+            "action_time": "2021-01-21T03:34:53.504Z",
+            "user": 1,
+            "content_type": 25,
+            "object_id": "1",
+            "object_repr": "ChallengeCurriculum object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 19,
+        "fields": {
+            "action_time": "2021-01-21T03:35:04.716Z",
+            "user": 1,
+            "content_type": 25,
+            "object_id": "2",
+            "object_repr": "ChallengeCurriculum object (2)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 20,
+        "fields": {
+            "action_time": "2021-01-21T03:35:10.315Z",
+            "user": 1,
+            "content_type": 25,
+            "object_id": "1",
+            "object_repr": "ChallengeCurriculum object (1)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Displayorder\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 21,
+        "fields": {
+            "action_time": "2021-01-21T03:35:22.726Z",
+            "user": 1,
+            "content_type": 25,
+            "object_id": "3",
+            "object_repr": "ChallengeCurriculum object (3)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 22,
+        "fields": {
+            "action_time": "2021-01-21T03:35:31.572Z",
+            "user": 1,
+            "content_type": 25,
+            "object_id": "4",
+            "object_repr": "ChallengeCurriculum object (4)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 23,
+        "fields": {
+            "action_time": "2021-01-22T03:09:18.362Z",
+            "user": 1,
+            "content_type": 3,
+            "object_id": "1",
+            "object_repr": "Student",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 24,
+        "fields": {
+            "action_time": "2021-01-22T03:09:23.677Z",
+            "user": 1,
+            "content_type": 3,
+            "object_id": "2",
+            "object_repr": "Instructor",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 25,
+        "fields": {
+            "action_time": "2021-01-22T03:09:26.432Z",
+            "user": 1,
+            "content_type": 3,
+            "object_id": "3",
+            "object_repr": "Staff",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 26,
+        "fields": {
+            "action_time": "2021-01-29T02:52:27.626Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "1",
+            "object_repr": "david",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 27,
+        "fields": {
+            "action_time": "2021-01-29T03:19:59.407Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "1",
+            "object_repr": "david",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 28,
+        "fields": {
+            "action_time": "2021-01-29T03:20:12.561Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "1",
+            "object_repr": "david",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 29,
+        "fields": {
+            "action_time": "2021-02-04T03:59:31.735Z",
+            "user": 1,
+            "content_type": 26,
+            "object_id": "1",
+            "object_repr": "StudentCurriculum object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 30,
+        "fields": {
+            "action_time": "2021-02-09T18:33:31.154Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "2",
+            "object_repr": "test001",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 31,
+        "fields": {
+            "action_time": "2021-02-09T18:33:44.305Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "2",
+            "object_repr": "test001",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+        }
+    }
+]
