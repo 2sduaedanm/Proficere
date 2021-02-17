@@ -9,54 +9,103 @@
     margin-right: 20px;
   }
 
-  .footer {
+  footer {
     position: fixed;
     width: 100%;
     bottom: 0;
   }
+
+  .footer {
+    max-width: 1264px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px 12px 12px 12px;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .footer p {
+    margin: auto;
+  }
+
+  .footer .footer-address {
+    color: #fff;
+  }
+
+  .footer #navbarNav2 ul li,
+  .footer #navbarNav3 ul li {
+    display: block;
+  }
+
+  .socialMediaIcon img {
+    width: 33px;
+    height: 33px;
+  }
 </style>
+<footer>
+  <div class="footer bg-dark">
+    <div>
+      <div class="site-footer-logo">
+        <a class="socialMediaIcon" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
+      </div>
+      <nav class="site-footer-nav navbar navbar-expand-lg navbar-dark">
+        <!-- I'm following along with this site here: https://www.orbitmedia.com/blog/website-footer-design-best-practices/ -->
+        <div class="container-fluid">
 
-<nav class="footer navbar navbar-expand-lg navbar-dark bg-dark">
-  <!-- I'm following along with this site here: https://www.orbitmedia.com/blog/website-footer-design-best-practices/ -->
-  <div class="container-fluid">
-    <a class="nav-link" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
 
-    <button class="navbar-toggler" style="float:left" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <h4></h4>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'admin:index' %}">DjangoAdmin</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'instructHome' %}">Instruct Students</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'studentHome' %}">Student Portal</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'staffHome' %}">Staff Home</a>
-        </li>
-      </ul>
+          <button class="navbar-toggler" style="float:left" type="button" data-toggle="collapse"
+            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav2">
+            <h4></h4>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'admin:index' %}">DjangoAdmin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'instructHome' %}">Instruct Students</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'studentHome' %}">Student Portal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'staffHome' %}">Staff Home</a>
+              </li>
+            </ul>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarNav3">
+            <h4>About Us</h4>
+            <div>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'signUpClass' %}">Take a Class</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contactUs' %}">ContactUs</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-address">
+              <p>Address Line 1</p>
+              <p>Address Line 2</p>
+              <p>City, State Zip</p>
+            </div>
+          </div>
+        </div>
+      </nav>
     </div>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <h4>About Us</h4>
-      <ul class="navbar-nav" style="display:block;float:none;">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'signUpClass' %}">Take a Class</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'contactUs' %}">ContactUs</a>
-        </li>
-      </ul>
+    <div style="text-align:center;">
+      <div class="socialMediaIcons">
+        <a class="nav-link" href="{% url 'privacyPolicy' %}">Privacy Policy</a>
+        <a class="socialMediaIcon" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
+        <a class="socialMediaIcon" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
+        <a class="socialMediaIcon" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
+        <a class="socialMediaIcon" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
+        <a class="socialMediaIcon" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
+      </div>
+      <!--? Sitemap supposedly helps with SEO ?-->
+      <span class="hello-msg">&copy; Copyright 2021 2SD</span>
     </div>
   </div>
-  <div style="width:100%;">
-    <p><a class="nav-link" href="{% url 'privacyPolicy' %}">Privacy Policy</a></p>
-    <!--? Sitemap supposedly helps with SEO ?-->
-    <span class="hello-msg">&copy; Copyright 2021 2SD</span>
-  </div>
-</nav>
+</footer>
