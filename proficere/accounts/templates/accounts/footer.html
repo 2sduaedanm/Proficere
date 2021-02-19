@@ -19,7 +19,7 @@
     max-width: 1264px;
     width: 100%;
     margin: 0 auto;
-    padding: 32px 12px 12px 12px;
+    padding: 18px 12px 12px 12px;
     display: flex;
     flex-flow: row wrap;
   }
@@ -29,7 +29,7 @@
   }
 
   .footer .footer-address {
-    color: #fff;
+    color: #2ea3ff;
   }
 
   .footer #navbarNav2 ul li,
@@ -37,74 +37,89 @@
     display: block;
   }
 
+  .site-footer-logo {
+    text-align: left;
+  }
+
   .socialMediaIcon img {
     width: 33px;
     height: 33px;
   }
+
+  .bg-dark h4 {
+    color: #2ea3ff;
+  }
 </style>
-<footer>
-  <div class="footer bg-dark">
-    <div>
+<footer class="bg-dark">
+  <div class="footer">
+    <nav class="site-footer-nav navbar navbar-expand-lg navbar-dark" style="margin:0 auto;">
+      <!-- I'm following along with this site here: https://www.orbitmedia.com/blog/website-footer-design-best-practices/ -->
       <div class="site-footer-logo">
         <a class="socialMediaIcon" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
       </div>
-      <nav class="site-footer-nav navbar navbar-expand-lg navbar-dark">
-        <!-- I'm following along with this site here: https://www.orbitmedia.com/blog/website-footer-design-best-practices/ -->
-        <div class="container-fluid">
-
-
-          <button class="navbar-toggler" style="float:left" type="button" data-toggle="collapse"
-            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav2">
-            <h4></h4>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'admin:index' %}">DjangoAdmin</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'instructHome' %}">Instruct Students</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'studentHome' %}">Student Portal</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'staffHome' %}">Staff Home</a>
-              </li>
-            </ul>
-          </div>
-          <div class="collapse navbar-collapse" id="navbarNav3">
-            <h4>About Us</h4>
-            <div>
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'signUpClass' %}">Take a Class</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'contactUs' %}">ContactUs</a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer-address">
-              <p>Address Line 1</p>
-              <p>Address Line 2</p>
-              <p>City, State Zip</p>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
-    <div style="text-align:center;">
-      <div class="socialMediaIcons">
-        <a class="nav-link" href="{% url 'privacyPolicy' %}">Privacy Policy</a>
-        <a class="socialMediaIcon" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
-        <a class="socialMediaIcon" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
-        <a class="socialMediaIcon" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
-        <a class="socialMediaIcon" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
-        <a class="socialMediaIcon" href="{% url 'home' %}"><img src="{% static 'images/ZLC_logo.jpg' %}"></a>
+      <div style="text-align:center;">
+        <h4>Helpful Links</h4>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'instructHome' %}">Link 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'instructHome' %}">Link 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'instructHome' %}">Link 3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'instructHome' %}">Link 4</a>
+          </li>
+        </ul>
       </div>
-      <!--? Sitemap supposedly helps with SEO ?-->
+      <div style="text-align:center;">
+        <h4>About Us</h4>
+        <div>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signUpClass' %}">Take a Class</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contactUs' %}">ContactUs</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-address" style="text-align:center;padding:0px 20px;">
+        <p>Address Line 1</p>
+        <p>Address Line 2</p>
+        <p>City, State Zip</p>
+        <p>(P) 1.800.123.4567</p>
+      </div>
+    </nav>
+    <div style="margin:0 auto;">
+      <nav class="navbar-dark">
+        <div class="socialMediaIcons navbar-nav">
+          <a class="nav-link" href="{% url 'privacyPolicy' %}">Privacy Policy</a>
+          <div class="navbar-collapse">
+            <a class="socialMediaIcon" href="{% url 'home' %}">
+              <img class="bg-dark" src="{% static 'images/facebook-icon.png' %}">
+            </a>
+            <a class="socialMediaIcon" href="{% url 'home' %}">
+              <img class="bg-dark" src="{% static 'images/twitter-icon.png' %}">
+            </a>
+          </div>
+          <!--
+        <a class="socialMediaIcon" href="{% url 'home' %}">
+          <img src="{% static 'images/ZLC_logo.jpg' %}">
+        </a>
+        <a class="socialMediaIcon" href="{% url 'home' %}">
+          <img src="{% static 'images/ZLC_logo.jpg' %}">
+        </a>
+        <a class="socialMediaIcon" href="{% url 'home' %}">
+          <img src="{% static 'images/ZLC_logo.jpg' %}">
+        </a>
+        -->
+        </div>
+        <!--? Sitemap supposedly helps with SEO ?-->
+      </nav>
       <span class="hello-msg">&copy; Copyright 2021 2SD</span>
     </div>
   </div>
