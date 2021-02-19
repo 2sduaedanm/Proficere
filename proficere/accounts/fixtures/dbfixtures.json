@@ -1228,6 +1228,28 @@
     }
 },
 {
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$TRZ1I73sHs3e$MQW8SGzSAzvuEXI/1euBgwT9CMaSbth79OXx/bj8UeI=",
+        "last_login": "2021-02-09T18:34:23.307Z",
+        "is_superuser": true,
+        "username": "david",
+        "first_name": "",
+        "last_name": "",
+        "email": "nadeaud.d@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-01-08T03:13:16Z",
+        "groups": [
+            1,
+            2,
+            3
+        ],
+        "user_permissions": []
+    }
+},
+{
     "model": "instruct.progression",
     "pk": 1,
     "fields": {
