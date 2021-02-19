@@ -74,7 +74,26 @@ def instructor_home(request):
 @login_required(login_url='login')
 def student_home(request):
 
-	context = {}
+	pastProgressions = StudentCurriculum.objects.filter(studentid= request.user)
+
+	context = {"pastProgressions":pastProgressions}
 
 	return render(request, 'instruct/studentHome.html', context)
+
+@login_required(login_url='login')
+def display_curriculum_challenges(request,curriculumid):
+
+	challengeList = ChallengeCurriculum.objects.filter(curriculumid= curriculumid)
+	curriculum = Curriculum.objects.get(id=curriculumid)
+	context = {"curriculum":curriculum, "challengeList":challengeList}
+
+	return render(request, 'instruct/CurriculumOverview.html', context)
+
+@login_required(login_url='login')
+def display_progression_curriculums(request,progressionid):
+
+	curriculumList = Curriculum.objects.filter(progressionid= progressionid)
+	context = {"curriculumList":curriculumList}
+
+	return render(request, 'instruct/ProgressionOverview.html', context)
 

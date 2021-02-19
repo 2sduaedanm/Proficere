@@ -1,0 +1,28 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+<h1><a class="nav-link" style="display:contents;"
+		href="{% url 'display_progression_curriculums' curriculum.progressionid.id %}">{{curriculum.progressionid}}</a>:
+	{{curriculum}}</h1>
+
+<h2>Challenges</h2>
+<table class="table table-sm">
+	<tr>
+		<th>Challenge</th>
+		<th>Type of Review</th>
+		<th>Type of Answer</th>
+		<th>HintsLink</th>
+		<th>HintsVideo</th>
+	</tr>
+	{% for challenge in challengeList %}
+	<tr>
+		<td>{{challenge.challengeid.longname}}</td>
+		<td>{{challenge.challengeid.challengetypeid}}</td>
+		<td>{{challenge.challengeid.answertypeid}}</td>
+		<td>{{challenge.challengeid.hints}}</td>
+		<td>{{challenge.challengeid.hintsvideo}}</td>
+	</tr>
+	{% endfor %}
+</table>
+
+{% endblock %}

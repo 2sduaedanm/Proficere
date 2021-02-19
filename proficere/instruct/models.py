@@ -29,6 +29,24 @@ class Progression(models.Model):
     def __str__(self):
         return self.shortname
 
+class Curriculum (models.Model):
+    shortname = models.CharField(max_length=60)
+    longname = models.CharField(max_length=255)
+    belt = models.CharField(max_length=100, blank=True) #image
+    progressionid = models.ForeignKey(Progression, default=1, on_delete=models.CASCADE)
+    displayorder = models.IntegerField()
+    active = models.BooleanField(default=True)
+    startdate = models.DateTimeField(default=datetime.now)
+    enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+    lastmodifyby = models.ForeignKey(
+      get_user_model(),
+      null=True,
+      on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return self.shortname
+
 class ChallengeType(models.Model):
     shortname = models.CharField(max_length=60)
     longname = models.CharField(max_length=255)
@@ -64,23 +82,6 @@ class Challenge (models.Model):
     def __str__(self):
         return self.shortname
 
-class Curriculum (models.Model):
-    shortname = models.CharField(max_length=60)
-    longname = models.CharField(max_length=255)
-    belt = models.CharField(max_length=100, blank=True)
-    progressionid = models.ForeignKey(Progression, default=1, on_delete=models.CASCADE)
-    displayorder = models.IntegerField()
-    active = models.BooleanField(default=True)
-    startdate = models.DateTimeField(default=datetime.now)
-    enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
-    lastmodifyby = models.ForeignKey(
-      get_user_model(),
-      null=True,
-      on_delete=models.CASCADE
-    )
-
-    def __str__(self):
-        return self.shortname
 
 class ChallengeCurriculum (models.Model):
     challengeid = models.ForeignKey(Challenge, on_delete=models.CASCADE)

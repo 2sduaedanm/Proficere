@@ -13,12 +13,15 @@ urlpatterns = [
 	path('register/', views.registerPage, name="register"),
 	path('login/', views.loginPage, name="login"),  
 	path('logout/', views.logoutUser, name="logout"),
+    path('privacyPolicy/', views.privacyPolicy, name="privacyPolicy"),
+    path('contactUs/', views.contactUs, name="contactUs"),
     path('admin/', admin.site.urls),
 
     path('', views.home, name="home"),
     path('instruct/', instruct_views.instructor_home, name="instructHome"),
     path('student/', instruct_views.student_home, name="studentHome"),
     path('staff/', views.staff_home, name="staffHome"),
+    path('staff/signUpClass', views.signUpClass, name="signUpClass"),
 
 
 #- Submit email form                         //PasswordResetView.as_view()
