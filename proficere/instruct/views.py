@@ -74,9 +74,9 @@ def instructor_home(request):
 @login_required(login_url='login')
 def student_home(request):
 
-	pastProgressions = StudentCurriculum.objects.filter(studentid= request.user)
-
-	context = {"pastProgressions":pastProgressions}
+	pastProgressions = StudentCurriculum.objects.filter(studentid= request.user, statusid = 3)
+	currentProgressions = StudentCurriculum.objects.filter(studentid= request.user, statusid__in = [1,2])
+	context = {"pastProgressions":pastProgressions,"currentProgressions":currentProgressions}
 
 	return render(request, 'instruct/studentHome.html', context)
 

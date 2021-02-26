@@ -3,22 +3,29 @@
 {% block content %}
 <h2>This is Student Home Page html</h2>
 
-<h2>Your Progression History</h2>
+<h2>Your Curriculum</h2>
 <table class="table table-sm">
 	<tr>
 		<th>Progression</th>
 		<th>Curriculum</th>
 		<th>Status</th>
 	</tr>
+	{% for currentProgression in currentProgressions %}
+	<tr>
+		<td>{{currentProgression.progressionid}}</td>
+		<td><a class="nav-link"
+				href="{% url 'display_curriculum_challenges' currentProgression.curriculumid.id %}">{{currentProgression.curriculumid}}</a>
+		</td>
+		<td>{{currentProgression.statusid.shortname}}</td>
+	</tr>
+	{% endfor %}
 	{% for pastProgression in pastProgressions %}
 	<tr>
-		<td><a class="nav-link"
-				href="{% url 'display_progression_curriculums' pastProgression.progressionid.id %}">{{pastProgression.progressionid}}</a>
-		</td>
+		<td>{{pastProgression.progressionid}}</td>
 		<td><a class="nav-link"
 				href="{% url 'display_curriculum_challenges' pastProgression.curriculumid.id %}">{{pastProgression.curriculumid}}</a>
 		</td>
-		<td>{% if pastProgression.active %}In Progress{% endif %}</td>
+		<td>{{pastProgression.statusid.shortname}}</td>
 	</tr>
 	{% endfor %}
 </table>
