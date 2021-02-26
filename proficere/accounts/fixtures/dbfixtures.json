@@ -1101,7 +1101,7 @@
     },
     {
         "model": "auth.group",
-        "pk": 2,
+        "pk": 1,
         "fields": {
             "name": "Instructor",
             "permissions": []
@@ -1109,7 +1109,7 @@
     },
     {
         "model": "auth.group",
-        "pk": 3,
+        "pk": 2,
         "fields": {
             "name": "Staff",
             "permissions": []
@@ -1117,7 +1117,7 @@
     },
     {
         "model": "auth.group",
-        "pk": 4,
+        "pk": 3,
         "fields": {
             "name": "Student",
             "permissions": []
@@ -1127,8 +1127,8 @@
         "model": "auth.user",
         "pk": 1,
         "fields": {
-            "password": "pbkdf2_sha256$150000$UhvbclbiXyQd$EiYuixm24Q/MUG+Mks8ZAo58kGp8IgBXYxQYSH1Im7E=",
-            "last_login": "2021-02-19T02:54:33.404Z",
+            "password": "pbkdf2_sha256$150000$bRy7ZCExKbcC$YANXpfdBGTBGO/KTygWkvaWI1NzUQuKWGNbucESUUW4=",
+            "last_login": "2021-02-25T18:33:26.361Z",
             "is_superuser": true,
             "username": "miken",
             "first_name": "Mike",
@@ -1138,9 +1138,9 @@
             "is_active": true,
             "date_joined": "2021-02-18T22:55:24Z",
             "groups": [
+                1,
                 2,
-                3,
-                4
+                3
             ],
             "user_permissions": []
         }
@@ -1160,8 +1160,8 @@
             "is_active": true,
             "date_joined": "2021-02-18T22:58:48Z",
             "groups": [
-                2,
-                4
+                1,
+                3
             ],
             "user_permissions": []
         }
@@ -1181,7 +1181,7 @@
             "is_active": true,
             "date_joined": "2021-02-18T23:01:26Z",
             "groups": [
-                3
+                2
             ],
             "user_permissions": []
         }
@@ -1201,7 +1201,7 @@
             "is_active": true,
             "date_joined": "2021-02-18T23:02:55Z",
             "groups": [
-                2
+                1
             ],
             "user_permissions": []
         }
@@ -1221,7 +1221,7 @@
             "is_active": true,
             "date_joined": "2021-02-19T02:35:16Z",
             "groups": [
-                4
+                3
             ],
             "user_permissions": []
         }
@@ -1231,15 +1231,37 @@
         "pk": 6,
         "fields": {
             "password": "pbkdf2_sha256$180000$TRZ1I73sHs3e$MQW8SGzSAzvuEXI/1euBgwT9CMaSbth79OXx/bj8UeI=",
-            "last_login": "2021-02-09T18:34:23.307Z",
+            "last_login": "2021-02-09T18:34:23Z",
             "is_superuser": true,
             "username": "david",
-            "first_name": "",
-            "last_name": "",
+            "first_name": "David",
+            "last_name": "Nadeau",
             "email": "nadeaud.d@gmail.com",
             "is_staff": true,
             "is_active": true,
             "date_joined": "2021-01-08T03:13:16Z",
+            "groups": [
+                1,
+                2,
+                3
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 7,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$yJ6zvyudQhUR$Cho3KCZmYt7rEVWC5PPHw1bpMBP8LiZ10aPNAydEALs=",
+            "last_login": "2021-02-19T17:45:12Z",
+            "is_superuser": true,
+            "username": "rramus",
+            "first_name": "Robert",
+            "last_name": "Ramus",
+            "email": "robert.m.ramus@gmail.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2021-02-19T17:44:28Z",
             "groups": [
                 1,
                 2,
@@ -1322,6 +1344,291 @@
             "displayorder": 6,
             "active": true,
             "startdate": "2021-02-18T23:28:43Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 1,
+        "fields": {
+            "shortname": "ADULT WHITE BELT",
+            "longname": "ADULT WHITE BELT",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 1,
+            "active": true,
+            "startdate": "2021-02-18T23:18:07Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 2,
+        "fields": {
+            "shortname": "ADULT WHITE BELT w YELLOW STRIPE",
+            "longname": "ADULT WHITE BELT w YELLOW STRIPE",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 2,
+            "active": true,
+            "startdate": "2021-02-18T23:18:54Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 3,
+        "fields": {
+            "shortname": "SR WHITE BELT",
+            "longname": "SR WHITE BELT",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 3,
+            "active": true,
+            "startdate": "2021-02-18T23:19:05Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 4,
+        "fields": {
+            "shortname": "SR WHITE BELT w YELLOW STRIPE",
+            "longname": "SR WHITE BELT w YELLOW STRIPE",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 4,
+            "active": true,
+            "startdate": "2021-02-18T23:19:40Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 5,
+        "fields": {
+            "shortname": "YELLOW BELT",
+            "longname": "Yellow Belt",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 5,
+            "active": true,
+            "startdate": "2021-02-18T23:19:53Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 6,
+        "fields": {
+            "shortname": "YELLOW BELT w ORANGE STRIPE",
+            "longname": "YELLOW BELT w ORANGE STRIPE",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 6,
+            "active": true,
+            "startdate": "2021-02-18T23:20:32Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 7,
+        "fields": {
+            "shortname": "ORANGE BELT",
+            "longname": "ORANGE BELT",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 7,
+            "active": true,
+            "startdate": "2021-02-18T23:20:41Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 8,
+        "fields": {
+            "shortname": "ORANGE BELT w GREEN STRIPE",
+            "longname": "ORANGE BELT w GREEN STRIPE",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 8,
+            "active": true,
+            "startdate": "2021-02-18T23:21:09Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 9,
+        "fields": {
+            "shortname": "GREEN BELT",
+            "longname": "GREEN BELT",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 9,
+            "active": true,
+            "startdate": "2021-02-18T23:21:37Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 10,
+        "fields": {
+            "shortname": "GREEN BELT w PURPLE STRIPE",
+            "longname": "GREEN BELT w PURPLE STRIPE",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 10,
+            "active": true,
+            "startdate": "2021-02-18T23:22:08Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 11,
+        "fields": {
+            "shortname": "PURPLE BELT",
+            "longname": "PURPLE BELT",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 11,
+            "active": true,
+            "startdate": "2021-02-18T23:22:21Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 12,
+        "fields": {
+            "shortname": "PURPLE BELT w BLUE STRIPE",
+            "longname": "PURPLE BELT w BLUE STRIPE",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 12,
+            "active": true,
+            "startdate": "2021-02-18T23:22:51Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 13,
+        "fields": {
+            "shortname": "SR BLUE BELT",
+            "longname": "SR BLUE BELT",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 13,
+            "active": true,
+            "startdate": "2021-02-18T23:22:59Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 14,
+        "fields": {
+            "shortname": "SR BLUE BELT w BROWN STIPE",
+            "longname": "SR BLUE BELT w BROWN STIPE",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 14,
+            "active": true,
+            "startdate": "2021-02-18T23:23:25Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 15,
+        "fields": {
+            "shortname": "SR BROWN BELT",
+            "longname": "SR BROWN BELT",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 15,
+            "active": true,
+            "startdate": "2021-02-18T23:23:33Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 16,
+        "fields": {
+            "shortname": "SR BROWN BELT w RED STRIPE",
+            "longname": "SR BROWN BELT w RED STRIPE",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 16,
+            "active": true,
+            "startdate": "2021-02-18T23:23:59Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 17,
+        "fields": {
+            "shortname": "RED BELT",
+            "longname": "RED BELT",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 17,
+            "active": true,
+            "startdate": "2021-02-18T23:24:08Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 18,
+        "fields": {
+            "shortname": "RED BELT w BLACK STRIPE",
+            "longname": "RED BELT w BLACK STRIPE",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 18,
+            "active": true,
+            "startdate": "2021-02-18T23:24:33Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.curriculum",
+        "pk": 19,
+        "fields": {
+            "shortname": "BLACK BELT",
+            "longname": "BLACK BELT",
+            "belt": "",
+            "progressionid": 1,
+            "displayorder": 19,
+            "active": true,
+            "startdate": "2021-02-18T23:24:42Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
@@ -2627,7 +2934,7 @@
         "model": "instruct.challenge",
         "pk": 65,
         "fields": {
-            "shortname": "What is our Proof of Learning Curriculum and our Mastery Tes",
+            "shortname": "What is our Proof of Learning Curriculum & Mastery Testing",
             "longname": "What is our Proof of Learning Curriculum and our Mastery Testing?",
             "challengetypeid": 21,
             "displayorder": 65,
@@ -2723,7 +3030,7 @@
         "model": "instruct.challenge",
         "pk": 71,
         "fields": {
-            "shortname": "Bows upon entering & exiting training area, show respect & r",
+            "shortname": "Bows bows to enter & exit training area, shows respect &",
             "longname": "Bows upon entering & exiting training area, show respect & right mindset for training",
             "challengetypeid": 18,
             "displayorder": 71,
@@ -3600,286 +3907,1506 @@
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challenge",
+        "pk": 126,
+        "fields": {
+            "shortname": "Hook Punch",
+            "longname": "Hook Punch",
+            "challengetypeid": 3,
+            "displayorder": 126,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:45:58Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 127,
+        "fields": {
+            "shortname": "Inner Forearm Strike",
+            "longname": "Inner Forearm Strike",
+            "challengetypeid": 3,
+            "displayorder": 127,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:46:24Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 128,
+        "fields": {
+            "shortname": "Outer Forearm Strike",
+            "longname": "Outer Forearm Strike",
+            "challengetypeid": 3,
+            "displayorder": 128,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:46:45Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 129,
+        "fields": {
+            "shortname": "Upward Knee strike",
+            "longname": "Upward Knee strike",
+            "challengetypeid": 4,
+            "displayorder": 129,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:47:16Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 130,
+        "fields": {
+            "shortname": "Roundhouse Knee strike",
+            "longname": "Roundhouse Knee strike",
+            "challengetypeid": 4,
+            "displayorder": 130,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:47:43Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 131,
+        "fields": {
+            "shortname": "Thrusting Knee strike",
+            "longname": "Thrusting Knee strike",
+            "challengetypeid": 4,
+            "displayorder": 131,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:48:02Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 132,
+        "fields": {
+            "shortname": "Grokund kicks",
+            "longname": "Ground kicks",
+            "challengetypeid": 4,
+            "displayorder": 132,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:48:23Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 133,
+        "fields": {
+            "shortname": "Kneeling kicks",
+            "longname": "Kneeling kicks",
+            "challengetypeid": 4,
+            "displayorder": 133,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:48:46Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 134,
+        "fields": {
+            "shortname": "Turning back kick",
+            "longname": "Turning back kick",
+            "challengetypeid": 4,
+            "displayorder": 134,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:49:03Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 135,
+        "fields": {
+            "shortname": "Skipping push kick",
+            "longname": "Skipping push kick",
+            "challengetypeid": 4,
+            "displayorder": 135,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:49:23Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 136,
+        "fields": {
+            "shortname": "Skipping round kick",
+            "longname": "Skipping round kick",
+            "challengetypeid": 4,
+            "displayorder": 136,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:49:41Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 137,
+        "fields": {
+            "shortname": "Skipping side kick",
+            "longname": "Skipping side kick",
+            "challengetypeid": 4,
+            "displayorder": 137,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:50:01Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 138,
+        "fields": {
+            "shortname": "Forward Roll",
+            "longname": "Forward Roll",
+            "challengetypeid": 5,
+            "displayorder": 138,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:50:20Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 139,
+        "fields": {
+            "shortname": "Understands reasons and expectations for health & conditioni",
+            "longname": "Understands reasons and expectations for health & conditioning training",
+            "challengetypeid": 6,
+            "displayorder": 139,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:50:38Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 140,
+        "fields": {
+            "shortname": "Define Integrity and Honesty. Give examples and explain thei",
+            "longname": "Define Integrity and Honesty. Give examples and explain their importance.",
+            "challengetypeid": 6,
+            "displayorder": 140,
+            "hints": "\u201cIntegrity is always doing your best at what you promise even when no one else sees you doing it.\u201d",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:51:12Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 141,
+        "fields": {
+            "shortname": "Why is feedback from your body important? What are some exam",
+            "longname": "Why is feedback from your body important? What are some examples of this?",
+            "challengetypeid": 6,
+            "displayorder": 141,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:51:53Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 142,
+        "fields": {
+            "shortname": "Why is feedback from others important? What is a good way to",
+            "longname": "Why is feedback from others important? What is a good way to give feedback & receive it?",
+            "challengetypeid": 6,
+            "displayorder": 142,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:52:17Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 143,
+        "fields": {
+            "shortname": "Comes to class with proper uniform, belt and gear",
+            "longname": "Comes to class with proper uniform, belt and gear",
+            "challengetypeid": 18,
+            "displayorder": 143,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:54:17Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 144,
+        "fields": {
+            "shortname": "Scans in for every class",
+            "longname": "Scans in for every class",
+            "challengetypeid": 20,
+            "displayorder": 144,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:55:42Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 145,
+        "fields": {
+            "shortname": "Has current phone number and email on file and is receiving",
+            "longname": "Has current phone number and email on file and is receiving emails",
+            "challengetypeid": 20,
+            "displayorder": 145,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:56:48Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 146,
+        "fields": {
+            "shortname": "Listed one comment for each TLZC Keep, Improve, and Add feed",
+            "longname": "Listed one comment for each TLZC Keep, Improve, and Add feedback.",
+            "challengetypeid": 21,
+            "displayorder": 146,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:57:09Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 147,
+        "fields": {
+            "shortname": "Leg Take Down",
+            "longname": "Leg Take Down",
+            "challengetypeid": 8,
+            "displayorder": 147,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T17:57:43Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 148,
+        "fields": {
+            "shortname": "Leg sweep",
+            "longname": "Leg sweep",
+            "challengetypeid": 8,
+            "displayorder": 148,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T18:00:32Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 149,
+        "fields": {
+            "shortname": "Hip throw",
+            "longname": "Hip throw",
+            "challengetypeid": 8,
+            "displayorder": 149,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T18:00:51Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challenge",
+        "pk": 150,
+        "fields": {
+            "shortname": "Shoulder throw",
+            "longname": "Shoulder throw",
+            "challengetypeid": 8,
+            "displayorder": 150,
+            "hints": "",
+            "hintsvideo": "",
+            "active": true,
+            "startdate": "2021-02-19T18:01:13Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
         "pk": 1,
         "fields": {
-            "shortname": "ADULT WHITE BELT",
-            "longname": "ADULT WHITE BELT",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 1,
+            "curriculumid": 1,
             "displayorder": 1,
             "active": true,
-            "startdate": "2021-02-18T23:18:07Z",
+            "startdate": "2021-02-19T18:06:25Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 2,
         "fields": {
-            "shortname": "ADULT WHITE BELT w YELLOW STRIPE",
-            "longname": "ADULT WHITE BELT w YELLOW STRIPE",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 2,
+            "curriculumid": 1,
             "displayorder": 2,
             "active": true,
-            "startdate": "2021-02-18T23:18:54Z",
+            "startdate": "2021-02-19T18:06:46Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 3,
         "fields": {
-            "shortname": "SR WHITE BELT",
-            "longname": "SR WHITE BELT",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 3,
+            "curriculumid": 1,
             "displayorder": 3,
             "active": true,
-            "startdate": "2021-02-18T23:19:05Z",
+            "startdate": "2021-02-19T18:06:57Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 4,
         "fields": {
-            "shortname": "SR WHITE BELT w YELLOW STRIPE",
-            "longname": "SR WHITE BELT w YELLOW STRIPE",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 4,
+            "curriculumid": 1,
             "displayorder": 4,
             "active": true,
-            "startdate": "2021-02-18T23:19:40Z",
+            "startdate": "2021-02-19T18:07:06Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 5,
         "fields": {
-            "shortname": "YELLOW BELT",
-            "longname": "Yellow Belt",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 5,
+            "curriculumid": 1,
             "displayorder": 5,
             "active": true,
-            "startdate": "2021-02-18T23:19:53Z",
+            "startdate": "2021-02-19T18:07:20Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 6,
         "fields": {
-            "shortname": "YELLOW BELT w ORANGE STRIPE",
-            "longname": "YELLOW BELT w ORANGE STRIPE",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 6,
+            "curriculumid": 1,
             "displayorder": 6,
             "active": true,
-            "startdate": "2021-02-18T23:20:32Z",
+            "startdate": "2021-02-19T18:07:36Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 7,
         "fields": {
-            "shortname": "ORANGE BELT",
-            "longname": "ORANGE BELT",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 8,
+            "curriculumid": 1,
             "displayorder": 7,
             "active": true,
-            "startdate": "2021-02-18T23:20:41Z",
+            "startdate": "2021-02-19T18:09:31Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 8,
         "fields": {
-            "shortname": "ORANGE BELT w GREEN STRIPE",
-            "longname": "ORANGE BELT w GREEN STRIPE",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 7,
+            "curriculumid": 1,
             "displayorder": 8,
             "active": true,
-            "startdate": "2021-02-18T23:21:09Z",
+            "startdate": "2021-02-19T18:09:52Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 9,
         "fields": {
-            "shortname": "GREEN BELT",
-            "longname": "GREEN BELT",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 9,
+            "curriculumid": 1,
             "displayorder": 9,
             "active": true,
-            "startdate": "2021-02-18T23:21:37Z",
+            "startdate": "2021-02-19T18:10:31Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 10,
         "fields": {
-            "shortname": "GREEN BELT w PURPLE STRIPE",
-            "longname": "GREEN BELT w PURPLE STRIPE",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 10,
+            "curriculumid": 1,
             "displayorder": 10,
             "active": true,
-            "startdate": "2021-02-18T23:22:08Z",
+            "startdate": "2021-02-19T18:10:54Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 11,
         "fields": {
-            "shortname": "PURPLE BELT",
-            "longname": "PURPLE BELT",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 11,
+            "curriculumid": 1,
             "displayorder": 11,
             "active": true,
-            "startdate": "2021-02-18T23:22:21Z",
+            "startdate": "2021-02-19T18:11:15Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 12,
         "fields": {
-            "shortname": "PURPLE BELT w BLUE STRIPE",
-            "longname": "PURPLE BELT w BLUE STRIPE",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 12,
+            "curriculumid": 1,
             "displayorder": 12,
             "active": true,
-            "startdate": "2021-02-18T23:22:51Z",
+            "startdate": "2021-02-19T18:11:36Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 13,
         "fields": {
-            "shortname": "SR BLUE BELT",
-            "longname": "SR BLUE BELT",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 13,
+            "curriculumid": 1,
             "displayorder": 13,
             "active": true,
-            "startdate": "2021-02-18T23:22:59Z",
+            "startdate": "2021-02-19T18:11:52Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 14,
         "fields": {
-            "shortname": "SR BLUE BELT w BROWN STIPE",
-            "longname": "SR BLUE BELT w BROWN STIPE",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 14,
+            "curriculumid": 1,
             "displayorder": 14,
             "active": true,
-            "startdate": "2021-02-18T23:23:25Z",
+            "startdate": "2021-02-19T18:13:13Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 15,
         "fields": {
-            "shortname": "SR BROWN BELT",
-            "longname": "SR BROWN BELT",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 15,
+            "curriculumid": 1,
             "displayorder": 15,
             "active": true,
-            "startdate": "2021-02-18T23:23:33Z",
+            "startdate": "2021-02-19T18:13:39Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 16,
         "fields": {
-            "shortname": "SR BROWN BELT w RED STRIPE",
-            "longname": "SR BROWN BELT w RED STRIPE",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 16,
+            "curriculumid": 1,
             "displayorder": 16,
             "active": true,
-            "startdate": "2021-02-18T23:23:59Z",
+            "startdate": "2021-02-19T18:13:51Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 17,
         "fields": {
-            "shortname": "RED BELT",
-            "longname": "RED BELT",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 17,
+            "curriculumid": 1,
             "displayorder": 17,
             "active": true,
-            "startdate": "2021-02-18T23:24:08Z",
+            "startdate": "2021-02-19T18:14:01Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 18,
         "fields": {
-            "shortname": "RED BELT w BLACK STRIPE",
-            "longname": "RED BELT w BLACK STRIPE",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 18,
+            "curriculumid": 1,
             "displayorder": 18,
             "active": true,
-            "startdate": "2021-02-18T23:24:33Z",
+            "startdate": "2021-02-19T18:14:26Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
     },
     {
-        "model": "instruct.curriculum",
+        "model": "instruct.challengecurriculum",
         "pk": 19,
         "fields": {
-            "shortname": "BLACK BELT",
-            "longname": "BLACK BELT",
-            "belt": "",
-            "progressionid": 1,
+            "challengeid": 19,
+            "curriculumid": 1,
             "displayorder": 19,
             "active": true,
-            "startdate": "2021-02-18T23:24:42Z",
+            "startdate": "2021-02-19T18:14:54Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 20,
+        "fields": {
+            "challengeid": 20,
+            "curriculumid": 1,
+            "displayorder": 20,
+            "active": true,
+            "startdate": "2021-02-19T18:15:06Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 21,
+        "fields": {
+            "challengeid": 21,
+            "curriculumid": 1,
+            "displayorder": 21,
+            "active": true,
+            "startdate": "2021-02-19T18:15:27Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 22,
+        "fields": {
+            "challengeid": 22,
+            "curriculumid": 1,
+            "displayorder": 22,
+            "active": true,
+            "startdate": "2021-02-19T18:15:46Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 23,
+        "fields": {
+            "challengeid": 23,
+            "curriculumid": 1,
+            "displayorder": 23,
+            "active": true,
+            "startdate": "2021-02-19T18:17:39Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 24,
+        "fields": {
+            "challengeid": 24,
+            "curriculumid": 1,
+            "displayorder": 24,
+            "active": true,
+            "startdate": "2021-02-19T18:17:58Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 25,
+        "fields": {
+            "challengeid": 25,
+            "curriculumid": 1,
+            "displayorder": 25,
+            "active": true,
+            "startdate": "2021-02-19T18:18:17Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 26,
+        "fields": {
+            "challengeid": 26,
+            "curriculumid": 1,
+            "displayorder": 26,
+            "active": true,
+            "startdate": "2021-02-19T18:19:08Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 27,
+        "fields": {
+            "challengeid": 27,
+            "curriculumid": 1,
+            "displayorder": 27,
+            "active": true,
+            "startdate": "2021-02-19T18:19:22Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 28,
+        "fields": {
+            "challengeid": 28,
+            "curriculumid": 1,
+            "displayorder": 28,
+            "active": true,
+            "startdate": "2021-02-19T18:19:35Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 29,
+        "fields": {
+            "challengeid": 29,
+            "curriculumid": 1,
+            "displayorder": 29,
+            "active": true,
+            "startdate": "2021-02-19T18:19:58Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 30,
+        "fields": {
+            "challengeid": 30,
+            "curriculumid": 1,
+            "displayorder": 30,
+            "active": true,
+            "startdate": "2021-02-19T18:20:13Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 31,
+        "fields": {
+            "challengeid": 31,
+            "curriculumid": 1,
+            "displayorder": 31,
+            "active": true,
+            "startdate": "2021-02-19T18:20:25Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 32,
+        "fields": {
+            "challengeid": 32,
+            "curriculumid": 1,
+            "displayorder": 32,
+            "active": true,
+            "startdate": "2021-02-19T18:20:57Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 33,
+        "fields": {
+            "challengeid": 33,
+            "curriculumid": 1,
+            "displayorder": 33,
+            "active": true,
+            "startdate": "2021-02-19T18:21:21Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 34,
+        "fields": {
+            "challengeid": 34,
+            "curriculumid": 1,
+            "displayorder": 34,
+            "active": true,
+            "startdate": "2021-02-19T18:21:33Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 35,
+        "fields": {
+            "challengeid": 35,
+            "curriculumid": 1,
+            "displayorder": 35,
+            "active": true,
+            "startdate": "2021-02-19T18:21:52Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 36,
+        "fields": {
+            "challengeid": 36,
+            "curriculumid": 1,
+            "displayorder": 36,
+            "active": true,
+            "startdate": "2021-02-19T18:22:23Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 37,
+        "fields": {
+            "challengeid": 37,
+            "curriculumid": 1,
+            "displayorder": 37,
+            "active": true,
+            "startdate": "2021-02-19T18:22:48Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 38,
+        "fields": {
+            "challengeid": 38,
+            "curriculumid": 1,
+            "displayorder": 38,
+            "active": true,
+            "startdate": "2021-02-19T18:23:18Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 39,
+        "fields": {
+            "challengeid": 39,
+            "curriculumid": 1,
+            "displayorder": 39,
+            "active": true,
+            "startdate": "2021-02-19T18:23:32Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 40,
+        "fields": {
+            "challengeid": 40,
+            "curriculumid": 1,
+            "displayorder": 40,
+            "active": true,
+            "startdate": "2021-02-19T18:23:46Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 41,
+        "fields": {
+            "challengeid": 41,
+            "curriculumid": 1,
+            "displayorder": 41,
+            "active": true,
+            "startdate": "2021-02-19T18:24:01Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 42,
+        "fields": {
+            "challengeid": 42,
+            "curriculumid": 1,
+            "displayorder": 42,
+            "active": true,
+            "startdate": "2021-02-19T18:24:43Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 43,
+        "fields": {
+            "challengeid": 43,
+            "curriculumid": 1,
+            "displayorder": 43,
+            "active": true,
+            "startdate": "2021-02-19T18:25:12Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 44,
+        "fields": {
+            "challengeid": 44,
+            "curriculumid": 1,
+            "displayorder": 44,
+            "active": true,
+            "startdate": "2021-02-19T18:25:26Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 45,
+        "fields": {
+            "challengeid": 45,
+            "curriculumid": 1,
+            "displayorder": 45,
+            "active": true,
+            "startdate": "2021-02-19T18:25:37Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 46,
+        "fields": {
+            "challengeid": 46,
+            "curriculumid": 1,
+            "displayorder": 46,
+            "active": true,
+            "startdate": "2021-02-19T18:25:51Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 47,
+        "fields": {
+            "challengeid": 47,
+            "curriculumid": 1,
+            "displayorder": 47,
+            "active": true,
+            "startdate": "2021-02-19T18:26:49Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 48,
+        "fields": {
+            "challengeid": 48,
+            "curriculumid": 1,
+            "displayorder": 48,
+            "active": true,
+            "startdate": "2021-02-19T18:27:18Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 49,
+        "fields": {
+            "challengeid": 49,
+            "curriculumid": 1,
+            "displayorder": 49,
+            "active": true,
+            "startdate": "2021-02-19T18:27:38Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 50,
+        "fields": {
+            "challengeid": 50,
+            "curriculumid": 2,
+            "displayorder": 50,
+            "active": true,
+            "startdate": "2021-02-19T18:28:30Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 51,
+        "fields": {
+            "challengeid": 51,
+            "curriculumid": 2,
+            "displayorder": 51,
+            "active": true,
+            "startdate": "2021-02-19T18:28:44Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 52,
+        "fields": {
+            "challengeid": 52,
+            "curriculumid": 2,
+            "displayorder": 52,
+            "active": true,
+            "startdate": "2021-02-19T18:29:04Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 53,
+        "fields": {
+            "challengeid": 53,
+            "curriculumid": 2,
+            "displayorder": 53,
+            "active": true,
+            "startdate": "2021-02-19T18:29:19Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 54,
+        "fields": {
+            "challengeid": 54,
+            "curriculumid": 2,
+            "displayorder": 54,
+            "active": true,
+            "startdate": "2021-02-19T18:29:36Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 55,
+        "fields": {
+            "challengeid": 55,
+            "curriculumid": 2,
+            "displayorder": 55,
+            "active": true,
+            "startdate": "2021-02-19T18:30:45Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 56,
+        "fields": {
+            "challengeid": 56,
+            "curriculumid": 2,
+            "displayorder": 56,
+            "active": true,
+            "startdate": "2021-02-19T18:31:11Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 57,
+        "fields": {
+            "challengeid": 57,
+            "curriculumid": 2,
+            "displayorder": 57,
+            "active": true,
+            "startdate": "2021-02-19T18:31:28Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 58,
+        "fields": {
+            "challengeid": 58,
+            "curriculumid": 2,
+            "displayorder": 58,
+            "active": true,
+            "startdate": "2021-02-19T18:31:47Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 59,
+        "fields": {
+            "challengeid": 59,
+            "curriculumid": 2,
+            "displayorder": 59,
+            "active": true,
+            "startdate": "2021-02-19T18:32:05Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 60,
+        "fields": {
+            "challengeid": 60,
+            "curriculumid": 2,
+            "displayorder": 60,
+            "active": true,
+            "startdate": "2021-02-19T18:32:24Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 61,
+        "fields": {
+            "challengeid": 61,
+            "curriculumid": 2,
+            "displayorder": 61,
+            "active": true,
+            "startdate": "2021-02-19T18:32:48Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 62,
+        "fields": {
+            "challengeid": 62,
+            "curriculumid": 2,
+            "displayorder": 62,
+            "active": true,
+            "startdate": "2021-02-19T18:33:22Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 63,
+        "fields": {
+            "challengeid": 63,
+            "curriculumid": 2,
+            "displayorder": 63,
+            "active": true,
+            "startdate": "2021-02-19T18:33:43Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 64,
+        "fields": {
+            "challengeid": 64,
+            "curriculumid": 2,
+            "displayorder": 64,
+            "active": true,
+            "startdate": "2021-02-19T18:34:47Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 65,
+        "fields": {
+            "challengeid": 65,
+            "curriculumid": 2,
+            "displayorder": 65,
+            "active": true,
+            "startdate": "2021-02-19T22:01:53Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 66,
+        "fields": {
+            "challengeid": 66,
+            "curriculumid": 2,
+            "displayorder": 66,
+            "active": true,
+            "startdate": "2021-02-19T22:03:42Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 67,
+        "fields": {
+            "challengeid": 67,
+            "curriculumid": 2,
+            "displayorder": 67,
+            "active": true,
+            "startdate": "2021-02-19T22:04:55Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 68,
+        "fields": {
+            "challengeid": 68,
+            "curriculumid": 2,
+            "displayorder": 68,
+            "active": true,
+            "startdate": "2021-02-19T22:05:15Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 69,
+        "fields": {
+            "challengeid": 69,
+            "curriculumid": 2,
+            "displayorder": 69,
+            "active": true,
+            "startdate": "2021-02-19T22:05:34Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 70,
+        "fields": {
+            "challengeid": 70,
+            "curriculumid": 2,
+            "displayorder": 70,
+            "active": true,
+            "startdate": "2021-02-19T22:26:57Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 71,
+        "fields": {
+            "challengeid": 71,
+            "curriculumid": 2,
+            "displayorder": 71,
+            "active": true,
+            "startdate": "2021-02-19T22:27:18Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 72,
+        "fields": {
+            "challengeid": 72,
+            "curriculumid": 2,
+            "displayorder": 72,
+            "active": true,
+            "startdate": "2021-02-19T22:30:20Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 73,
+        "fields": {
+            "challengeid": 73,
+            "curriculumid": 2,
+            "displayorder": 73,
+            "active": true,
+            "startdate": "2021-02-19T22:30:42Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 74,
+        "fields": {
+            "challengeid": 74,
+            "curriculumid": 2,
+            "displayorder": 74,
+            "active": true,
+            "startdate": "2021-02-19T22:31:04Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 75,
+        "fields": {
+            "challengeid": 75,
+            "curriculumid": 2,
+            "displayorder": 75,
+            "active": true,
+            "startdate": "2021-02-19T22:31:22Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 76,
+        "fields": {
+            "challengeid": 76,
+            "curriculumid": 3,
+            "displayorder": 76,
+            "active": true,
+            "startdate": "2021-02-23T16:15:32Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 77,
+        "fields": {
+            "challengeid": 77,
+            "curriculumid": 3,
+            "displayorder": 77,
+            "active": true,
+            "startdate": "2021-02-23T16:16:37Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 78,
+        "fields": {
+            "challengeid": 78,
+            "curriculumid": 3,
+            "displayorder": 78,
+            "active": true,
+            "startdate": "2021-02-25T18:35:54Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 79,
+        "fields": {
+            "challengeid": 79,
+            "curriculumid": 3,
+            "displayorder": 79,
+            "active": true,
+            "startdate": "2021-02-25T18:36:21Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 80,
+        "fields": {
+            "challengeid": 80,
+            "curriculumid": 3,
+            "displayorder": 80,
+            "active": true,
+            "startdate": "2021-02-25T18:36:43Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 81,
+        "fields": {
+            "challengeid": 81,
+            "curriculumid": 3,
+            "displayorder": 81,
+            "active": true,
+            "startdate": "2021-02-25T18:37:06Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 82,
+        "fields": {
+            "challengeid": 82,
+            "curriculumid": 3,
+            "displayorder": 82,
+            "active": true,
+            "startdate": "2021-02-25T18:37:25Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 83,
+        "fields": {
+            "challengeid": 83,
+            "curriculumid": 3,
+            "displayorder": 83,
+            "active": true,
+            "startdate": "2021-02-25T18:37:49Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 84,
+        "fields": {
+            "challengeid": 84,
+            "curriculumid": 3,
+            "displayorder": 84,
+            "active": true,
+            "startdate": "2021-02-25T18:38:14Z",
+            "enddate": "3000-01-01T05:59:59Z",
+            "lastmodifyby": 1
+        }
+    },
+    {
+        "model": "instruct.challengecurriculum",
+        "pk": 85,
+        "fields": {
+            "challengeid": 85,
+            "curriculumid": 3,
+            "displayorder": 85,
+            "active": true,
+            "startdate": "2021-02-25T18:38:39Z",
             "enddate": "3000-01-01T05:59:59Z",
             "lastmodifyby": 1
         }
@@ -6402,6 +7929,1787 @@
             "content_type": 20,
             "object_id": "125",
             "object_repr": "Shin Block",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 195,
+        "fields": {
+            "action_time": "2021-02-19T17:43:47.700Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "6",
+            "object_repr": "david",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"first_name\", \"last_name\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 196,
+        "fields": {
+            "action_time": "2021-02-19T17:44:28.496Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "7",
+            "object_repr": "rramus",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 197,
+        "fields": {
+            "action_time": "2021-02-19T17:45:17.303Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "7",
+            "object_repr": "rramus",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"email\", \"is_staff\", \"is_superuser\", \"groups\", \"last_login\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 198,
+        "fields": {
+            "action_time": "2021-02-19T17:46:24.538Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "126",
+            "object_repr": "Hook Punch",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 199,
+        "fields": {
+            "action_time": "2021-02-19T17:46:45.910Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "127",
+            "object_repr": "Inner Forearm Strike",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 200,
+        "fields": {
+            "action_time": "2021-02-19T17:47:16.007Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "128",
+            "object_repr": "Outer Forearm Strike",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 201,
+        "fields": {
+            "action_time": "2021-02-19T17:47:43.046Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "129",
+            "object_repr": "Upward Knee strike",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 202,
+        "fields": {
+            "action_time": "2021-02-19T17:48:02.589Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "130",
+            "object_repr": "Roundhouse Knee strike",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 203,
+        "fields": {
+            "action_time": "2021-02-19T17:48:23.332Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "131",
+            "object_repr": "Thrusting Knee strike",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 204,
+        "fields": {
+            "action_time": "2021-02-19T17:48:46.572Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "132",
+            "object_repr": "Grokund kicks",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 205,
+        "fields": {
+            "action_time": "2021-02-19T17:49:03.044Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "133",
+            "object_repr": "Kneeling kicks",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 206,
+        "fields": {
+            "action_time": "2021-02-19T17:49:23.377Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "134",
+            "object_repr": "Turning back kick",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 207,
+        "fields": {
+            "action_time": "2021-02-19T17:49:41.407Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "135",
+            "object_repr": "Skipping push kick",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 208,
+        "fields": {
+            "action_time": "2021-02-19T17:50:01.036Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "136",
+            "object_repr": "Skipping round kick",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 209,
+        "fields": {
+            "action_time": "2021-02-19T17:50:20.345Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "137",
+            "object_repr": "Skipping side kick",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 210,
+        "fields": {
+            "action_time": "2021-02-19T17:50:38.378Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "138",
+            "object_repr": "Forward Roll",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 211,
+        "fields": {
+            "action_time": "2021-02-19T17:51:12.286Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "139",
+            "object_repr": "Understands reasons and expectations for health & conditioni",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 212,
+        "fields": {
+            "action_time": "2021-02-19T17:51:53.897Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "140",
+            "object_repr": "Define Integrity and Honesty. Give examples and explain thei",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 213,
+        "fields": {
+            "action_time": "2021-02-19T17:52:17.494Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "141",
+            "object_repr": "Why is feedback from your body important? What are some exam",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 214,
+        "fields": {
+            "action_time": "2021-02-19T17:53:11.214Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "142",
+            "object_repr": "Why is feedback from others important? What is a good way to",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 215,
+        "fields": {
+            "action_time": "2021-02-19T17:53:40.785Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "140",
+            "object_repr": "Define Integrity and Honesty. Give examples and explain thei",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"challengetypeid\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 216,
+        "fields": {
+            "action_time": "2021-02-19T17:53:58.640Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "141",
+            "object_repr": "Why is feedback from your body important? What are some exam",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"challengetypeid\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 217,
+        "fields": {
+            "action_time": "2021-02-19T17:55:07.885Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "143",
+            "object_repr": "Comes to class with proper uniform, belt and gear",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 218,
+        "fields": {
+            "action_time": "2021-02-19T17:56:25.923Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "144",
+            "object_repr": "Scans in for every class",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 219,
+        "fields": {
+            "action_time": "2021-02-19T17:57:09.585Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "145",
+            "object_repr": "Has current phone number and email on file and is receiving",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 220,
+        "fields": {
+            "action_time": "2021-02-19T17:57:43.086Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "146",
+            "object_repr": "Listed one comment for each TLZC Keep, Improve, and Add feed",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 221,
+        "fields": {
+            "action_time": "2021-02-19T18:00:32.685Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "147",
+            "object_repr": "Leg Takedownp",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 222,
+        "fields": {
+            "action_time": "2021-02-19T18:00:51.023Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "148",
+            "object_repr": "Leg sweep",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 223,
+        "fields": {
+            "action_time": "2021-02-19T18:01:13.477Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "149",
+            "object_repr": "Hip throw",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 224,
+        "fields": {
+            "action_time": "2021-02-19T18:01:35.691Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "150",
+            "object_repr": "Shoulder throw",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 225,
+        "fields": {
+            "action_time": "2021-02-19T18:03:17.541Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "147",
+            "object_repr": "Leg Take Down",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"shortname\", \"longname\", \"challengetypeid\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 226,
+        "fields": {
+            "action_time": "2021-02-19T18:03:42.196Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "148",
+            "object_repr": "Leg sweep",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"challengetypeid\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 227,
+        "fields": {
+            "action_time": "2021-02-19T18:03:52.867Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "149",
+            "object_repr": "Hip throw",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 228,
+        "fields": {
+            "action_time": "2021-02-19T18:06:46.280Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "1",
+            "object_repr": "ChallengeCurriculum object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 229,
+        "fields": {
+            "action_time": "2021-02-19T18:06:57.110Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "2",
+            "object_repr": "ChallengeCurriculum object (2)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 230,
+        "fields": {
+            "action_time": "2021-02-19T18:07:05.998Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "3",
+            "object_repr": "ChallengeCurriculum object (3)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 231,
+        "fields": {
+            "action_time": "2021-02-19T18:07:20.319Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "4",
+            "object_repr": "ChallengeCurriculum object (4)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 232,
+        "fields": {
+            "action_time": "2021-02-19T18:07:36.111Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "5",
+            "object_repr": "ChallengeCurriculum object (5)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 233,
+        "fields": {
+            "action_time": "2021-02-19T18:07:51.274Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "6",
+            "object_repr": "ChallengeCurriculum object (6)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 234,
+        "fields": {
+            "action_time": "2021-02-19T18:08:31.114Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "6",
+            "object_repr": "ChallengeCurriculum object (6)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"displayorder\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 235,
+        "fields": {
+            "action_time": "2021-02-19T18:08:39.382Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "1",
+            "object_repr": "ChallengeCurriculum object (1)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"displayorder\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 236,
+        "fields": {
+            "action_time": "2021-02-19T18:08:48.848Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "2",
+            "object_repr": "ChallengeCurriculum object (2)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"displayorder\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 237,
+        "fields": {
+            "action_time": "2021-02-19T18:08:55.345Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "3",
+            "object_repr": "ChallengeCurriculum object (3)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"displayorder\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 238,
+        "fields": {
+            "action_time": "2021-02-19T18:09:05.923Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "4",
+            "object_repr": "ChallengeCurriculum object (4)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"displayorder\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 239,
+        "fields": {
+            "action_time": "2021-02-19T18:09:19.336Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "5",
+            "object_repr": "ChallengeCurriculum object (5)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"displayorder\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 240,
+        "fields": {
+            "action_time": "2021-02-19T18:09:47.538Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "7",
+            "object_repr": "ChallengeCurriculum object (7)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 241,
+        "fields": {
+            "action_time": "2021-02-19T18:10:18.251Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "8",
+            "object_repr": "ChallengeCurriculum object (8)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 242,
+        "fields": {
+            "action_time": "2021-02-19T18:10:54.873Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "9",
+            "object_repr": "ChallengeCurriculum object (9)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 243,
+        "fields": {
+            "action_time": "2021-02-19T18:11:15.826Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "10",
+            "object_repr": "ChallengeCurriculum object (10)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 244,
+        "fields": {
+            "action_time": "2021-02-19T18:11:36.301Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "11",
+            "object_repr": "ChallengeCurriculum object (11)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 245,
+        "fields": {
+            "action_time": "2021-02-19T18:11:52.013Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "12",
+            "object_repr": "ChallengeCurriculum object (12)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 246,
+        "fields": {
+            "action_time": "2021-02-19T18:12:07.731Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "13",
+            "object_repr": "ChallengeCurriculum object (13)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 247,
+        "fields": {
+            "action_time": "2021-02-19T18:12:33.866Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "12",
+            "object_repr": "ChallengeCurriculum object (12)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 248,
+        "fields": {
+            "action_time": "2021-02-19T18:13:00.939Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "12",
+            "object_repr": "ChallengeCurriculum object (12)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"challengeid\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 249,
+        "fields": {
+            "action_time": "2021-02-19T18:13:09.191Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "13",
+            "object_repr": "ChallengeCurriculum object (13)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"challengeid\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 250,
+        "fields": {
+            "action_time": "2021-02-19T18:13:39.592Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "14",
+            "object_repr": "ChallengeCurriculum object (14)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 251,
+        "fields": {
+            "action_time": "2021-02-19T18:13:51.065Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "15",
+            "object_repr": "ChallengeCurriculum object (15)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 252,
+        "fields": {
+            "action_time": "2021-02-19T18:14:01.828Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "16",
+            "object_repr": "ChallengeCurriculum object (16)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 253,
+        "fields": {
+            "action_time": "2021-02-19T18:14:13.587Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "17",
+            "object_repr": "ChallengeCurriculum object (17)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 254,
+        "fields": {
+            "action_time": "2021-02-19T18:14:54.586Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "18",
+            "object_repr": "ChallengeCurriculum object (18)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 255,
+        "fields": {
+            "action_time": "2021-02-19T18:15:06.556Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "19",
+            "object_repr": "ChallengeCurriculum object (19)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 256,
+        "fields": {
+            "action_time": "2021-02-19T18:15:26.949Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "20",
+            "object_repr": "ChallengeCurriculum object (20)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 257,
+        "fields": {
+            "action_time": "2021-02-19T18:15:46.060Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "21",
+            "object_repr": "ChallengeCurriculum object (21)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 258,
+        "fields": {
+            "action_time": "2021-02-19T18:16:14.736Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "22",
+            "object_repr": "ChallengeCurriculum object (22)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 259,
+        "fields": {
+            "action_time": "2021-02-19T18:17:14.841Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "21",
+            "object_repr": "ChallengeCurriculum object (21)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"challengeid\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 260,
+        "fields": {
+            "action_time": "2021-02-19T18:17:30.619Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "22",
+            "object_repr": "ChallengeCurriculum object (22)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"challengeid\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 261,
+        "fields": {
+            "action_time": "2021-02-19T18:17:58.248Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "23",
+            "object_repr": "ChallengeCurriculum object (23)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 262,
+        "fields": {
+            "action_time": "2021-02-19T18:18:17.799Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "24",
+            "object_repr": "ChallengeCurriculum object (24)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 263,
+        "fields": {
+            "action_time": "2021-02-19T18:18:36.342Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "25",
+            "object_repr": "ChallengeCurriculum object (25)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 264,
+        "fields": {
+            "action_time": "2021-02-19T18:19:00.086Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "25",
+            "object_repr": "ChallengeCurriculum object (25)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 265,
+        "fields": {
+            "action_time": "2021-02-19T18:19:22.676Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "26",
+            "object_repr": "ChallengeCurriculum object (26)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 266,
+        "fields": {
+            "action_time": "2021-02-19T18:19:35.657Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "27",
+            "object_repr": "ChallengeCurriculum object (27)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 267,
+        "fields": {
+            "action_time": "2021-02-19T18:19:52.120Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "28",
+            "object_repr": "ChallengeCurriculum object (28)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 268,
+        "fields": {
+            "action_time": "2021-02-19T18:20:13.223Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "29",
+            "object_repr": "ChallengeCurriculum object (29)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 269,
+        "fields": {
+            "action_time": "2021-02-19T18:20:25.111Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "30",
+            "object_repr": "ChallengeCurriculum object (30)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 270,
+        "fields": {
+            "action_time": "2021-02-19T18:20:41.319Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "31",
+            "object_repr": "ChallengeCurriculum object (31)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 271,
+        "fields": {
+            "action_time": "2021-02-19T18:20:50.106Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "31",
+            "object_repr": "ChallengeCurriculum object (31)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"displayorder\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 272,
+        "fields": {
+            "action_time": "2021-02-19T18:21:13.206Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "32",
+            "object_repr": "ChallengeCurriculum object (32)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 273,
+        "fields": {
+            "action_time": "2021-02-19T18:21:33.180Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "33",
+            "object_repr": "ChallengeCurriculum object (33)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 274,
+        "fields": {
+            "action_time": "2021-02-19T18:21:46.485Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "34",
+            "object_repr": "ChallengeCurriculum object (34)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 275,
+        "fields": {
+            "action_time": "2021-02-19T18:22:13.942Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "35",
+            "object_repr": "ChallengeCurriculum object (35)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 276,
+        "fields": {
+            "action_time": "2021-02-19T18:22:48.784Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "36",
+            "object_repr": "ChallengeCurriculum object (36)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 277,
+        "fields": {
+            "action_time": "2021-02-19T18:23:07.170Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "37",
+            "object_repr": "ChallengeCurriculum object (37)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 278,
+        "fields": {
+            "action_time": "2021-02-19T18:23:32.636Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "38",
+            "object_repr": "ChallengeCurriculum object (38)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 279,
+        "fields": {
+            "action_time": "2021-02-19T18:23:45.902Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "39",
+            "object_repr": "ChallengeCurriculum object (39)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 280,
+        "fields": {
+            "action_time": "2021-02-19T18:24:00.993Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "40",
+            "object_repr": "ChallengeCurriculum object (40)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 281,
+        "fields": {
+            "action_time": "2021-02-19T18:24:19.418Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "41",
+            "object_repr": "ChallengeCurriculum object (41)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 282,
+        "fields": {
+            "action_time": "2021-02-19T18:24:40.914Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "41",
+            "object_repr": "ChallengeCurriculum object (41)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 283,
+        "fields": {
+            "action_time": "2021-02-19T18:25:02.180Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "42",
+            "object_repr": "ChallengeCurriculum object (42)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 284,
+        "fields": {
+            "action_time": "2021-02-19T18:25:26.758Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "43",
+            "object_repr": "ChallengeCurriculum object (43)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 285,
+        "fields": {
+            "action_time": "2021-02-19T18:25:37.419Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "44",
+            "object_repr": "ChallengeCurriculum object (44)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 286,
+        "fields": {
+            "action_time": "2021-02-19T18:25:51.147Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "45",
+            "object_repr": "ChallengeCurriculum object (45)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 287,
+        "fields": {
+            "action_time": "2021-02-19T18:26:07.084Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "46",
+            "object_repr": "ChallengeCurriculum object (46)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 288,
+        "fields": {
+            "action_time": "2021-02-19T18:27:06.460Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "47",
+            "object_repr": "ChallengeCurriculum object (47)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 289,
+        "fields": {
+            "action_time": "2021-02-19T18:27:38.627Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "48",
+            "object_repr": "ChallengeCurriculum object (48)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 290,
+        "fields": {
+            "action_time": "2021-02-19T18:27:58.682Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "49",
+            "object_repr": "ChallengeCurriculum object (49)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 291,
+        "fields": {
+            "action_time": "2021-02-19T18:28:44.353Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "50",
+            "object_repr": "ChallengeCurriculum object (50)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 292,
+        "fields": {
+            "action_time": "2021-02-19T18:29:03.972Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "51",
+            "object_repr": "ChallengeCurriculum object (51)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 293,
+        "fields": {
+            "action_time": "2021-02-19T18:29:18.923Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "52",
+            "object_repr": "ChallengeCurriculum object (52)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 294,
+        "fields": {
+            "action_time": "2021-02-19T18:29:36.850Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "53",
+            "object_repr": "ChallengeCurriculum object (53)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 295,
+        "fields": {
+            "action_time": "2021-02-19T18:29:55.587Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "54",
+            "object_repr": "ChallengeCurriculum object (54)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 296,
+        "fields": {
+            "action_time": "2021-02-19T18:30:32.374Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "54",
+            "object_repr": "ChallengeCurriculum object (54)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 297,
+        "fields": {
+            "action_time": "2021-02-19T18:31:11.882Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "55",
+            "object_repr": "ChallengeCurriculum object (55)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 298,
+        "fields": {
+            "action_time": "2021-02-19T18:31:28.527Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "56",
+            "object_repr": "ChallengeCurriculum object (56)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 299,
+        "fields": {
+            "action_time": "2021-02-19T18:31:47.376Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "57",
+            "object_repr": "ChallengeCurriculum object (57)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 300,
+        "fields": {
+            "action_time": "2021-02-19T18:32:04.925Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "58",
+            "object_repr": "ChallengeCurriculum object (58)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 301,
+        "fields": {
+            "action_time": "2021-02-19T18:32:24.787Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "59",
+            "object_repr": "ChallengeCurriculum object (59)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 302,
+        "fields": {
+            "action_time": "2021-02-19T18:32:48.919Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "60",
+            "object_repr": "ChallengeCurriculum object (60)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 303,
+        "fields": {
+            "action_time": "2021-02-19T18:33:10.270Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "61",
+            "object_repr": "ChallengeCurriculum object (61)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 304,
+        "fields": {
+            "action_time": "2021-02-19T18:33:43.036Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "62",
+            "object_repr": "ChallengeCurriculum object (62)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 305,
+        "fields": {
+            "action_time": "2021-02-19T18:34:47.498Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "63",
+            "object_repr": "ChallengeCurriculum object (63)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 306,
+        "fields": {
+            "action_time": "2021-02-19T18:35:10.418Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "64",
+            "object_repr": "ChallengeCurriculum object (64)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 307,
+        "fields": {
+            "action_time": "2021-02-19T22:03:18.075Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "65",
+            "object_repr": "What is our Proof of Learning Curriculum & Mastery Tessting",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"shortname\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 308,
+        "fields": {
+            "action_time": "2021-02-19T22:03:32.075Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "65",
+            "object_repr": "What is our Proof of Learning Curriculum & Mastery Testing",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"shortname\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 309,
+        "fields": {
+            "action_time": "2021-02-19T22:03:42.885Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "65",
+            "object_repr": "ChallengeCurriculum object (65)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 310,
+        "fields": {
+            "action_time": "2021-02-19T22:04:55.573Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "66",
+            "object_repr": "ChallengeCurriculum object (66)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 311,
+        "fields": {
+            "action_time": "2021-02-19T22:05:15.549Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "67",
+            "object_repr": "ChallengeCurriculum object (67)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 312,
+        "fields": {
+            "action_time": "2021-02-19T22:05:34.101Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "68",
+            "object_repr": "ChallengeCurriculum object (68)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 313,
+        "fields": {
+            "action_time": "2021-02-19T22:05:52.420Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "69",
+            "object_repr": "ChallengeCurriculum object (69)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 314,
+        "fields": {
+            "action_time": "2021-02-19T22:27:18.323Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "70",
+            "object_repr": "ChallengeCurriculum object (70)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 315,
+        "fields": {
+            "action_time": "2021-02-19T22:30:15.547Z",
+            "user": 1,
+            "content_type": 20,
+            "object_id": "71",
+            "object_repr": "Bows bows to enter & exit training area, shows respect &",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"shortname\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 316,
+        "fields": {
+            "action_time": "2021-02-19T22:30:19.995Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "71",
+            "object_repr": "ChallengeCurriculum object (71)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 317,
+        "fields": {
+            "action_time": "2021-02-19T22:30:42.474Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "72",
+            "object_repr": "ChallengeCurriculum object (72)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 318,
+        "fields": {
+            "action_time": "2021-02-19T22:31:04.553Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "73",
+            "object_repr": "ChallengeCurriculum object (73)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 319,
+        "fields": {
+            "action_time": "2021-02-19T22:31:22.597Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "74",
+            "object_repr": "ChallengeCurriculum object (74)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 320,
+        "fields": {
+            "action_time": "2021-02-19T22:31:38.232Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "75",
+            "object_repr": "ChallengeCurriculum object (75)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 321,
+        "fields": {
+            "action_time": "2021-02-22T17:29:38.401Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "75",
+            "object_repr": "ChallengeCurriculum object (75)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 322,
+        "fields": {
+            "action_time": "2021-02-23T16:16:37.660Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "76",
+            "object_repr": "ChallengeCurriculum object (76)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 323,
+        "fields": {
+            "action_time": "2021-02-23T16:17:40.073Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "77",
+            "object_repr": "ChallengeCurriculum object (77)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 324,
+        "fields": {
+            "action_time": "2021-02-25T18:36:21.879Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "78",
+            "object_repr": "ChallengeCurriculum object (78)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 325,
+        "fields": {
+            "action_time": "2021-02-25T18:36:43.295Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "79",
+            "object_repr": "ChallengeCurriculum object (79)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 326,
+        "fields": {
+            "action_time": "2021-02-25T18:37:06.304Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "80",
+            "object_repr": "ChallengeCurriculum object (80)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 327,
+        "fields": {
+            "action_time": "2021-02-25T18:37:25.826Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "81",
+            "object_repr": "ChallengeCurriculum object (81)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 328,
+        "fields": {
+            "action_time": "2021-02-25T18:37:49.506Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "82",
+            "object_repr": "ChallengeCurriculum object (82)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 329,
+        "fields": {
+            "action_time": "2021-02-25T18:38:14.896Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "83",
+            "object_repr": "ChallengeCurriculum object (83)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 330,
+        "fields": {
+            "action_time": "2021-02-25T18:38:39.415Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "84",
+            "object_repr": "ChallengeCurriculum object (84)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 331,
+        "fields": {
+            "action_time": "2021-02-25T18:38:56.850Z",
+            "user": 1,
+            "content_type": 24,
+            "object_id": "85",
+            "object_repr": "ChallengeCurriculum object (85)",
             "action_flag": 1,
             "change_message": "[{\"added\": {}}]"
         }
