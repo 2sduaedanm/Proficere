@@ -40,10 +40,17 @@ class ChallengeCurriculumAdmin(admin.ModelAdmin):
     ordering = ('displayorder',)
     list_filter = ('active', 'startdate',)
 
+class StatusAdmin(admin.ModelAdmin):
+    fields = ['displayorder', 'shortname', 'active', 'startdate','enddate', 'lastmodifyby']
+    list_display = ('shortname','displayorder', 'active', 'startdate', 'lastmodifyby')
+    search_fields = ('shortname', 'active')
+    ordering = ('displayorder',)
+    list_filter = ('active', 'startdate',)
+
 class StudentCurriculumAdmin(admin.ModelAdmin):
-    fields = ['studentid', 'progressionid', 'curriculumid', 'active', 'startdate','enddate', 'lastmodifyby']
-    list_display = ('studentid', 'progressionid', 'curriculumid', 'active', 'startdate', 'lastmodifyby')
-    search_fields = ('studentid', 'progressionid', 'curriculumid')
+    fields = ['studentid', 'progressionid', 'curriculumid', 'active', 'statusid','startdate','enddate', 'lastmodifyby']
+    list_display = ('studentid', 'progressionid', 'curriculumid', 'active', 'statusid', 'startdate', 'lastmodifyby')
+    search_fields = ('studentid', 'progressionid', 'curriculumid', 'statusid')
     list_filter = ('active', 'startdate',)
 
 
@@ -52,4 +59,5 @@ admin.site.register(ChallengeType, ChallengeTypeAdmin)
 admin.site.register(Challenge, ChallengeAdmin)
 admin.site.register(Curriculum, CurriculumAdmin)
 admin.site.register(ChallengeCurriculum, ChallengeCurriculumAdmin)
+admin.site.register(Status, StatusAdmin)
 admin.site.register(StudentCurriculum, StudentCurriculumAdmin)

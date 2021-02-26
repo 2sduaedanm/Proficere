@@ -109,11 +109,29 @@ class ChallengeCurriculum (models.Model):
 #      on_delete=models.CASCADE
 #    )
 
+
+class Status (models.Model):
+    shortname = models.CharField(max_length=60)
+#    longname = models.CharField(max_length=255)
+    displayorder = models.IntegerField()
+    active = models.BooleanField(default=True)
+    startdate = models.DateTimeField(default=datetime.now)
+    enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+    lastmodifyby = models.ForeignKey(
+      get_user_model(),
+      null=True,
+      on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return self.shortname
+      
 class StudentCurriculum (models.Model):
     studentid = models.ForeignKey(User, on_delete=models.CASCADE)
     curriculumid = models.ForeignKey(Curriculum, on_delete=models.CASCADE)
     progressionid = models.ForeignKey(Progression, default=1, on_delete=models.CASCADE)
     active = models.BooleanField(default=True)
+    statusid = models.ForeignKey(Status, on_delete=models.CASCADE)
     startdate = models.DateTimeField(default=datetime.now)
     enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
     lastmodifyby = models.ForeignKey(
