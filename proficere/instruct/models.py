@@ -18,13 +18,8 @@ class Progression(models.Model):
     active = models.BooleanField(default=True)
     startdate = models.DateTimeField(default=datetime.now)
     enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
-#    enddate = models.DateTimeField(default=d)
-    lastmodifyby = models.ForeignKey(
-      get_user_model(),
-      null=True,
-      on_delete=models.CASCADE
-    )
-#    lastmodifydatetime = models.DateTimeField(auto_now_add=True, auto_now=False)
+    lastmodifydate = models.DateTimeField(auto_now=True)
+    lastmodifyby = models.ForeignKey(User, related_name='%(class)s_modifier', null=True, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.shortname
@@ -38,11 +33,8 @@ class Curriculum (models.Model):
     active = models.BooleanField(default=True)
     startdate = models.DateTimeField(default=datetime.now)
     enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
-    lastmodifyby = models.ForeignKey(
-      get_user_model(),
-      null=True,
-      on_delete=models.CASCADE
-    )
+    lastmodifydate = models.DateTimeField(auto_now=True)
+    lastmodifyby = models.ForeignKey(User, related_name='%(class)s_modifier', null=True, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.shortname
@@ -54,11 +46,8 @@ class ChallengeType(models.Model):
     active = models.BooleanField(default=True)
     startdate = models.DateTimeField(default=datetime.now)
     enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
-    lastmodifyby = models.ForeignKey(
-      get_user_model(),
-      null=True,
-      on_delete=models.CASCADE
-    )
+    lastmodifydate = models.DateTimeField(auto_now=True)
+    lastmodifyby = models.ForeignKey(User, related_name='%(class)s_modifier', null=True, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.shortname
@@ -73,11 +62,8 @@ class Challenge (models.Model):
     active = models.BooleanField(default=True)
     startdate = models.DateTimeField(default=datetime.now)
     enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
-    lastmodifyby = models.ForeignKey(
-      get_user_model(),
-      null=True,
-      on_delete=models.CASCADE
-    )
+    lastmodifydate = models.DateTimeField(auto_now=True)
+    lastmodifyby = models.ForeignKey(User, related_name='%(class)s_modifier', null=True, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.shortname
@@ -91,11 +77,8 @@ class ChallengeCurriculum (models.Model):
     active = models.BooleanField(default=True)
     startdate = models.DateTimeField(default=datetime.now)
     enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
-    lastmodifyby = models.ForeignKey(
-      get_user_model(),
-      null=True,
-      on_delete=models.CASCADE
-    )
+    lastmodifydate = models.DateTimeField(auto_now=True)
+    lastmodifyby = models.ForeignKey(User, related_name='%(class)s_modifier', null=True, on_delete=models.DO_NOTHING)
 
 #class StudentProgression (models.Model):
 #    studentid = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -103,11 +86,8 @@ class ChallengeCurriculum (models.Model):
 #    active = models.BooleanField(default=True)
 #    startdate = models.DateTimeField(default=datetime.now)
 #    enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
-#    lastmodifyby = models.ForeignKey(
-#      get_user_model(),
-#      null=True,
-#      on_delete=models.CASCADE
-#    )
+#    lastmodifydate = models.DateTimeField(auto_now=True)
+#    lastmodifyby = models.ForeignKey(User, related_name='%(class)s_modifier', on_delete=models.DO_NOTHING)
 
 
 class Status (models.Model):
@@ -117,11 +97,8 @@ class Status (models.Model):
     active = models.BooleanField(default=True)
     startdate = models.DateTimeField(default=datetime.now)
     enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
-    lastmodifyby = models.ForeignKey(
-      get_user_model(),
-      null=True,
-      on_delete=models.CASCADE
-    )
+    lastmodifydate = models.DateTimeField(auto_now=True)
+    lastmodifyby = models.ForeignKey(User, related_name='%(class)s_modifier', null=True, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.shortname
@@ -134,10 +111,6 @@ class StudentCurriculum (models.Model):
     statusid = models.ForeignKey(Status, on_delete=models.CASCADE)
     startdate = models.DateTimeField(default=datetime.now)
     enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
-    lastmodifyby = models.ForeignKey(
-      get_user_model(),
-      related_name='%(class)s_requests_created', 
-      null=True,
-      on_delete=models.CASCADE
-    )
+    lastmodifydate = models.DateTimeField(auto_now=True)
+    lastmodifyby = models.ForeignKey(User, related_name='%(class)s_modifier', null=True, on_delete=models.DO_NOTHING)
 
