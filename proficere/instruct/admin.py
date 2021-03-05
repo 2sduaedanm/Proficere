@@ -6,7 +6,7 @@ from django.contrib.auth.models import Group
 from .models import *
 
 class ProgressionAdmin(admin.ModelAdmin):
-    fields = ['displayorder', 'shortname', 'longname', 'active', 'startdate','enddate', 'lastmodifyby']
+    fields = ['displayorder', 'shortname', 'longname', 'active', 'startdate','enddate']
     list_display = ('shortname', 'longname','displayorder', 'active', 'lastmodifydate', 'lastmodifyby')
     search_fields = ('shortname','longname')
     ordering = ('displayorder',)
