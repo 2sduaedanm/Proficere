@@ -6,10 +6,9 @@ from django.contrib.auth.models import Group
 from .models import *
 
 class ProgressionAdmin(admin.ModelAdmin):
-    
-    fields = ['displayorder', 'shortname', 'longname', 'active', 'startdate','enddate']
+    fields = ['displayorder', 'shortname', 'longname', 'active', 'startdate', 'enddate']
     list_display = ('shortname', 'longname', 'displayorder', 'active', 'lastmodifydate', 'lastmodifyby')
-    search_fields = ('shortname','longname')
+    search_fields = ('shortname', 'longname')
     ordering = ('displayorder',)
     list_filter = ('active', 'startdate',)
     def save_model(self, request, obj, form, change):
@@ -22,9 +21,9 @@ class ProgressionAdmin(admin.ModelAdmin):
         return instance
 
 class ChallengeTypeAdmin(admin.ModelAdmin):
-    fields = ['displayorder', 'shortname', 'longname', 'active', 'startdate','enddate']
-    list_display = ('shortname', 'longname','displayorder', 'active', 'lastmodifydate', 'lastmodifyby')
-    search_fields = ('shortname','longname')
+    fields = ['displayorder', 'shortname', 'longname', 'active', 'startdate', 'enddate']
+    list_display = ('shortname', 'longname', 'displayorder', 'active', 'lastmodifydate', 'lastmodifyby')
+    search_fields = ('shortname', 'longname')
     ordering = ('displayorder',)
     list_filter = ('active', 'startdate',)
     def save_model(self, request, obj, form, change):
@@ -37,9 +36,9 @@ class ChallengeTypeAdmin(admin.ModelAdmin):
         return instance
 
 class ChallengeAdmin(admin.ModelAdmin):
-    fields = ['displayorder', 'shortname', 'longname', 'challengetypeid', 'hints', 'hintsvideo', 'active', 'startdate','enddate']
-    list_display = ('shortname', 'longname','displayorder', 'challengetypeid', 'hints', 'active', 'lastmodifydate', 'lastmodifyby')
-    search_fields = ('shortname','longname')
+    fields = ['displayorder', 'shortname', 'longname', 'challengetypeid', 'hints', 'hintsvideo', 'active', 'startdate', 'enddate']
+    list_display = ('shortname', 'longname', 'displayorder', 'challengetypeid', 'hints', 'active', 'lastmodifydate', 'lastmodifyby')
+    search_fields = ('shortname', 'longname')
     ordering = ('displayorder',)
     list_filter = ('active', 'startdate', 'hintsvideo',)
     def save_model(self, request, obj, form, change):
@@ -52,9 +51,9 @@ class ChallengeAdmin(admin.ModelAdmin):
         return instance
 
 class CurriculumAdmin(admin.ModelAdmin):
-    fields = ['displayorder', 'shortname', 'longname', 'belt', 'progressionid', 'active', 'startdate','enddate']
-    list_display = ('shortname', 'longname','displayorder', 'active', 'lastmodifydate', 'lastmodifyby')
-    search_fields = ('shortname','longname', 'belt')
+    fields = ['displayorder', 'shortname', 'longname', 'belt', 'progressionid', 'active', 'startdate', 'enddate']
+    list_display = ('shortname', 'longname', 'displayorder', 'active', 'lastmodifydate', 'lastmodifyby')
+    search_fields = ('shortname', 'longname', 'belt')
     ordering = ('displayorder',)
     list_filter = ('active', 'startdate',)
     def save_model(self, request, obj, form, change):
@@ -67,7 +66,7 @@ class CurriculumAdmin(admin.ModelAdmin):
         return instance
 
 class ChallengeCurriculumAdmin(admin.ModelAdmin):
-    fields = ['displayorder', 'curriculumid', 'challengeid', 'active', 'startdate','enddate']
+    fields = ['displayorder', 'curriculumid', 'challengeid', 'active', 'startdate', 'enddate']
     list_display = ('challengeid', 'curriculumid', 'displayorder', 'active', 'lastmodifydate', 'lastmodifyby')
     search_fields = ('curriculumid', 'challengeid')
     ordering = ('displayorder',)
@@ -82,8 +81,8 @@ class ChallengeCurriculumAdmin(admin.ModelAdmin):
         return instance
 
 class StatusAdmin(admin.ModelAdmin):
-    fields = ['displayorder', 'shortname', 'active', 'startdate','enddate']
-    list_display = ('shortname','displayorder', 'active', 'lastmodifydate', 'lastmodifyby')
+    fields = ['displayorder', 'shortname', 'active', 'startdate', 'enddate']
+    list_display = ('shortname', 'displayorder', 'active', 'lastmodifydate', 'lastmodifyby')
     search_fields = ('shortname', 'active')
     ordering = ('displayorder',)
     list_filter = ('active', 'startdate',)
@@ -97,7 +96,7 @@ class StatusAdmin(admin.ModelAdmin):
         return instance
 
 class StudentCurriculumAdmin(admin.ModelAdmin):
-    fields = ['studentid', 'progressionid', 'curriculumid', 'active', 'statusid','startdate','enddate']
+    fields = ['studentid', 'progressionid', 'curriculumid', 'active', 'statusid', 'startdate', 'enddate']
     list_display = ('studentid', 'progressionid', 'curriculumid', 'active', 'statusid', 'lastmodifydate', 'lastmodifyby')
     search_fields = ('studentid', 'progressionid', 'curriculumid', 'statusid')
     list_filter = ('active', 'startdate',)
