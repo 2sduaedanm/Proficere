@@ -6,8 +6,9 @@ from django.contrib.auth.models import Group
 from .models import *
 
 class ProgressionAdmin(admin.ModelAdmin):
+    
     fields = ['displayorder', 'shortname', 'longname', 'active', 'startdate','enddate']
-    list_display = ('shortname', 'longname','displayorder', 'active', 'lastmodifydate', 'lastmodifyby')
+    list_display = ('shortname', 'longname', 'displayorder', 'active', 'lastmodifydate', 'lastmodifyby')
     search_fields = ('shortname','longname')
     ordering = ('displayorder',)
     list_filter = ('active', 'startdate',)
@@ -19,7 +20,6 @@ class ProgressionAdmin(admin.ModelAdmin):
         instance.save()
         form.save_m2m()
         return instance
-
 
 class ChallengeTypeAdmin(admin.ModelAdmin):
     fields = ['displayorder', 'shortname', 'longname', 'active', 'startdate','enddate']
