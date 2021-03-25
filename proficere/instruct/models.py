@@ -58,7 +58,7 @@ class Challenge (models.Model):
     challengetypeid = models.ForeignKey(ChallengeType, on_delete=models.CASCADE)
     displayorder = models.IntegerField(blank=True, null=True)
     hints = models.CharField(max_length=255, blank=True)
-    hintsvideo = models.CharField(max_length=255, blank=True)
+    hintsvideo = models.FileField(upload_to='hintsVideos/')
     active = models.BooleanField(default=True)
     startdate = models.DateTimeField(default=datetime.now)
     enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
