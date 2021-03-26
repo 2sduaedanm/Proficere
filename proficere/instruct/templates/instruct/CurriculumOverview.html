@@ -36,6 +36,7 @@
 	function CloseVideoModal(identifier){
         var modal = document.getElementById("videoModal-"+$(identifier).data('id')); 
         modal.style.display = "none";
+		$(modal).find('video')[0].pause();
 	}
 
     // When the user clicks anywhere outside of the modal, close it
