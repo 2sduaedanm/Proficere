@@ -114,3 +114,11 @@ class StudentCurriculum (models.Model):
     lastmodifydate = models.DateTimeField(auto_now=True)
     lastmodifyby = models.ForeignKey(User, related_name='%(class)s_modifier', null=True, on_delete=models.DO_NOTHING)
 
+class StudentChallengeEvent (models.Model):
+    progressionid = models.ForeignKey(Progression, default=1, on_delete=models.CASCADE)
+    studentid = models.ForeignKey(User, on_delete=models.CASCADE, related_name="student_user")
+    curriculumid = models.ForeignKey(Curriculum, on_delete=models.CASCADE)
+    challengeid = models.ForeignKey(Challenge, on_delete=models.CASCADE)
+    assessdate = models.DateTimeField(default=datetime.now)
+    instructorid = models.ForeignKey(User, on_delete=models.CASCADE, related_name="instructor_user")
+    resultcode = models.BooleanField(default=False)

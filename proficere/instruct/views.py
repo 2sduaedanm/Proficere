@@ -73,7 +73,7 @@ def instructor_home(request):
 
 @login_required(login_url='login')
 def student_home(request):
-
+	#We should find some way to order after we find the objects.filter
 	pastProgressions = StudentCurriculum.objects.filter(studentid= request.user, statusid = 3)
 	currentProgressions = StudentCurriculum.objects.filter(studentid= request.user, statusid__in = [1,2])
 	context = {"pastProgressions":pastProgressions,"currentProgressions":currentProgressions}

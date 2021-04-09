@@ -109,6 +109,21 @@ class StudentCurriculumAdmin(admin.ModelAdmin):
         form.save_m2m()
         return instance
 
+class StudentChallengeEventAdmin(admin.ModelAdmin):
+    fields = ['progressionid', 'studentid', 'curriculumid', 'challengeid', 'instructorid', 'assessdate', 'resultcode']
+    list_display = ('progressionid', 'studentid', 'curriculumid', 'challengeid', 'instructorid', 'assessdate', 'resultcode')
+    search_fields = ('curriculumid', 'challengeid')
+    ordering = ('assessdate',)
+    list_filter = ('resultcode', 'assessdate',)
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        if not hasattr(instance, 'created_by'):
+            instance.created_by = request.user
+        instance.lastmodifyby = request.user
+        instance.save()
+        form.save_m2m()
+        return instance
+
 admin.site.register(Progression, ProgressionAdmin)
 admin.site.register(ChallengeType, ChallengeTypeAdmin)
 admin.site.register(Challenge, ChallengeAdmin)
@@ -116,3 +131,4 @@ admin.site.register(Curriculum, CurriculumAdmin)
 admin.site.register(ChallengeCurriculum, ChallengeCurriculumAdmin)
 admin.site.register(Status, StatusAdmin)
 admin.site.register(StudentCurriculum, StudentCurriculumAdmin)
+admin.site.register(StudentChallengeEvent, StudentChallengeEventAdmin)
