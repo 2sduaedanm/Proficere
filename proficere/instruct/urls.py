@@ -14,5 +14,7 @@ urlpatterns = [
     #ex: /instruct/curriculum/1
     path('curriculum/<int:curriculumid>', views.display_curriculum_challenges, name="display_curriculum_challenges"),
     path('progression/<int:progressionid>', views.display_progression_curriculums, name="display_progression_curriculums"),
+    path('instruct/instructStudentSearch', views.instructStudent_search, name="instructStudent_search"),
+    
     
 ]

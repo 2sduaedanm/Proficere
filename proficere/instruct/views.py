@@ -97,3 +97,9 @@ def display_progression_curriculums(request,progressionid):
 
 	return render(request, 'instruct/ProgressionOverview.html', context)
 
+@login_required(login_url='login')
+def instructStudent_search(request):
+	context = {}
+
+	return render(request, 'instruct/InstructStudentSearch.html', context)
+
