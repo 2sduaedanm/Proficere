@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 from .models import *
-from .forms import CreateUserForm
+from .forms import CreateUserForm, CreateStudentChallengeEvent
 
 def registerPage(request):
 	if request.user.is_authenticated:
@@ -57,7 +57,6 @@ def logoutUser(request):
 
 @login_required(login_url='login')
 def home(request):
-
 	context = {}
 
 	return render(request, 'instruct/dashboard.html', context)
@@ -65,7 +64,6 @@ def home(request):
 
 @login_required(login_url='login')
 def instructor_home(request):
-
 	context = {}
 
 	return render(request, 'instruct/dashboard.html', context)
@@ -82,7 +80,6 @@ def student_home(request):
 
 @login_required(login_url='login')
 def display_curriculum_challenges(request,curriculumid):
-
 	challengeList = ChallengeCurriculum.objects.filter(curriculumid= curriculumid)
 	curriculum = Curriculum.objects.get(id=curriculumid)
 	context = {"curriculum":curriculum, "challengeList":challengeList}
@@ -91,15 +88,50 @@ def display_curriculum_challenges(request,curriculumid):
 
 @login_required(login_url='login')
 def display_progression_curriculums(request,progressionid):
-
 	curriculumList = Curriculum.objects.filter(progressionid= progressionid)
 	context = {"curriculumList":curriculumList}
 
 	return render(request, 'instruct/ProgressionOverview.html', context)
 
 @login_required(login_url='login')
-def instructStudent_search(request):
-	context = {}
+def instructStudentChallenge_select(request):
+	challengeid = request.POST.get('challenge')
+	curriculumid = request.POST.get('curriculum')
+	studentid = request.POST.get('student')
 
-	return render(request, 'instruct/InstructStudentSearch.html', context)
+	curriculum = Curriculum.objects.get(id=1)
+	challengeList = ChallengeCurriculum.objects.filter(curriculumid=curriculum.id)
+	sce_list = StudentChallengeEvent.objects.filter(studentid=studentid, curriculumid=curriculumid, progressionid=curriculum.progressionid)
+
+	#for challenge in challengeList:
+	
+	context = {"curriculum":curriculum, "challengeList":challengeList}
+
+	return render(request, 'instruct/InstructStudentSelect.html', context)
+
+@login_required(login_url='login')
+def instructStudentChallenge(request):
+
+	challengeid = request.POST.get('challenge')
+	curriculumid = request.POST.get('curriculum')
+	studentid = request.POST.get('student')
+
+	challenge = Challenge.objects.get(id=challengeid)
+	curriculum = Curriculum.objects.get(id=curriculumid)
+	student = User.objects.get(id=studentid)
+	sce_list = StudentChallengeEvent.objects.filter(studentid=studentid, curriculumid=curriculumid, progressionid=curriculum.progressionid)
+	context = {"student":student, "curriculum":curriculum, "challenge":challenge, "sce_list":sce_list}
+
+	return render(request, 'instruct/InstructStudentChallenge.html', context)
+
+@login_required(login_url='login')
+def instructStudentChallenge_Submit(request):
+	
+
+	challengeid = request.POST.get('challenge')
+	curriculumid = request.POST.get('curriculum')
+	studentid = request.POST.get('student')
+	context = {"student":studentid, "curriculum":curriculumid, "challenge":challengeid}
+
+	return render(request, 'instruct/InstructStudentSelect.html', context)
 
