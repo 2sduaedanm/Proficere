@@ -2,14 +2,7 @@
 
 {% block content %}
 <h2>This is Instruct Student page</h2>
-<p>we allow the instructor to fill out a student challenge event object </p>
-
-<p>TODO: Take this stuff out because it is for testing</p>
-<pre>StudentID: {{student.id}}
-CurriculumID: {{curriculum.id}}
-ChallengeID: {{challenge.id}}
-SCE_LIST: {{sce_list}}
-</pre>
+<p>The Instructor to fill out a student challenge event object </p>
 
 <h2>Challenge Info</h2>
 <p>Challenge Name: {{challenge.longname}}</p>
@@ -23,6 +16,12 @@ SCE_LIST: {{sce_list}}
 <h2>Assessment Form</h2>
 <form method="post" action="/instruct/InstructStudentChallenge_Submit">
 	{% csrf_token %}
+    
+    <input type="text" name="student" value="{{student.id}}" hidden>
+    <input type="text" name="curriculum" value="{{curriculum.id}}" hidden>
+    <input type="text" name="progression" value="{{curriculum.progressionid.id}}" hidden>
+    <input type="text" name="challenge" value="{{challenge.id}}" hidden>
+
 	<input type="submit" name="pass_button" value="Pass"/>
 	<input type="submit" name="try_again_button" value="Try Again"/>
 </form>
