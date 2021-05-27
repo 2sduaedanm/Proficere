@@ -40,7 +40,7 @@ table.sce_try_again {
 			<td>{{student.firstName}} {{student.lastName}}</td>
 			<td>{{student.email}}</td>
 			<td>
-				<form method='post' action="{% url 'instructStudentChallenge_select' %}?studentid={{student.id}}">
+				<form method='get' action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}">
 					{% csrf_token %}
 					<input type="text" name="student" value="{{student.id}}" hidden> 
 					<button class="edit-user" type="submit">Select</button>
@@ -65,7 +65,7 @@ table.sce_try_again {
 			<td>{{curriculum.shortname}}</td>
 			<td>Fake %</td>
 			<td>
-				<form method='post' action="{% url 'instructStudentChallenge_select' %}?studentid={{student.id}}&curriculumid={{curriculum.id}}">
+				<form method='get' action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}&curriculum={{curriculum.id}}">
 					{% csrf_token %}
 					<input type="text" name="student" value="{{student.id}}" hidden>
 					<input type="text" name="curriculum" value="{{curriculum.id}}" hidden>
@@ -100,7 +100,7 @@ table.sce_try_again {
 					</table>
 				{% endif %}
 				{% endfor %}
-				<form method='post' action="{% url 'instructStudentChallenge' %}?studentid={{student.id}}&curriculumid={{curriculum.id}}">
+				<form method='get' action="{% url 'instructStudentChallenge' %}?student={{student.id}}&curriculum={{curriculum.id}}">
 					{% csrf_token %}
 					<input type="text" name="student" value="{{student.id}}" hidden>
 					<input type="text" name="curriculum" value="{{curriculum.id}}" hidden>
@@ -119,11 +119,11 @@ table.sce_try_again {
 	
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
-	if((urlParams.get('studentid')) && (urlParams.get('curriculumid'))) {
+	if((urlParams.get('student')) && (urlParams.get('curriculum'))) {
 		studentsearch.style.display = "none";
 		curriculumsearch.style.display = "none";
 		challengesearch.style.display = "block";
-	} else if(urlParams.get('studentid')) {
+	} else if(urlParams.get('student')) {
 		studentsearch.style.display = "none";
 		curriculumsearch.style.display = "block";
 		challengesearch.style.display = "none";
