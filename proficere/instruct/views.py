@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect 
+from django.urls import reverse
+from urllib.parse import urlencode
 from django.http import HttpResponse
 #from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
@@ -95,17 +97,25 @@ def display_progression_curriculums(request,progressionid):
 
 @login_required(login_url='login')
 def instructStudentChallenge_select(request):
-	challengeid = request.POST.get('challenge')
+	context = {}
 	curriculumid = request.POST.get('curriculum')
 	studentid = request.POST.get('student')
 
-	curriculum = Curriculum.objects.get(id=1)
-	challengeList = ChallengeCurriculum.objects.filter(curriculumid=curriculum.id)
-	sce_list = StudentChallengeEvent.objects.filter(studentid=studentid, curriculumid=curriculumid, progressionid=curriculum.progressionid)
-
-	#for challenge in challengeList:
-	
-	context = {"curriculum":curriculum, "challengeList":challengeList}
+	#If no curriculumid is present, get and show the list of curriculum for that student
+	if(studentid):
+		student = User.objects.get(id=studentid)
+		currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(studentid= student.id, statusid__in = [1,2]))
+		
+		context.update({"student":student,"curriculumList":currentCurriculumList})
+		if(curriculumid):
+			curriculum = Curriculum.objects.get(id=curriculumid)
+			challengeList = ChallengeCurriculum.objects.filter(curriculumid=curriculum.id)
+			sce_list = StudentChallengeEvent.objects.filter(studentid=studentid, curriculumid=curriculumid, progressionid=curriculum.progressionid).order_by('challengeid','-assessdate').distinct('challengeid')
+			context.update({"curriculum":curriculum, "challengeList":challengeList,"sce_list":sce_list})
+	else:
+		#If no studentid is present, get and show the list of students
+		studentList = User.objects.filter(groups__name='Student')
+		context.update({"studentList":studentList})
 
 	return render(request, 'instruct/InstructStudentSelect.html', context)
 
@@ -126,12 +136,24 @@ def instructStudentChallenge(request):
 
 @login_required(login_url='login')
 def instructStudentChallenge_Submit(request):
-	
-
 	challengeid = request.POST.get('challenge')
 	curriculumid = request.POST.get('curriculum')
+	progressionid = request.POST.get('progression')
 	studentid = request.POST.get('student')
-	context = {"student":studentid, "curriculum":curriculumid, "challenge":challengeid}
 
-	return render(request, 'instruct/InstructStudentSelect.html', context)
+	#Save the event
+	progression = Progression.objects.get(id=progressionid)
+	student = User.objects.get(id=studentid)
+	curriculum = Curriculum.objects.get(id=curriculumid)
+	challenge = Challenge.objects.get(id=challengeid)
+	if(request.POST.get('pass_button')):
+		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=True)
+	else:
+		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=False)
+
+	base_url = reverse('instructStudentChallenge_select')  # 1 /products/
+	query_string =  urlencode({'studentid': studentid,'curriculumid':curriculumid})  # 2 category=42
+	url = '{}?{}'.format(base_url, query_string)  # 3 /products/?category=42
+
+	return redirect(url)
 
