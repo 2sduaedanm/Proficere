@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 from .models import *
-from .forms import CreateUserForm, CreateStudentChallengeEvent
+from .forms import CreateUserForm
 
 def registerPage(request):
 	if request.user.is_authenticated:
