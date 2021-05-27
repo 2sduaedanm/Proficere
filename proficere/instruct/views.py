@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 from .models import *
-from .forms import CreateUserForm, CreateStudentChallengeEvent
+from .forms import CreateUserForm
 
 def registerPage(request):
 	if request.user.is_authenticated:
@@ -98,8 +98,8 @@ def display_progression_curriculums(request,progressionid):
 @login_required(login_url='login')
 def instructStudentChallenge_select(request):
 	context = {}
-	curriculumid = request.POST.get('curriculum')
-	studentid = request.POST.get('student')
+	curriculumid = request.GET.get('curriculum')
+	studentid = request.GET.get('student')
 
 	#If no curriculumid is present, get and show the list of curriculum for that student
 	if(studentid):
@@ -122,9 +122,9 @@ def instructStudentChallenge_select(request):
 @login_required(login_url='login')
 def instructStudentChallenge(request):
 
-	challengeid = request.POST.get('challenge')
-	curriculumid = request.POST.get('curriculum')
-	studentid = request.POST.get('student')
+	challengeid = request.GET.get('challenge')
+	curriculumid = request.GET.get('curriculum')
+	studentid = request.GET.get('student')
 
 	challenge = Challenge.objects.get(id=challengeid)
 	curriculum = Curriculum.objects.get(id=curriculumid)
@@ -152,7 +152,7 @@ def instructStudentChallenge_Submit(request):
 		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=False)
 
 	base_url = reverse('instructStudentChallenge_select')  # 1 /products/
-	query_string =  urlencode({'studentid': studentid,'curriculumid':curriculumid})  # 2 category=42
+	query_string =  urlencode({'student': studentid,'curriculum':curriculumid})  # 2 category=42
 	url = '{}?{}'.format(base_url, query_string)  # 3 /products/?category=42
 
 	return redirect(url)
