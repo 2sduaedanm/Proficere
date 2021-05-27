@@ -1,0 +1,49 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+<h2>This is Instruct Student page</h2>
+<p>The Instructor to fill out a student challenge event object </p>
+
+<h2>Challenge Info</h2>
+<p>Challenge Name: {{challenge.longname}}</p>
+<p>Challenge Type: {{challenge.challengetypeid}}</p>
+<p>Answer Type: {{challenge.answertypeid}}</p>
+<p>Hints: {{challenge.hints}}</p>
+<p>HintsVideo: {% if challenge.hintsvideo%}
+	{% include 'instruct/VideoPlayerModal.html' with videoId=challenge.id videoUrl=challenge.hintsvideo.url videoTitle=challenge.shortname videoDescription=challenge.hints %}
+	{% endif %}</p>
+
+<h2>Assessment Form</h2>
+<form method="post" action="/instruct/InstructStudentChallenge_Submit">
+	{% csrf_token %}
+    
+    <input type="text" name="student" value="{{student.id}}" hidden>
+    <input type="text" name="curriculum" value="{{curriculum.id}}" hidden>
+    <input type="text" name="progression" value="{{curriculum.progressionid.id}}" hidden>
+    <input type="text" name="challenge" value="{{challenge.id}}" hidden>
+
+	<input type="submit" name="pass_button" value="Pass"/>
+	<input type="submit" name="try_again_button" value="Try Again"/>
+</form>
+
+<script type="text/javascript">
+    function LaunchVideoModal(identifier){
+        var modal = document.getElementById("videoModal-"+$(identifier).data('id')); 
+        modal.style.display = "block";
+    }
+	function CloseVideoModal(identifier){
+        var modal = document.getElementById("videoModal-"+$(identifier).data('id')); 
+        modal.style.display = "none";
+		$(modal).find('video')[0].pause();
+	}
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if ($(event.target).hasClass('videoModal')) {
+            $(event.target).find('video')[0].pause();
+			var modal = document.getElementById(event.target.id); 
+            modal.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,136 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+<style>
+	
+table.sce_passed {
+    background-color: #84cc7a;
+}
+
+table.sce_try_again {
+    background-color: #cc7a7a;
+}
+</style>
+
+<h2>This is Instruct Student Select</h2>
+<p>This will hold the 3 dropdown menus for selecting a student, curriculum, and challenge which will then load a form for the instructor to assess that particular challenge for that student/curriculum.</p>
+<form method="post" action="/instruct/InstructStudentChallenge">
+	{% csrf_token %}
+	<select id="studentid" name="student"><option value="5">Test Student</option></select>
+
+	<select id="curriculumid" name="curriculum"><option value="1">Test Adult White Belt</option></select>
+
+	<select id="challengeid" name="challenge"><option value="1">Test Attention Stance: Charyut</option></select>
+
+	<button type="submit">Start Assessment</button>
+</form>
+
+<div id="studentsearchtable">
+	<h2>Students</h2>
+	<table class="table table-sm">
+		<tr>
+			<th>Username</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Action</th>
+		</tr>
+		{% for student in studentList %}
+		<tr>
+			<td>{{student.username}}</td>
+			<td>{{student.firstName}} {{student.lastName}}</td>
+			<td>{{student.email}}</td>
+			<td>
+				<form method='get' action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}">
+					{% csrf_token %}
+					<input type="text" name="student" value="{{student.id}}" hidden> 
+					<button class="edit-user" type="submit">Select</button>
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+<div id="curriculumsearchtable">
+	<h2>Curriculums for {{student.username}}</h2>
+	<table class="table table-sm">
+		<tr>
+			<th>Progression</th>
+			<th>Curriculum</th>
+			<th>Current Progress</th>
+			<th>Action</th>
+		</tr>
+		{% for curriculum in curriculumList %}
+		<tr>
+			<td>{{curriculum.progressionid.shortname}}</td>
+			<td>{{curriculum.shortname}}</td>
+			<td>Fake %</td>
+			<td>
+				<form method='get' action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}&curriculum={{curriculum.id}}">
+					{% csrf_token %}
+					<input type="text" name="student" value="{{student.id}}" hidden>
+					<input type="text" name="curriculum" value="{{curriculum.id}}" hidden>
+					<button class="edit-user" type="submit">Select</button>
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+<div id="challengesearchtable">
+	<h2>Challenges</h2>
+	<table class="table table-sm">
+		<tr>
+			<th>Challenge</th>
+			<th>Type of Review</th>
+			<th>Type of Answer</th>
+			<th>Recent Status</th>
+		</tr>
+		{% for challenge in challengeList %}
+		<tr>
+			<td>{{challenge.challengeid.longname}}</td>
+			<td>{{challenge.challengeid.challengetypeid}}</td>
+			<td>{{challenge.challengeid.answertypeid}}</td>
+			<td>{% for sce in sce_list %}
+				{% if sce.challengeid == challenge.challengeid %}
+					<table class="{%if sce.resultcode %}sce_passed{% else %}sce_try_again{% endif %}">
+						<tr>
+							<td>{{sce.instructorid.username}}</td>
+							<td>{{sce.assessdate}}</td>
+						</tr>
+					</table>
+				{% endif %}
+				{% endfor %}
+				<form method='get' action="{% url 'instructStudentChallenge' %}?student={{student.id}}&curriculum={{curriculum.id}}">
+					{% csrf_token %}
+					<input type="text" name="student" value="{{student.id}}" hidden>
+					<input type="text" name="curriculum" value="{{curriculum.id}}" hidden>
+					<input type="text" name="challenge" value="{{challenge.id}}" hidden>
+					<button class="edit-user" type="submit">Start New Assessment</button>
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+<script type="text/javascript">
+	var studentsearch = document.getElementById("studentsearchtable");
+	var curriculumsearch = document.getElementById("curriculumsearchtable");
+	var challengesearch = document.getElementById("challengesearchtable");
+	
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	if((urlParams.get('student')) && (urlParams.get('curriculum'))) {
+		studentsearch.style.display = "none";
+		curriculumsearch.style.display = "none";
+		challengesearch.style.display = "block";
+	} else if(urlParams.get('student')) {
+		studentsearch.style.display = "none";
+		curriculumsearch.style.display = "block";
+		challengesearch.style.display = "none";
+	} else {
+		studentsearch.style.display = "block";
+		curriculumsearch.style.display = "none";
+		challengesearch.style.display = "none";
+	}
+</script>
+{% endblock %}
