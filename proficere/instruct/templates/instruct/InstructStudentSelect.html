@@ -26,7 +26,7 @@ table.sce_try_again {
 	<select id="curriculumid" name="curriculum">
 		<option value="0">Select a Curriculum</option>
 		{% for curr in curriculumList %}
-		<option value="{{curr.id}}" {%if curriculum%}selected{% endif %}>{{curr.progressionid.shortname}}</option>
+		<option value="{{curr.id}}" {%if curr.id == curriculum.id%}selected{% endif %}>{{curr.progressionid.shortname}}:{{curr.shortname}}</option>
 		{% endfor %}
 	</select>
 
@@ -66,7 +66,7 @@ table.sce_try_again {
 	</table>
 </div>
 <div id="curriculumsearchtable">
-	<h2>Select a Curriculum for {{student.username}}</h2>
+	<h2>Select a Curriculum for {{student.first_name}} {{student.last_name}}</h2>
 	<table class="table table-sm">
 		<tr>
 			<th>Progression</th>
@@ -92,7 +92,7 @@ table.sce_try_again {
 	</table>
 </div>
 <div id="challengesearchtable">
-	<h2>Select a Challenge for {{student.username}} > {{curriculum.shortname}}</h2>
+	<h2>Select a Challenge for {{student.first_name}} {{student.last_name}} > {{curriculum.progressionid.shortname}} > {{curriculum.shortname}}</h2>
 	<table class="table table-sm">
 		<tr>
 			<th>Challenge</th>
