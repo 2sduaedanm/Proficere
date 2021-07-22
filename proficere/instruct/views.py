@@ -114,7 +114,7 @@ def instructStudentChallenge_select(request):
 		context.update({"curriculum":curriculum, "challengeList":challengeList,"sce_list":sce_list})
 		
 	#If no studentid is present, get and show the list of students
-	studentList = User.objects.filter(groups__name='Student').order_by('last_name')
+	studentList = User.objects.filter(groups__name='Student').order_by('last_name','first_name')
 	context.update({"studentList":studentList})
 
 	return render(request, 'instruct/InstructStudentSelect.html', context)

@@ -52,7 +52,7 @@ table.sce_try_again {
 		{% for student in studentList %}
 		<tr>
 			<td>{{student.username}}</td>
-			<td>{{student.first_name}} {{student.last_name}}</td>
+			<td>{{student.last_name}}, {{student.first_name}}</td>
 			<td>{{student.email}}</td>
 			<td>
 				<form method='get' action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}">
