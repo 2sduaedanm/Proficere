@@ -104,7 +104,7 @@ def instructStudentChallenge_select(request):
 	#If no curriculumid is present, get and show the list of curriculum for that student
 	if(studentid):
 		student = User.objects.get(id=studentid)
-		currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(studentid= student.id, statusid__in = [1,2]))
+		currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(studentid= student.id, statusid__in = [1,2])).order_by('progressionid')
 		
 		context.update({"student":student,"curriculumList":currentCurriculumList})
 	if(curriculumid):
@@ -114,7 +114,7 @@ def instructStudentChallenge_select(request):
 		context.update({"curriculum":curriculum, "challengeList":challengeList,"sce_list":sce_list})
 		
 	#If no studentid is present, get and show the list of students
-	studentList = User.objects.filter(groups__name='Student')
+	studentList = User.objects.filter(groups__name='Student').order_by('last_name')
 	context.update({"studentList":studentList})
 
 	return render(request, 'instruct/InstructStudentSelect.html', context)
