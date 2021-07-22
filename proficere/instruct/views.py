@@ -107,15 +107,15 @@ def instructStudentChallenge_select(request):
 		currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(studentid= student.id, statusid__in = [1,2]))
 		
 		context.update({"student":student,"curriculumList":currentCurriculumList})
-		if(curriculumid):
-			curriculum = Curriculum.objects.get(id=curriculumid)
-			challengeList = ChallengeCurriculum.objects.filter(curriculumid=curriculum.id)
-			sce_list = StudentChallengeEvent.objects.filter(studentid=studentid, curriculumid=curriculumid, progressionid=curriculum.progressionid).order_by('challengeid','-assessdate').distinct('challengeid')
-			context.update({"curriculum":curriculum, "challengeList":challengeList,"sce_list":sce_list})
-	else:
-		#If no studentid is present, get and show the list of students
-		studentList = User.objects.filter(groups__name='Student')
-		context.update({"studentList":studentList})
+	if(curriculumid):
+		curriculum = Curriculum.objects.get(id=curriculumid)
+		challengeList = ChallengeCurriculum.objects.filter(curriculumid=curriculum.id)
+		sce_list = StudentChallengeEvent.objects.filter(studentid=studentid, curriculumid=curriculumid, progressionid=curriculum.progressionid).order_by('challengeid','-assessdate').distinct('challengeid')
+		context.update({"curriculum":curriculum, "challengeList":challengeList,"sce_list":sce_list})
+		
+	#If no studentid is present, get and show the list of students
+	studentList = User.objects.filter(groups__name='Student')
+	context.update({"studentList":studentList})
 
 	return render(request, 'instruct/InstructStudentSelect.html', context)
 
