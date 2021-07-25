@@ -1,11 +1,8 @@
 {%  extends 'accounts/main.html' %}
 
 {% block content %}
-<h2>This is Instruct Student page</h2>
-<p>The Instructor to fill out a student challenge event object </p>
-
-<h2>Challenge Info</h2>
-<p>Challenge Name: {{challenge.longname}}</p>
+<h2>{{student.first_name}} {{student.last_name}} > {{curriculum.progressionid.shortname}} > {{curriculum.shortname}}</h2>
+<h2>{{challenge.longname}}</h2>
 <p>Challenge Type: {{challenge.challengetypeid}}</p>
 <p>Answer Type: {{challenge.answertypeid}}</p>
 <p>Hints: {{challenge.hints}}</p>

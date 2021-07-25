@@ -12,21 +12,36 @@ table.sce_try_again {
 }
 </style>
 
-<h2>This is Instruct Student Select</h2>
+<!--
 <p>This will hold the 3 dropdown menus for selecting a student, curriculum, and challenge which will then load a form for the instructor to assess that particular challenge for that student/curriculum.</p>
 <form method="post" action="/instruct/InstructStudentChallenge">
 	{% csrf_token %}
-	<select id="studentid" name="student"><option value="5">Test Student</option></select>
+	<select id="studentid" name="student">
+		<option value="0">Select a Student</option>
+		{% for stud in studentList %}
+		<option value="{{stud.id}}" {% if stud.id == student.id %}selected{% endif %}>{{stud.first_name}} {{stud.last_name}}</option>
+		{% endfor %}
+	</select>
 
-	<select id="curriculumid" name="curriculum"><option value="1">Test Adult White Belt</option></select>
+	<select id="curriculumid" name="curriculum">
+		<option value="0">Select a Curriculum</option>
+		{% for curr in curriculumList %}
+		<option value="{{curr.id}}" {%if curr.id == curriculum.id%}selected{% endif %}>{{curr.progressionid.shortname}}:{{curr.shortname}}</option>
+		{% endfor %}
+	</select>
 
-	<select id="challengeid" name="challenge"><option value="1">Test Attention Stance: Charyut</option></select>
+	<select id="challengeid" name="challenge">
+		<option value="0">Select a Challenge</option>
+		{% for challenge in challengeList %}
+		<option value="{{challenge.id}}">{{challenge.challengeid.longname}}</option>
+		{% endfor %}
+	</select>
 
 	<button type="submit">Start Assessment</button>
 </form>
-
+-->
 <div id="studentsearchtable">
-	<h2>Students</h2>
+	<h2>Select a Student</h2>
 	<table class="table table-sm">
 		<tr>
 			<th>Username</th>
@@ -37,7 +52,7 @@ table.sce_try_again {
 		{% for student in studentList %}
 		<tr>
 			<td>{{student.username}}</td>
-			<td>{{student.firstName}} {{student.lastName}}</td>
+			<td>{{student.last_name}}, {{student.first_name}}</td>
 			<td>{{student.email}}</td>
 			<td>
 				<form method='get' action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}">
@@ -51,7 +66,7 @@ table.sce_try_again {
 	</table>
 </div>
 <div id="curriculumsearchtable">
-	<h2>Curriculums for {{student.username}}</h2>
+	<h2>Select a Curriculum for {{student.first_name}} {{student.last_name}}</h2>
 	<table class="table table-sm">
 		<tr>
 			<th>Progression</th>
@@ -77,7 +92,7 @@ table.sce_try_again {
 	</table>
 </div>
 <div id="challengesearchtable">
-	<h2>Challenges</h2>
+	<h2>Select a Challenge for {{student.first_name}} {{student.last_name}} > {{curriculum.progressionid.shortname}} > {{curriculum.shortname}}</h2>
 	<table class="table table-sm">
 		<tr>
 			<th>Challenge</th>

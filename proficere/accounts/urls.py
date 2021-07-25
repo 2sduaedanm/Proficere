@@ -15,7 +15,6 @@ urlpatterns = [
 	path('logout/', views.logoutUser, name="logout"),
     path('privacyPolicy/', views.privacyPolicy, name="privacyPolicy"),
     path('contactUs/', views.contactUs, name="contactUs"),
-    path('admin/', admin.site.urls),
 
     path('', views.home, name="home"),
     path('instruct/', instruct_views.instructor_home, name="instructHome"),
