@@ -1,0 +1,51 @@
+{% load static %}
+{% load groupAuth %}
+
+
+<style>
+  .hello-msg {
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+</style>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <!--
+ <img src="{% static 'images/logo.png' %}">
+ -->
+  <a class="nav-link" href="{% url 'home' %}"><img width="75" height="75" src="{% static 'images/ZLC_logo.jpg' %}"></a>
+
+  <button class="navbar-toggler" style="float:left" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      {% if request.user.is_staff %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin:index' %}">DjangoAdmin</a>
+      </li>
+      {% endif %}
+      {% if request.user|has_group:"Instructor" %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'instructHome' %}">Instruct Students</a>
+      </li>
+      {% endif %}
+      {% if request.user|has_group:"Student" %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'studentHome' %}">Student Portal</a>
+      </li>
+      {% endif %}
+      {% if request.user|has_group:"Staff" %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'staffHome' %}">Staff Home</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <span class="hello-msg">Hello, {{request.user}}</span>
+  <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+
+</nav>
