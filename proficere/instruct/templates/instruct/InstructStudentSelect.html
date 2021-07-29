@@ -40,6 +40,14 @@ table.sce_try_again {
 	<button type="submit">Start Assessment</button>
 </form>
 -->
+<div>
+	<form class="d-flex" method=POST action="{% url 'instructStudentChallenge_select' %}">
+        {% csrf_token %}
+		<input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
+		<button class="btn btn-outline-success" type="submit">Search</button>
+	</form>
+</div>
+
 <div id="studentsearchtable">
 	<h2>Select a Student</h2>
 	<table class="table table-sm">
