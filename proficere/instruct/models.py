@@ -70,7 +70,7 @@ class Challenge (models.Model):
 
 
 class ChallengeCurriculum (models.Model):
-    challengeid = models.ForeignKey(Challenge, on_delete=models.CASCADE)
+    challengeid = models.ForeignKey(Challenge, related_name='challengecurriculums',on_delete=models.CASCADE)
     curriculumid = models.ForeignKey(Curriculum, on_delete=models.CASCADE)
 #    progressionid = models.ForeignKey(Progression, default=1, on_delete=models.CASCADE)
     displayorder = models.IntegerField(blank=True, null=True)

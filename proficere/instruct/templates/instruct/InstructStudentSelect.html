@@ -40,6 +40,8 @@ table.sce_try_again {
 	<button type="submit">Start Assessment</button>
 </form>
 -->
+
+<div id="studentsearchtable">
 <div>
 	<form class="d-flex" method=POST action="{% url 'instructStudentChallenge_select' %}">
         {% csrf_token %}
@@ -47,8 +49,6 @@ table.sce_try_again {
 		<button class="btn btn-outline-success" type="submit">Search</button>
 	</form>
 </div>
-
-<div id="studentsearchtable">
 	<h2>Select a Student</h2>
 	<table class="table table-sm">
 		<tr>
@@ -74,6 +74,13 @@ table.sce_try_again {
 	</table>
 </div>
 <div id="curriculumsearchtable">
+<div>
+	<form class="d-flex" method=POST action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}">
+        {% csrf_token %}
+		<input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
+		<button class="btn btn-outline-success" type="submit">Search</button>
+	</form>
+</div>
 	<h2>Select a Curriculum for {{student.first_name}} {{student.last_name}}</h2>
 	<table class="table table-sm">
 		<tr>
@@ -100,6 +107,13 @@ table.sce_try_again {
 	</table>
 </div>
 <div id="challengesearchtable">
+<div>
+	<form class="d-flex" method=POST action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}&curriculum={{curriculum.id}}">
+        {% csrf_token %}
+		<input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
+		<button class="btn btn-outline-success" type="submit">Search</button>
+	</form>
+</div>
 	<h2>Select a Challenge for {{student.first_name}} {{student.last_name}} > {{curriculum.progressionid.shortname}} > {{curriculum.shortname}}</h2>
 	<table class="table table-sm">
 		<tr>
@@ -110,11 +124,11 @@ table.sce_try_again {
 		</tr>
 		{% for challenge in challengeList %}
 		<tr>
-			<td>{{challenge.challengeid.longname}}</td>
-			<td>{{challenge.challengeid.challengetypeid}}</td>
-			<td>{{challenge.challengeid.answertypeid}}</td>
+			<td>{{challenge.longname}}</td>
+			<td>{{challenge.challengetypeid}}</td>
+			<td>{{challenge.answertypeid}}</td>
 			<td>{% for sce in sce_list %}
-				{% if sce.challengeid == challenge.challengeid %}
+				{% if sce.challengeid == challenge.id %}
 					<table class="{%if sce.resultcode %}sce_passed{% else %}sce_try_again{% endif %}">
 						<tr>
 							<td>{{sce.instructorid.username}}</td>

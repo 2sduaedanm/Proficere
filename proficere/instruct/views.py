@@ -113,7 +113,10 @@ def instructStudentChallenge_select(request):
 		context.update({"student":student,"curriculumList":currentCurriculumList})
 	if(curriculumid):
 		curriculum = Curriculum.objects.get(id=curriculumid)
-		challengeList = ChallengeCurriculum.objects.filter(curriculumid=curriculum.id)
+		if searched:
+			challengeList = Challenge.objects.filter(challengecurriculums__curriculumid=curriculum.id).filter(longname__contains = searched)
+		else:
+			challengeList = Challenge.objects.filter(challengecurriculums__curriculumid=curriculum.id)
 		sce_list = StudentChallengeEvent.objects.filter(studentid=studentid, curriculumid=curriculumid, progressionid=curriculum.progressionid).order_by('challengeid','-assessdate').distinct('challengeid')
 		context.update({"curriculum":curriculum, "challengeList":challengeList,"sce_list":sce_list})
 		
@@ -164,4 +167,3 @@ def instructStudentChallenge_Submit(request):
 	url = '{}?{}'.format(base_url, query_string)  # 3 /products/?category=42
 
 	return redirect(url)
-
