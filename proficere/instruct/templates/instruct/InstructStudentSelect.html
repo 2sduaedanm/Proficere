@@ -11,7 +11,19 @@ table.sce_try_again {
     background-color: #cc7a7a;
 }
 </style>
-
+{% if search_error %}
+<style>
+.search_error_box {
+	display:block;
+}
+</style>
+{% else %}
+<style>
+.search_error_box {
+	display:none;
+}
+</style>
+{% endif %}
 <!--
 <p>This will hold the 3 dropdown menus for selecting a student, curriculum, and challenge which will then load a form for the instructor to assess that particular challenge for that student/curriculum.</p>
 <form method="post" action="/instruct/InstructStudentChallenge">
@@ -41,14 +53,18 @@ table.sce_try_again {
 </form>
 -->
 
+
 <div id="studentsearchtable">
-<div>
-	<form class="d-flex" method=POST action="{% url 'instructStudentChallenge_select' %}">
-        {% csrf_token %}
-		<input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
-		<button class="btn btn-outline-success" type="submit">Search</button>
-	</form>
-</div>
+	<div>
+		<form class="d-flex" method=POST action="{% url 'instructStudentChallenge_select' %}">
+			{% csrf_token %}
+			<input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
+			<button class="btn btn-outline-success" type="submit">Search</button>
+		</form>
+	</div>
+	<div class="search_error_box">
+		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
+	</div>
 	<h2>Select a Student</h2>
 	<table class="table table-sm">
 		<tr>
@@ -74,13 +90,16 @@ table.sce_try_again {
 	</table>
 </div>
 <div id="curriculumsearchtable">
-<div>
-	<form class="d-flex" method=POST action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}">
-        {% csrf_token %}
-		<input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
-		<button class="btn btn-outline-success" type="submit">Search</button>
-	</form>
-</div>
+	<div>
+		<form class="d-flex" method=POST action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}">
+			{% csrf_token %}
+			<input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
+			<button class="btn btn-outline-success" type="submit">Search</button>
+		</form>
+	</div>
+	<div class="search_error_box">
+		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
+	</div>
 	<h2>Select a Curriculum for {{student.first_name}} {{student.last_name}}</h2>
 	<table class="table table-sm">
 		<tr>
@@ -107,13 +126,16 @@ table.sce_try_again {
 	</table>
 </div>
 <div id="challengesearchtable">
-<div>
-	<form class="d-flex" method=POST action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}&curriculum={{curriculum.id}}">
-        {% csrf_token %}
-		<input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
-		<button class="btn btn-outline-success" type="submit">Search</button>
-	</form>
-</div>
+	<div>
+		<form class="d-flex" method=POST action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}&curriculum={{curriculum.id}}">
+			{% csrf_token %}
+			<input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
+			<button class="btn btn-outline-success" type="submit">Search</button>
+		</form>
+	</div>
+	<div class="search_error_box">
+		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
+	</div>
 	<h2>Select a Challenge for {{student.first_name}} {{student.last_name}} > {{curriculum.progressionid.shortname}} > {{curriculum.shortname}}</h2>
 	<table class="table table-sm">
 		<tr>
@@ -128,7 +150,7 @@ table.sce_try_again {
 			<td>{{challenge.challengetypeid}}</td>
 			<td>{{challenge.answertypeid}}</td>
 			<td>{% for sce in sce_list %}
-				{% if sce.challengeid == challenge.id %}
+				{% if sce.challengeid.id == challenge.id %}
 					<table class="{%if sce.resultcode %}sce_passed{% else %}sce_try_again{% endif %}">
 						<tr>
 							<td>{{sce.instructorid.username}}</td>
