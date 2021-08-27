@@ -5,21 +5,21 @@ from django.contrib.auth.models import Group
 # Register your models here.
 from .models import *
 
-@admin.register(SecurityQuestion)
-class SecurityQuestionAdmin(admin.ModelAdmin):
-    fields = ['securityquestion', 'active', 'startdate','enddate']
-    def save_model(self, request, obj, form, change):
-        instance = form.save(commit=False)
-        if not hasattr(instance, 'created_by'):
-            instance.created_by = request.user
-        instance.lastmodifyby = request.user
-        instance.save()
-        form.save_m2m()
-        return instance
-    list_display = ('securityquestion', 'active', 'startdate', 'lastmodifydate',)
+#@admin.register(SecurityQuestion)
+#class SecurityQuestionAdmin(admin.ModelAdmin):
+#    fields = ['securityquestion', 'active', 'startdate','enddate']
+#    def save_model(self, request, obj, form, change):
+#        instance = form.save(commit=False)
+#        if not hasattr(instance, 'created_by'):
+#            instance.created_by = request.user
+#        instance.lastmodifyby = request.user
+#        instance.save()
+#        form.save_m2m()
+#        return instance
+#    list_display = ('securityquestion', 'active', 'startdate', 'lastmodifydate',)
 #    search_fields = ('securityquestion')
-    ordering = ('id',)
-    list_filter = ('active', 'startdate', 'lastmodifydate',)
+#    ordering = ('id',)
+#    list_filter = ('active', 'startdate', 'lastmodifydate',)
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):

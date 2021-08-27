@@ -11,24 +11,24 @@ datetime_str = '12/31/2999 23:59:59'
 
 # Create your models here.
 
-class SecurityQuestion(models.Model):
-  securityquestion = models.CharField(max_length=60)
-  active = models.BooleanField(default=True)
-  startdate = models.DateTimeField(default=datetime.now)
-  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
+#class SecurityQuestion(models.Model):
+#  securityquestion = models.CharField(max_length=60)
+#  active = models.BooleanField(default=True)
+#  startdate = models.DateTimeField(default=datetime.now)
+#  enddate = models.DateTimeField(default=datetime.strptime(datetime_str,'%m/%d/%Y %H:%M:%S'))
 #  enddate = models.DateTimeField(default=d)
-  lastmodifydate = models.DateTimeField(auto_now=True)
-  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.DO_NOTHING)
+#  lastmodifydate = models.DateTimeField(auto_now=True)
+#  lastmodifyby = models.ForeignKey(User, related_name="modifier", on_delete=models.DO_NOTHING)
 
-  def __str__(self):
-      return self.securityquestion
+#  def __str__(self):
+#      return self.securityquestion
 
 class UserProfile(models.Model):
   user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
   birthdate = models.DateField()
   userphoto = models.ImageField(default='profile2.png', upload_to = 'profile_pics', null=True, blank=True)
-  securityquestion01 = models.ForeignKey(SecurityQuestion, null=True, on_delete= models.SET_NULL)
-  securityanswer01 = models.CharField(max_length=60)
+#  securityquestion01 = models.ForeignKey(SecurityQuestion, null=True, on_delete= models.SET_NULL)
+#  securityanswer01 = models.CharField(max_length=60)
 #  securityquestion02 = models.ForeignKey(SecurityQuestion, null=True, on_delete= models.SET_NULL)
 #  securityanswer02 = models.CharField(max_length=60)
 #  securityquestion03 = models.ForeignKey(SecurityQuestion, null=True, on_delete= models.SET_NULL)
