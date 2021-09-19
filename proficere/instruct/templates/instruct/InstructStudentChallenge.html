@@ -1,29 +1,167 @@
 {%  extends 'accounts/main.html' %}
 
 {% block content %}
-<h2>{{student.first_name}} {{student.last_name}} > {{curriculum.progressionid.shortname}} > {{curriculum.shortname}}</h2>
-<h2>{{challenge.longname}}</h2>
-<p>Challenge Type: {{challenge.challengetypeid}}</p>
-<p>Answer Type: {{challenge.answertypeid}}</p>
-<p>Hints: {{challenge.hints}}</p>
-<p>HintsVideo: {% if challenge.hintsvideo%}
-	{% include 'instruct/VideoPlayerModal.html' with videoId=challenge.id videoUrl=challenge.hintsvideo.url videoTitle=challenge.shortname videoDescription=challenge.hints %}
-	{% endif %}</p>
 
-<h2>Assessment Form</h2>
-<form method="post" action="/instruct/InstructStudentChallenge_Submit">
-	{% csrf_token %}
-    
-    <input type="text" name="student" value="{{student.id}}" hidden>
-    <input type="text" name="curriculum" value="{{curriculum.id}}" hidden>
-    <input type="text" name="progression" value="{{curriculum.progressionid.id}}" hidden>
-    <input type="text" name="challenge" value="{{challenge.id}}" hidden>
+<style>
+    .button {
+        text-align: center;
+        padding:5px;
+        width:90%;
+        color:#000 !important;
+        background-color: #fff !important;
+        border:1px solid #ccc !important;
+        cursor:pointer;
+        border-radius:16px;
+    }
+</style>
+<!--Breadcrumbs-->
+<div>
+    <h2>{{student.first_name}} {{student.last_name}} > {{curriculum.progressionid.shortname}} > {{curriculum.shortname}}</h2>
+</div>
+<!--Body-->
+<div>
+    <!--Challenge Info-->
+    <div class="w-50" style="float:left">
+        <h2>{{challenge.longname}}</h2>
+        <p>Challenge Type: {{challenge.challengetypeid}}</p>
+        <p>Answer Type: {{challenge.answertypeid}}</p>
+        <p>Hints: {{challenge.hints}}</p>
+        <p>HintsVideo: {% if challenge.hintsvideo%}
+            {% include 'instruct/VideoPlayerModal.html' with videoId=challenge.id videoUrl=challenge.hintsvideo.url videoTitle=challenge.shortname videoDescription=challenge.hints %}
+            {% endif %}</p>
+    </div>
+    <!--Assessment Form-->
+    <div class="w-50" style="float:right">
+        <div>
+            <h2>Assessment Form</h2>
+            <form method="post" action="/instruct/InstructStudentChallenge_Submit">
+                {% csrf_token %}
+                <!--hidden values-->
+                <input type="text" name="student" value="{{student.id}}" hidden>
+                <input type="text" name="curriculum" value="{{curriculum.id}}" hidden>
+                <input type="text" name="progression" value="{{curriculum.progressionid.id}}" hidden>
+                <input type="text" name="challenge" value="{{challenge.id}}" hidden>
 
-	<input type="submit" name="pass_button" value="Pass"/>
-	<input type="submit" name="try_again_button" value="Try Again"/>
-</form>
+                <div class="p-2">
+                    <input type="submit" name="pass_button" value="Pass"/>
+                    <input type="submit" name="try_again_button" value="Try Again"/>
+                </div>
+            </form>
+        </div>
+        <div>
+            <!-- <video id="mediaStreamExample" controls muted width="400">
+                <source src="/media/cc0-videos/flower.webm" type="video/webm">
 
+                <source src="/media/cc0-videos/flower.mp4" type="video/mp4">
+
+                Sorry, your browser doesn't support embedded videos.
+            </video> -->
+            <!--Recording Buttons-->
+            <div>
+                <div style="width:50%;float:left">
+                    <h2>Preview Recording</h2>
+                    <video id="preview" width="100%" autoplay muted></video>
+                </div>
+                <div style="width:50%;float:right">
+                    <h2>Actual Recording</h2>
+                    <video id="recording" width="100%" controls></video>
+                </div>
+                <div style="clear:both"></div>
+                <div id="startButton" class="button">Start Recording</div>
+                <div id="stopButton" class="button">Stop Recording</div>
+                <div class="button"><a id="downloadButton">Save Recording</a></div>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+</div>
 <script type="text/javascript">
+
+    let preview = document.getElementById("preview");
+    let recording = document.getElementById("recording");
+    let startButton = document.getElementById("startButton");
+    let stopButton = document.getElementById("stopButton");
+    let downloadButton = document.getElementById("downloadButton");
+
+    let logElement = document.getElementById("log");
+
+    let recordingTimeMS = 30000;
+
+    function log(msg){
+        console.log("LOGMSG: "+msg);
+    }
+    function wait(delayInMS){
+        return new Promise(resolve => setTimeout(resolve,delayInMS));
+    }
+    function startRecording(stream,lengthInMS){
+        let recorder = new MediaRecorder(stream);
+        let data = [];
+
+        recorder.ondataavailable = event => data.push(event.data);
+        recorder.start();
+        log(recorder.state + " for " + (lengthInMS/1000) + " seconds...");
+
+        let stopped = new Promise((resolve, reject) => {
+            recorder.onstop = resolve;
+            recorder.onerror = event => reject(event.name);
+        });
+
+        let recorded = wait(lengthInMS).then(() => recorder.state == "recording" && recorder.stop()
+        );
+
+        return Promise.all([stopped,recorded]).then(() => data);
+    }
+
+    function stop(stream) {
+        stream.getTracks().forEach(track => track.stop());
+    }
+
+    startButton.addEventListener("click", function() {
+        navigator.mediaDevices.getUserMedia({video:true,audio:false}).then(stream => {
+            preview.srcObject = stream;
+            downloadButton.href = stream;
+            preview.captureStream = preview.captureStream || preview.mozCaptureStream;
+            return new Promise(resolve => preview.onplaying = resolve);
+        }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
+        .then (recordedChunks => {
+            let recordedBlob = new Blob(recordedChunks, {type:"video/webm"});
+            recording.src = URL.createObjectURL(recordedBlob);
+            downloadButton.href = recording.src;
+            downloadButton.download = BuildRecordingFileName(".webm");
+
+
+            log("Successfully recorded "+recordedBlob.size + " bytes of " + recordedBlob.type + " media.");
+        })
+        .catch(log);
+    },false);
+
+    stopButton.addEventListener("click", function() {
+        stop(preview.srcObject);
+    },false);
+
+    
+    function BuildRecordingFileName(fileExtension){
+        var currentDate = new Date();
+        var currDate = currentDate.getFullYear()+"-"+currentDate.getMonth()+"-"+currentDate.getDay()+"-"+currentDate.getHours()+"-"+currentDate.getMinutes()+"-"+currentDate.getSeconds();
+        const urlParams = new URLSearchParams(window.location.search);
+        var fileName= "S"+urlParams.get('student')+"_C"+urlParams.get('curriculum')+"_CH"+urlParams.get('challenge')+"_D"+currDate;
+        return fileName+fileExtension;
+    }
+    function StreamMediaDevice() {
+        // Prefer camera resolution nearest to 1280x720.
+        var constraints = { audio: true, video: { width: 1280, height: 720 } };
+
+        navigator.mediaDevices.getUserMedia(constraints)
+        .then(function(mediaStream) {
+        var video = document.getElementById('mediaStreamExample');
+        video.srcObject = mediaStream;
+        video.onloadedmetadata = function(e) {
+            video.play();
+        };
+        })
+        .catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors at the end.
+    }
+    StreamMediaDevice();
     function LaunchVideoModal(identifier){
         var modal = document.getElementById("videoModal-"+$(identifier).data('id')); 
         modal.style.display = "block";
