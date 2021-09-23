@@ -13,6 +13,50 @@
         cursor:pointer;
         border-radius:16px;
     }
+    .switch-field {
+	display: flex;
+	margin-bottom: 36px;
+	overflow: hidden;
+}
+
+.switch-field input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.switch-field label {
+	background-color: #e4e4e4;
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+	padding: 8px 16px;
+	margin-right: -1px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+	transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+	cursor: pointer;
+}
+
+.switch-field input:checked + label {
+	background-color: #a5dc86;
+	box-shadow: none;
+}
+
+.switch-field label:first-of-type {
+	border-radius: 4px 0 0 4px;
+}
+
+.switch-field label:last-of-type {
+	border-radius: 0 4px 4px 0;
+}
 </style>
 <!--Breadcrumbs-->
 <div>
@@ -33,22 +77,6 @@
     <!--Assessment Form-->
     <div class="w-50" style="float:right">
         <div>
-            <h2>Assessment Form</h2>
-            <form method="post" action="/instruct/InstructStudentChallenge_Submit">
-                {% csrf_token %}
-                <!--hidden values-->
-                <input type="text" name="student" value="{{student.id}}" hidden>
-                <input type="text" name="curriculum" value="{{curriculum.id}}" hidden>
-                <input type="text" name="progression" value="{{curriculum.progressionid.id}}" hidden>
-                <input type="text" name="challenge" value="{{challenge.id}}" hidden>
-
-                <div class="p-2">
-                    <input type="submit" name="pass_button" value="Pass"/>
-                    <input type="submit" name="try_again_button" value="Try Again"/>
-                </div>
-            </form>
-        </div>
-        <div>
             <!-- <video id="mediaStreamExample" controls muted width="400">
                 <source src="/media/cc0-videos/flower.webm" type="video/webm">
 
@@ -58,19 +86,40 @@
             </video> -->
             <!--Recording Buttons-->
             <div>
-                <div style="width:50%;float:left">
-                    <h2>Preview Recording</h2>
-                    <video id="preview" width="100%" autoplay muted></video>
+                <h2>Video Capture the Assessment</h2>
+                <p>Record up to 10 seconds of footage</p>
+                <div>
+                    <div id="startButton" class="button" style="float:left;width:30%">Start Recording</div><!--Changes to Stop button-->
+                    <div id="stopButton" class="button" style="float:left;width:30%">Stop Recording</div>
+                    <div class="button" style="float:left;width:30%"><a id="downloadButton">Save Recording</a></div><!--Is Disabled until a video recording file exists-->                
+                    <div style="clear:both"></div>
                 </div>
-                <div style="width:50%;float:right">
-                    <h2>Actual Recording</h2>
-                    <video id="recording" width="100%" controls></video>
+                <div style="padding:2.5% 10%;">
+                    <video id="preview" width="100%" autoplay muted controls></video>
                 </div>
-                <div style="clear:both"></div>
-                <div id="startButton" class="button">Start Recording</div>
-                <div id="stopButton" class="button">Stop Recording</div>
-                <div class="button"><a id="downloadButton">Save Recording</a></div>
             </div>
+        </div>
+        <div>
+            <h2>Assessment Form</h2>
+            <form method="post" action="/instruct/InstructStudentChallenge_Submit">
+                {% csrf_token %}
+                <!--hidden values-->
+                <input type="text" name="student" value="{{student.id}}" hidden>
+                <input type="text" name="curriculum" value="{{curriculum.id}}" hidden>
+                <input type="text" name="progression" value="{{curriculum.progressionid.id}}" hidden>
+                <input type="text" name="challenge" value="{{challenge.id}}" hidden>
+                <div class="p-2">
+                    <div class="switch-field">
+                        <input type="radio" id="radio-one" name="switch-one" value="yes"/>
+                        <label for="radio-one">Pass</label>
+                        <input type="radio" id="radio-two" name="switch-one" value="no" checked />
+                        <label for="radio-two">Try-Again</label>
+                    </div>
+                </div>
+                <textarea name="assessment_comments" placeholder="Enter Comments Here..." rows="5" cols="50"></textarea>
+                </br>
+                <input type="submit" name="submit_assessment_button" value="Complete Assessment"/>
+            </form>
         </div>
     </div>
     <div style="clear:both"></div>
@@ -78,14 +127,13 @@
 <script type="text/javascript">
 
     let preview = document.getElementById("preview");
-    let recording = document.getElementById("recording");
     let startButton = document.getElementById("startButton");
     let stopButton = document.getElementById("stopButton");
     let downloadButton = document.getElementById("downloadButton");
 
     let logElement = document.getElementById("log");
 
-    let recordingTimeMS = 30000;
+    let recordingTimeMS = 10000;
 
     function log(msg){
         console.log("LOGMSG: "+msg);
@@ -106,10 +154,11 @@
             recorder.onerror = event => reject(event.name);
         });
 
-        let recorded = wait(lengthInMS).then(() => recorder.state == "recording" && recorder.stop()
-        );
+        // let recorded = wait(lengthInMS).then(() => recorder.state == "recording" && recorder.stop()
+        // );
 
-        return Promise.all([stopped,recorded]).then(() => data);
+        return Promise.all([stopped]).then(() => data);
+        // return Promise.all([stopped,recorded]).then(() => data);
     }
 
     function stop(stream) {
@@ -117,7 +166,9 @@
     }
 
     startButton.addEventListener("click", function() {
-        navigator.mediaDevices.getUserMedia({video:true,audio:false}).then(stream => {
+        navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {
+            console.log("PreviewCaptureStream: "+preview.captureStream);
+            console.log("Preview SrcObject: "+preview.srcObject);
             preview.srcObject = stream;
             downloadButton.href = stream;
             preview.captureStream = preview.captureStream || preview.mozCaptureStream;
@@ -125,10 +176,10 @@
         }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
         .then (recordedChunks => {
             let recordedBlob = new Blob(recordedChunks, {type:"video/webm"});
-            recording.src = URL.createObjectURL(recordedBlob);
-            downloadButton.href = recording.src;
+            preview.srcObject = null;
+            preview.src = URL.createObjectURL(recordedBlob);
+            downloadButton.href = preview.src;
             downloadButton.download = BuildRecordingFileName(".webm");
-
 
             log("Successfully recorded "+recordedBlob.size + " bytes of " + recordedBlob.type + " media.");
         })
@@ -147,21 +198,23 @@
         var fileName= "S"+urlParams.get('student')+"_C"+urlParams.get('curriculum')+"_CH"+urlParams.get('challenge')+"_D"+currDate;
         return fileName+fileExtension;
     }
-    function StreamMediaDevice() {
-        // Prefer camera resolution nearest to 1280x720.
-        var constraints = { audio: true, video: { width: 1280, height: 720 } };
+    
+    // function StreamMediaDevice() {
+    //     // Prefer camera resolution nearest to 1280x720.
+    //     var constraints = { audio: true, video: { width: 1280, height: 720 } };
 
-        navigator.mediaDevices.getUserMedia(constraints)
-        .then(function(mediaStream) {
-        var video = document.getElementById('mediaStreamExample');
-        video.srcObject = mediaStream;
-        video.onloadedmetadata = function(e) {
-            video.play();
-        };
-        })
-        .catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors at the end.
-    }
-    StreamMediaDevice();
+    //     navigator.mediaDevices.getUserMedia(constraints)
+    //     .then(function(mediaStream) {
+    //     var video = document.getElementById('mediaStreamExample');
+    //     video.srcObject = mediaStream;
+    //     video.onloadedmetadata = function(e) {
+    //         video.play();
+    //     };
+    //     })
+    //     .catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors at the end.
+    // }
+    // StreamMediaDevice();
+
     function LaunchVideoModal(identifier){
         var modal = document.getElementById("videoModal-"+$(identifier).data('id')); 
         modal.style.display = "block";
