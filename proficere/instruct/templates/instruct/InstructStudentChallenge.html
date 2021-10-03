@@ -110,15 +110,15 @@
                 <input type="text" name="challenge" value="{{challenge.id}}" hidden>
                 <div class="p-2">
                     <div class="switch-field">
-                        <input type="radio" id="radio-one" name="switch-one" value="yes"/>
+                        <input type="radio" id="radio-one" name="resultCode" value="pass"/>
                         <label for="radio-one">Pass</label>
-                        <input type="radio" id="radio-two" name="switch-one" value="no" checked />
+                        <input type="radio" id="radio-two" name="resultCode" value="try-again" checked />
                         <label for="radio-two">Try-Again</label>
                     </div>
                 </div>
                 <textarea name="assessment_comments" placeholder="Enter Comments Here..." rows="5" cols="50"></textarea>
                 </br>
-                <input id="fileInputElement" type="file" name="recordingBlob">
+                <input hidden id="fileInputElement" type="file" name="recordingBlob">
                 <input type="submit" name="submit_assessment_button" value="Complete Assessment"/>
             </form>
         </div>

@@ -170,14 +170,13 @@ def instructStudentChallenge_Submit(request):
 	student = User.objects.get(id=studentid)
 	curriculum = Curriculum.objects.get(id=curriculumid)
 	challenge = Challenge.objects.get(id=challengeid)
-	if(request.POST.get('pass_button')):
-		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,assessdate=timezone.now(),resultcode=True)
+	if(request.POST.get('resultCode') == "pass"):
+		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=True)
 	else:
-		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,assessdate=timezone.now(),resultcode=False)
+		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=False)
 
 	#Save the recoding
 	#if 'recodingBlob' in request.POST:
-	recordingName = request.FILES.get('recordingBlob').name
 	recording = request.FILES.get('recordingBlob')
 	path = default_storage.save('ChallengeRecordings/'+recording.name, ContentFile(recording.read()))
 
