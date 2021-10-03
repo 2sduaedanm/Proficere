@@ -101,7 +101,7 @@
         </div>
         <div>
             <h2>Assessment Form</h2>
-            <form method="post" action="/instruct/InstructStudentChallenge_Submit">
+            <form id="submitChallengeForm" method="POST" enctype="multipart/form-data" action="/instruct/InstructStudentChallenge_Submit">
                 {% csrf_token %}
                 <!--hidden values-->
                 <input type="text" name="student" value="{{student.id}}" hidden>
@@ -118,6 +118,7 @@
                 </div>
                 <textarea name="assessment_comments" placeholder="Enter Comments Here..." rows="5" cols="50"></textarea>
                 </br>
+                <input id="fileInputElement" type="file" name="recordingBlob">
                 <input type="submit" name="submit_assessment_button" value="Complete Assessment"/>
             </form>
         </div>
@@ -130,6 +131,9 @@
     let startButton = document.getElementById("startButton");
     let stopButton = document.getElementById("stopButton");
     let downloadButton = document.getElementById("downloadButton");
+    let submitChallengeForm = document.getElementById("submitChallengeForm");
+    let fileInputElement = document.getElementById("fileInputElement");
+
 
     let logElement = document.getElementById("log");
 
@@ -182,6 +186,15 @@
             downloadButton.download = BuildRecordingFileName(".webm");
 
             log("Successfully recorded "+recordedBlob.size + " bytes of " + recordedBlob.type + " media.");
+
+            file = new File([recordedBlob],BuildRecordingFileName(".webm"),{type:"video/webm",lastModified:new Date().getTime()});
+            container = new DataTransfer();
+            container.items.add(file);
+            fileInputElement.files = container.files;
+
+            //submitChallengeFormData = new FormData(submitChallengeForm);
+            //submitChallengeFormData.append("recordingBlob",recordedBlob,BuildRecordingFileName(".webm"));
+            
         })
         .catch(log);
     },false);

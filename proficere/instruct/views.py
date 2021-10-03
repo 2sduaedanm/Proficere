@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect 
 from django.urls import reverse
+from django.utils import timezone
 from urllib.parse import urlencode
 from django.http import HttpResponse
 #from django.forms import inlineformset_factory
@@ -13,6 +14,9 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import CreateUserForm
 from django.db.models import Q
+
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
 
 # Create your views here.
 
@@ -167,10 +171,18 @@ def instructStudentChallenge_Submit(request):
 	curriculum = Curriculum.objects.get(id=curriculumid)
 	challenge = Challenge.objects.get(id=challengeid)
 	if(request.POST.get('pass_button')):
-		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=True)
+		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,assessdate=timezone.now(),resultcode=True)
 	else:
-		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=False)
+		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,assessdate=timezone.now(),resultcode=False)
 
+	#Save the recoding
+	#if 'recodingBlob' in request.POST:
+	recordingName = request.FILES.get('recordingBlob').name
+	recording = request.FILES.get('recordingBlob')
+	path = default_storage.save('ChallengeRecordings/'+recording.name, ContentFile(recording.read()))
+
+
+	#Reroute back to ChallengeSelection for that same Student + Curriculum
 	base_url = reverse('instructStudentChallenge_select')  # 1 /products/
 	query_string =  urlencode({'student': studentid,'curriculum':curriculumid})  # 2 category=42
 	url = '{}?{}'.format(base_url, query_string)  # 3 /products/?category=42
