@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -24,10 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'm+-a6-g06*j$ry_pphmv^&l2v)w(nylwx7^-bnl-nq(=e2i#ui'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+#DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['3.144.38.40','ec2-3-144-38-40.us-east-2.compute.amazonaws.com']
+#ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -136,7 +137,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static",]
+#STATICFILES_DIRS = [BASE_DIR / "static",]
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
