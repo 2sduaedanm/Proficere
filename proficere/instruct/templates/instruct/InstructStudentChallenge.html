@@ -77,21 +77,13 @@
     <!--Assessment Form-->
     <div class="w-50" style="float:right">
         <div>
-            <!-- <video id="mediaStreamExample" controls muted width="400">
-                <source src="/media/cc0-videos/flower.webm" type="video/webm">
-
-                <source src="/media/cc0-videos/flower.mp4" type="video/mp4">
-
-                Sorry, your browser doesn't support embedded videos.
-            </video> -->
-            <!--Recording Buttons-->
             <div>
                 <h2>Video Capture the Assessment</h2>
                 <p>Record up to 10 seconds of footage</p>
                 <div>
                     <div id="startButton" class="button" style="float:left;width:30%">Start Recording</div><!--Changes to Stop button-->
                     <div id="stopButton" class="button" style="float:left;width:30%">Stop Recording</div>
-                    <div class="button" style="float:left;width:30%"><a id="downloadButton">Save Recording</a></div><!--Is Disabled until a video recording file exists-->                
+                    <div hidden class="button" style="float:left;width:30%"><a id="downloadButton">Save Recording</a></div><!--Is Disabled until a video recording file exists-->                
                     <div style="clear:both"></div>
                 </div>
                 <div style="padding:2.5% 10%;">
@@ -212,22 +204,6 @@
         return fileName+fileExtension;
     }
     
-    // function StreamMediaDevice() {
-    //     // Prefer camera resolution nearest to 1280x720.
-    //     var constraints = { audio: true, video: { width: 1280, height: 720 } };
-
-    //     navigator.mediaDevices.getUserMedia(constraints)
-    //     .then(function(mediaStream) {
-    //     var video = document.getElementById('mediaStreamExample');
-    //     video.srcObject = mediaStream;
-    //     video.onloadedmetadata = function(e) {
-    //         video.play();
-    //     };
-    //     })
-    //     .catch(function(err) { console.log(err.name + ": " + err.message); }); // always check for errors at the end.
-    // }
-    // StreamMediaDevice();
-
     function LaunchVideoModal(identifier){
         var modal = document.getElementById("videoModal-"+$(identifier).data('id')); 
         modal.style.display = "block";
