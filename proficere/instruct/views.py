@@ -175,9 +175,9 @@ def instructStudentChallenge_Submit(request):
 		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=False)
 
 	#Save the recoding
-	#if 'recodingBlob' in request.POST:
-	recording = request.FILES.get('recordingBlob')
-	path = default_storage.save('ChallengeRecordings/'+recording.name, ContentFile(recording.read()))
+	if 'recodingBlob' in request.FILES:
+		recording = request.FILES.get('recordingBlob')
+		path = default_storage.save('ChallengeRecordings/'+recording.name, ContentFile(recording.read()))
 
 
 	#Reroute back to ChallengeSelection for that same Student + Curriculum

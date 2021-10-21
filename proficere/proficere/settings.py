@@ -31,6 +31,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['3.144.38.40','ec2-3-144-38-40.us-east-2.compute.amazonaws.com']
 #ALLOWED_HOSTS = []
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 # Application definition
 
 INSTALLED_APPS = [
