@@ -110,7 +110,7 @@ def instructStudentChallenge_select(request):
 	if(studentid):
 		student = User.objects.get(id=studentid)
 		if searched:
-			currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(studentid= student.id, statusid__in = [1,2])).filter(Q(longname__contains = searched)).order_by('progressionid')
+			currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(studentid= student.id, statusid__in = [1,2])).filter(Q(longname__icontains = searched)).order_by('progressionid')
 			if (not curriculumid) & (not currentCurriculumList):
 				currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(studentid= student.id, statusid__in = [1,2])).order_by('progressionid')
 				context.update({"search_error":searched})
@@ -120,7 +120,7 @@ def instructStudentChallenge_select(request):
 	if(curriculumid):
 		curriculum = Curriculum.objects.get(id=curriculumid)
 		if searched:
-			challengeList = Challenge.objects.filter(challengecurriculums__curriculumid=curriculum.id).filter(longname__contains = searched)
+			challengeList = Challenge.objects.filter(challengecurriculums__curriculumid=curriculum.id).filter(longname__icontains = searched)
 			if (not challengeList):
 				challengeList = Challenge.objects.filter(challengecurriculums__curriculumid=curriculum.id)
 				context.update({"search_error":searched})
@@ -132,7 +132,7 @@ def instructStudentChallenge_select(request):
 
 	#If no studentid is present, get and show the list of students
 	if searched:
-		studentList = User.objects.filter(groups__name = 'Student').filter(Q(username__contains = searched)|Q(last_name__contains = searched)|Q(first_name__contains = searched)).order_by('last_name','first_name')
+		studentList = User.objects.filter(groups__name = 'Student').filter(Q(username__icontains = searched)|Q(last_name__icontains = searched)|Q(first_name__icontains = searched)).order_by('last_name','first_name')
 		if (not studentid) & (not curriculumid) & (not studentList):
 				studentList = User.objects.filter(groups__name = 'Student').order_by('last_name','first_name')
 				context.update({"search_error":searched})
