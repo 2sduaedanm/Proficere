@@ -28,7 +28,8 @@ SECRET_KEY = 'm+-a6-g06*j$ry_pphmv^&l2v)w(nylwx7^-bnl-nq(=e2i#ui'
 DEBUG = False
 #DEBUG = True
 
-ALLOWED_HOSTS = ['3.140.186.115','ec2-3-140-186-115.us-east-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['18.189.84.39', 'poweredby2sd.com', 'ec2-18-189-84-39.us-east-2.compute.amazonaws.com']
+#ALLOWED_HOSTS = ['3.140.186.115','ec2-3-140-186-115.us-east-2.compute.amazonaws.com']
 #ALLOWED_HOSTS = []
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
