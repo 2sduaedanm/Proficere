@@ -2,12 +2,18 @@ server {
     listen 80;
     server_name 18.189.84.39;
 
-    return 302 $scheme://ec2-18-189-84-39.us-east-2.compute.amazonaws.com$request_uri;
+    return 302 $scheme://poweredby2sd.com$request_uri;
+}
+server {
+    listen 80;
+    server_name *.us-east-2.compute.amazonaws.com;
+
+    return 302 $scheme://poweredby2sd.com$request_uri;
 }
 
 server {
     listen 80;
-    server_name *.us-east-2.compute.amazonaws.com;
+    server_name poweredby2sd.com;
 
     location = /favicon.ico { access_log off; log_not_found off; }
 
