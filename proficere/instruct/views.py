@@ -169,15 +169,23 @@ def instructStudentChallenge_Submit(request):
 	student = User.objects.get(id=studentid)
 	curriculum = Curriculum.objects.get(id=curriculumid)
 	challenge = Challenge.objects.get(id=challengeid)
-	if(request.POST.get('resultCode') == "pass"):
-		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=True)
-	else:
-		StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=False)
-
+	
 	#Save the recoding	
 	recording = request.FILES.get('recordingBlob')
 	if recording is not None:
-		path = default_storage.save('ChallengeRecordings/'+recording.name, ContentFile(recording.read()))
+		videofilepath = 'ChallengeRecordings/'+recording.name
+		path = default_storage.save(videofilepath, ContentFile(recording.read()))
+		if(request.POST.get('resultCode') == "pass"):
+			StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=True,videofile=videofilepath)
+		else:
+			StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=False,videofile=videofilepath)
+	else:
+		if(request.POST.get('resultCode') == "pass"):
+			StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=True)
+		else:
+			StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=False)
+	
+	
 
 
 	#Reroute back to ChallengeSelection for that same Student + Curriculum
