@@ -60,20 +60,17 @@ def logoutUser(request):
 	logout(request)
 	return redirect('login')
 
-
 @login_required(login_url='login')
 def home(request):
 	context = {}
 
 	return render(request, 'instruct/dashboard.html', context)
 
-
 @login_required(login_url='login')
 def instructor_home(request):
 	context = {}
 
 	return render(request, 'instruct/dashboard.html', context)
-
 
 @login_required(login_url='login')
 def student_home(request):
@@ -144,7 +141,6 @@ def instructStudentChallenge_select(request):
 
 @login_required(login_url='login')
 def instructStudentChallenge(request):
-
 	challengeid = request.GET.get('challenge')
 	curriculumid = request.GET.get('curriculum')
 	studentid = request.GET.get('student')
@@ -163,6 +159,7 @@ def instructStudentChallenge_Submit(request):
 	curriculumid = request.POST.get('curriculum')
 	progressionid = request.POST.get('progression')
 	studentid = request.POST.get('student')
+	assessment_comments = request.POST.get('assessment_comments')
 
 	#Save the event
 	progression = Progression.objects.get(id=progressionid)
@@ -176,18 +173,16 @@ def instructStudentChallenge_Submit(request):
 		videofilepath = 'ChallengeRecordings/'+recording.name
 		path = default_storage.save(videofilepath, ContentFile(recording.read()))
 		if(request.POST.get('resultCode') == "pass"):
-			StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=True,videofile=videofilepath)
+			StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=True,comment=assessment_comments,videofile=videofilepath)
 		else:
-			StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=False,videofile=videofilepath)
+			StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=False,comment=assessment_comments,videofile=videofilepath)
 	else:
 		if(request.POST.get('resultCode') == "pass"):
-			StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=True)
+			StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=True,comment=assessment_comments)
 		else:
-			StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=False)
+			StudentChallengeEvent.objects.create(progressionid=progression,studentid=student,curriculumid=curriculum,challengeid=challenge,instructorid=request.user,resultcode=False,comment=assessment_comments)
 	
 	
-
-
 	#Reroute back to ChallengeSelection for that same Student + Curriculum
 	base_url = reverse('instructStudentChallenge_select')  # 1 /products/
 	query_string =  urlencode({'student': studentid,'curriculum':curriculumid})  # 2 category=42
