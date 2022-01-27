@@ -122,3 +122,5 @@ class StudentChallengeEvent (models.Model):
     assessdate = models.DateTimeField(default=datetime.now)
     instructorid = models.ForeignKey(User, on_delete=models.CASCADE, related_name="instructor_user")
     resultcode = models.BooleanField(default=False)
+    videofile = models.CharField(blank=True,max_length=255)
+    comment = models.TextField(blank=True)
