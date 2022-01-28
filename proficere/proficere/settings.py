@@ -25,12 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'm+-a6-g06*j$ry_pphmv^&l2v)w(nylwx7^-bnl-nq(=e2i#ui'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-#DEBUG = True
+#DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['18.189.84.39', 'poweredby2sd.com', 'ec2-18-189-84-39.us-east-2.compute.amazonaws.com']
+# ALLOWED_HOSTS = ['18.189.84.39', 'poweredby2sd.com',
+#                 'ec2-18-189-84-39.us-east-2.compute.amazonaws.com']
 #ALLOWED_HOSTS = ['3.140.186.115','ec2-3-140-186-115.us-east-2.compute.amazonaws.com']
-#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
@@ -47,7 +48,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'instruct.apps.InstructConfig',
 
-#    'django_filters',
+    #    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -84,12 +85,12 @@ WSGI_APPLICATION = 'proficere.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-#DATABASES = {
+# DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
-#}
+# }
 
 DATABASES = {
     'default': {
@@ -147,12 +148,28 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
+# SMTP Configuration
 
-#SMTP Configuration
+
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'email-smtp.us-east-2.amazonaws.com'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+#EMAIL_HOST_USER = 'AKIAVOUGXEC6BBA3EBMV'
+#EMAIL_HOST_PASSWORD = 'BBGDJ/3JMRxCoNOb8Fy0w6XY/pVM1RvL0kH+QcDrDVsh'
+#DEFAULT_FROM_EMAIL = 'uaedanm@gmail.com'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'mail.absolute2sd.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'uaedanm@gmail.com'
-EMAIL_HOST_PASSWORD = 'P3pere(90'
+EMAIL_HOST_USER = 'proficere@absolute2sd.com'
+EMAIL_HOST_PASSWORD = 'b0bc@t82'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+#EMAIL_HOST_USER = 'uaedanm@gmail.com'
+#EMAIL_HOST_PASSWORD = 'P3pere(90'
