@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 from pathlib import Path
 import os
+import socket
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -140,9 +141,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+STATIC_URL = 'static/'
+HOSTNAME = socket.gethostname()
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+# if hostname same as production url name use STATIC_ROOT 
+if HOSTNAME == 'poweredby2sd.com':
+    STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+else:
+    STATICFILES_DIRS = [
+            os.path.join(BASE_DIR, 'static/'),
+        ]
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
