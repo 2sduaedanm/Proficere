@@ -12,16 +12,18 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-  <a class="nav-link" href="{% url 'home' %}">
-      <img src="{% static 'images/ZLC_logo.jpg' %}" alt="" width="50" height="50" class="img-fluid d-inline-block align-text-top">
-  </a>
-<!--    <a class="navbar-brand" href="#">Navbar</a>-->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="nav-link" href="{% url 'home' %}">
+      <img src="{% static 'images/ZLC_logo.jpg' %}" alt="" width="50" height="50"
+        class="img-fluid d-inline-block align-text-top">
+    </a>
+    <!--    <a class="navbar-brand" href="#">Navbar</a>-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-<!--
+        <!--
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
@@ -34,22 +36,22 @@
           <a class="nav-link" href="{% url 'admin:index' %}">DjangoAdmin</a>
         </li>
         {% endif %}
-      {% if request.user|has_group:"Instructor" %}
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'instructHome' %}">Instruct Students</a>
-      </li>
-      {% endif %}
-      {% if request.user|has_group:"Student" %}
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'studentHome' %}">Student Portal</a>
-      </li>
-      {% endif %}
-      {% if request.user|has_group:"Staff" %}
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'staffHome' %}">Staff Home</a>
-      </li>
-      {% endif %}
-<!--
+        {% if request.user|has_group:"Instructor" %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'instructHome' %}">Instruct Students</a>
+        </li>
+        {% endif %}
+        {% if request.user|has_group:"Student" %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'studentHome' %}">Student Portal</a>
+        </li>
+        {% endif %}
+        {% if request.user|has_group:"StaffAdmin" %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'staffHome' %}">Staff Home</a>
+        </li>
+        {% endif %}
+        <!--
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
@@ -63,7 +65,7 @@
         </li>
 -->
       </ul>
-<!--
+      <!--
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
@@ -71,8 +73,8 @@
 -->
     </div>
 
-  <span class="hello-msg">Hello, {{request.user}}</span>
-  <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+    <span class="hello-msg">Hello, {{request.user}}</span>
+    <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
 
   </div>
 </nav>
