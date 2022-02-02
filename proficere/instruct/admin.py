@@ -110,8 +110,8 @@ class StudentCurriculumAdmin(admin.ModelAdmin):
         return instance
 
 class StudentChallengeEventAdmin(admin.ModelAdmin):
-    fields = ['progressionid', 'studentid', 'curriculumid', 'challengeid', 'instructorid', 'assessdate', 'resultcode']
-    list_display = ('progressionid', 'studentid', 'curriculumid', 'challengeid', 'instructorid', 'assessdate', 'resultcode')
+    fields = ['progressionid', 'studentid', 'curriculumid', 'challengeid', 'instructorid', 'assessdate', 'resultcode','videofile','comment']
+    list_display = ('progressionid', 'studentid', 'curriculumid', 'challengeid', 'instructorid', 'assessdate', 'resultcode','videofile','comment')
     search_fields = ('curriculumid', 'challengeid')
     ordering = ('assessdate',)
     list_filter = ('resultcode', 'assessdate',)
