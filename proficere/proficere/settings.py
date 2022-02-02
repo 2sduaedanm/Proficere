@@ -156,12 +156,28 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
+# SMTP Configuration
 
-#SMTP Configuration
+
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'email-smtp.us-east-2.amazonaws.com'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+#EMAIL_HOST_USER = 'AKIAVOUGXEC6BBA3EBMV'
+#EMAIL_HOST_PASSWORD = 'BBGDJ/3JMRxCoNOb8Fy0w6XY/pVM1RvL0kH+QcDrDVsh'
+#DEFAULT_FROM_EMAIL = 'uaedanm@gmail.com'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'mail.absolute2sd.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'uaedanm@gmail.com'
-EMAIL_HOST_PASSWORD = 'P3pere(90'
+EMAIL_HOST_USER = 'proficere@absolute2sd.com'
+EMAIL_HOST_PASSWORD = 'b0bc@t82'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+#EMAIL_HOST_USER = 'uaedanm@gmail.com'
+#EMAIL_HOST_PASSWORD = 'P3pere(90'
