@@ -228,8 +228,8 @@ sudo apt-get update
 sudo apt-get install python-dev libpq-dev postgresql postgresql-contrib
 
 Setup PostgreSQL,
-sudo su — postgres
-Psql
+sudo -su postgres
+psql
 CREATE DATABASE proficere;
 Set your password for postgres
 /password
