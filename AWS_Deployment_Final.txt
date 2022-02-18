@@ -231,11 +231,14 @@ Setup PostgreSQL,
 sudo -su postgres
 psql
 CREATE DATABASE proficere;
-Set your password for postgres
-/password
+
+Perform either of the following commands:
 Input the password used in your proficere/settings.py file
-# CREATE USER adesh WITH PASSWORD ‘mysecretpass’;
-# GRANT ALL PRIVILEGES ON DATABASE djangodemodb TO adesh;
+# CREATE USER postgres WITH PASSWORD ‘mysecretpass’;
+ALTER USER postgres PASSWORD 'mysecretpass';
+
+Then:
+# GRANT ALL PRIVILEGES ON DATABASE proficere TO postgres;
 \q
 exit
 
