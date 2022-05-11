@@ -1,4 +1,5 @@
 {%  extends 'accounts/main.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -57,6 +58,38 @@
 .switch-field label:last-of-type {
 	border-radius: 0 4px 4px 0;
 }
+
+.video_recorder_controls {
+    margin-top:-10px;
+    background-color: #020202;
+}
+#startButton {
+    background: url("/static/images/VideoPlayerIcons/record_icon.png") no-repeat center;
+    background-size:50px 50px;
+    color: white;
+}
+#stopButton {
+    background: url("/static/images/VideoPlayerIcons/stop_icon.png") no-repeat center;
+    background-size:50px 50px;
+    color: white;
+}
+#startButton,#stopButton,#switchCameraButton {
+    cursor:pointer;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    height: 50px;
+    display:none;
+}
+#startButton:hover,#stopButton:hover {
+    background-color: #ccc;
+}
+#startButton.active,#stopButton.active {
+    display:block;
+    
+}
+
+
 </style>
 <!--Breadcrumbs-->
 <div>
@@ -80,14 +113,14 @@
             <div>
                 <h2>Video Capture the Assessment</h2>
                 <p>Record up to 10 seconds of footage</p>
-                <div>
-                    <div id="startButton" class="button" style="float:left;width:30%">Start Recording</div><!--Changes to Stop button-->
-                    <div id="stopButton" class="button" style="float:left;width:30%">Stop Recording</div>
-                    <div hidden class="button" style="float:left;width:30%"><a id="downloadButton">Save Recording</a></div><!--Is Disabled until a video recording file exists-->                
-                    <div style="clear:both"></div>
-                </div>
-                <div style="padding:2.5% 10%;">
+                <div style="padding:2.5% 10% 0 10%;">
                     <video id="preview" width="100%" autoplay muted controls></video>
+                    <div class="video_recorder_controls">
+                        <div id="startButton" class="active"></div><!--Changes to Stop button-->
+                        <div id="stopButton"></div>
+                        <div hidden class="button" style="float:left;width:30%"><a id="downloadButton">Save Recording</a></div><!--Is Disabled until a video recording file exists-->                
+                        <div style="clear:both"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -138,6 +171,7 @@
         return new Promise(resolve => setTimeout(resolve,delayInMS));
     }
     function startRecording(stream,lengthInMS){
+        Toggle_playstop();
         let recorder = new MediaRecorder(stream);
         let data = [];
 
@@ -192,10 +226,19 @@
     },false);
 
     stopButton.addEventListener("click", function() {
+        Toggle_playstop();
         stop(preview.srcObject);
     },false);
 
-    
+    function Toggle_playstop(){
+        if(startButton.classList.contains("active")){
+            startButton.className = startButton.className.replace("active", "");
+            stopButton.className += "active";
+        } else {
+            startButton.className += "active";
+            stopButton.className = stopButton.className.replace("active", "");
+        }
+    }
     function BuildRecordingFileName(fileExtension){
         var currentDate = new Date();
         var currDate = currentDate.getFullYear()+"-"+currentDate.getMonth()+"-"+currentDate.getDay()+"-"+currentDate.getHours()+"-"+currentDate.getMinutes()+"-"+currentDate.getSeconds();
