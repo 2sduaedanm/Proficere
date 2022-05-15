@@ -12,19 +12,30 @@ server {
 }
 
 server {
-    listen 80;
+    listen 443 ssl;
     server_name poweredby2sd.com;
+    ssl_certificate /etc/letsencrypt/live/poweredby2sd.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/poweredby2sd.com/privkey.pem;
+
+    client_max_body_size 512M;
 
     location = /favicon.ico { access_log off; log_not_found off; }
 
     location /static/ {
-    autoindex on;
-    alias /home/ubuntu/Proficere/proficere/static/;
-    #root /home/ubuntu/Proficere/proficere;
+        autoindex on;
+        alias /home/ubuntu/Proficere/proficere/static/;
+        #root /home/ubuntu/Proficere/proficere;
     }
 
     location / {
-    include proxy_params;
-    proxy_pass http://unix:/home/ubuntu/Proficere/proficere/proficere.sock;
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/Proficere/proficere/proficere.sock;
     }
+}
+
+server {
+    listen 80;
+    server_name poweredby2sd.com;
+
+    return 302 https://poweredby2sd.com$request_uri;
 }
