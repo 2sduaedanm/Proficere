@@ -116,8 +116,8 @@
                 <div style="padding:2.5% 10% 0 10%;">
                     <video id="preview" width="100%" autoplay muted controls></video>
                     <div class="video_recorder_controls">
-                        <div id="startButton" class="active"></div><!--Changes to Stop button-->
-                        <div id="stopButton"></div>
+                        <div id="startButton" class=" active"></div><!--Changes to Stop button-->
+                        <div id="stopButton" ></div>
                         <div hidden class="button" style="float:left;width:30%"><a id="downloadButton">Save Recording</a></div><!--Is Disabled until a video recording file exists-->                
                         <div style="clear:both"></div>
                     </div>
@@ -231,12 +231,12 @@
     },false);
 
     function Toggle_playstop(){
-        if(startButton.classList.contains("active")){
-            startButton.className = startButton.className.replace("active", "");
-            stopButton.className += "active";
+        if(startButton.classList.contains(" active")){
+            startButton.className = startButton.className.replace(" active", "");
+            stopButton.className += " active";
         } else {
-            startButton.className += "active";
-            stopButton.className = stopButton.className.replace("active", "");
+            startButton.className += " active";
+            stopButton.className = stopButton.className.replace(" active", "");
         }
     }
     function BuildRecordingFileName(fileExtension){
