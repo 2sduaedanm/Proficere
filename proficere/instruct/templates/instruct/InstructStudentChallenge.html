@@ -196,7 +196,7 @@
     }
 
     startButton.addEventListener("click", function() {
-        navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {
+        navigator.mediaDevices.getUserMedia({video: {facingMode:"environment"}, audio:true}).then(stream => {
             console.log("PreviewCaptureStream: "+preview.captureStream);
             console.log("Preview SrcObject: "+preview.srcObject);
             preview.srcObject = stream;
