@@ -59,9 +59,14 @@
 	border-radius: 0 4px 4px 0;
 }
 
-.video_recorder_controls {
+.video_recorder_controls_bkg {
     margin-top:-10px;
     background-color: #020202;
+}
+.video_recorder_controls {
+    margin-left: auto;
+    margin-right: auto;
+    width:max-content;
 }
 #startButton {
     background: url("/static/images/VideoPlayerIcons/record_icon.png") no-repeat center;
@@ -73,15 +78,24 @@
     background-size:50px 50px;
     color: white;
 }
+#switchCameraButton {
+    background: url("/static/images/VideoPlayerIcons/switch_camera_icon.png") no-repeat center;
+    background-size:50px 50px;
+    color: white;
+    display:block;
+}
 #startButton,#stopButton,#switchCameraButton {
     cursor:pointer;
     margin-left: auto;
     margin-right: auto;
     width: 50px;
     height: 50px;
+    float:left;
+}
+#startButton,#stopButton {
     display:none;
 }
-#startButton:hover,#stopButton:hover {
+#startButton:hover,#stopButton:hover,#switchCameraButton:hover {
     background-color: #ccc;
 }
 #startButton.active,#stopButton.active {
@@ -115,11 +129,14 @@
                 <p>Record up to 10 seconds of footage</p>
                 <div style="padding:2.5% 10% 0 10%;">
                     <video id="preview" width="100%" autoplay muted controls></video>
-                    <div class="video_recorder_controls">
-                        <div id="startButton" class=" active"></div><!--Changes to Stop button-->
-                        <div id="stopButton" ></div>
-                        <div hidden class="button" style="float:left;width:30%"><a id="downloadButton">Save Recording</a></div><!--Is Disabled until a video recording file exists-->                
-                        <div style="clear:both"></div>
+                    <div class="video_recorder_controls_bkg">
+                        <div class="video_recorder_controls">
+                            <div id="startButton" class=" active"></div><!--Changes to Stop button-->
+                            <div id="stopButton" ></div>
+                            <div id="switchCameraButton" data-facing="environment" ></div>
+                            <div hidden class="button" style="float:left;width:30%"><a id="downloadButton">Save Recording</a></div><!--Is Disabled until a video recording file exists-->                
+                            <div style="clear:both"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -155,6 +172,7 @@
     let preview = document.getElementById("preview");
     let startButton = document.getElementById("startButton");
     let stopButton = document.getElementById("stopButton");
+    let switchCameraButton = document.getElementById("switchCameraButton");
     let downloadButton = document.getElementById("downloadButton");
     let submitChallengeForm = document.getElementById("submitChallengeForm");
     let fileInputElement = document.getElementById("fileInputElement");
@@ -163,6 +181,26 @@
     let logElement = document.getElementById("log");
 
     let recordingTimeMS = 10000;
+
+    loadRecordingStream(switchCameraButton.dataset.facing);
+
+    switchCameraButton.addEventListener("click", function() {
+        if(switchCameraButton.dataset.facing == "environment") {
+            switchCameraButton.dataset.facing = "user";
+        } else {
+            switchCameraButton.dataset.facing = "environment";
+        }
+        
+        loadRecordingStream(switchCameraButton.dataset.facing);
+    },false);
+
+    function loadRecordingStream(cameraFacing){
+        navigator.mediaDevices.getUserMedia({video: {facingMode:cameraFacing}, audio:true}).then(stream => {
+            preview.srcObject = stream;
+            preview.captureStream = preview.captureStream || preview.mozCaptureStream;
+            return new Promise(resolve => preview.onplaying = resolve);
+        });
+    }
 
     function log(msg){
         console.log("LOGMSG: "+msg);
@@ -196,14 +234,7 @@
     }
 
     startButton.addEventListener("click", function() {
-        navigator.mediaDevices.getUserMedia({video: {facingMode:"environment"}, audio:true}).then(stream => {
-            console.log("PreviewCaptureStream: "+preview.captureStream);
-            console.log("Preview SrcObject: "+preview.srcObject);
-            preview.srcObject = stream;
-            downloadButton.href = stream;
-            preview.captureStream = preview.captureStream || preview.mozCaptureStream;
-            return new Promise(resolve => preview.onplaying = resolve);
-        }).then(() => startRecording(preview.captureStream(), recordingTimeMS))
+        startRecording(preview.captureStream(), recordingTimeMS)
         .then (recordedChunks => {
             let recordedBlob = new Blob(recordedChunks, {type:"video/webm"});
             preview.srcObject = null;
@@ -257,7 +288,8 @@
 		$(modal).find('video')[0].pause();
 	}
 
-    // When the user clicks anywhere outside of the modal, close it
+    // Hints Video Modal
+    //   When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if ($(event.target).hasClass('videoModal')) {
             $(event.target).find('video')[0].pause();
