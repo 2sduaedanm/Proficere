@@ -270,9 +270,26 @@
             stopButton.className = stopButton.className.replace(" active", "");
         }
     }
+    
+    function addLeadingZeros(n) {
+        if (n <= 9) {
+            return "0" + n;
+            }
+            return n
+        }
+
     function BuildRecordingFileName(fileExtension){
         var currentDate = new Date();
-        var currDate = currentDate.getFullYear()+"-"+currentDate.getMonth()+"-"+currentDate.getDay()+"-"+currentDate.getHours()+"-"+currentDate.getMinutes()+"-"+currentDate.getSeconds();
+        //var currDate = currentDate.getFullYear()+"-"+currentDate.getMonth()+"-"+currentDate.getDay()+"-"+currentDate.getHours()+"-"+currentDate.getMinutes()+"-"+currentDate.getSeconds();
+        var year = currentDate.getFullYear();
+        var month = addLeadingZeros(currentDate.getMonth() + 1);      // "+ 1" becouse the 1st month is 0
+        var day = addLeadingZeros(currentDate.getDate());
+        var hour = addLeadingZeros(currentDate.getHours());
+        var minutes = addLeadingZeros(currentDate.getMinutes());
+        var seconds = addLeadingZeros(currentDate.getSeconds())
+
+        var currDate = year+"-"+month+"-"+day+"-"+hour+"-"+ minutes+"-"+ seconds;
+
         const urlParams = new URLSearchParams(window.location.search);
         var fileName= "S"+urlParams.get('student')+"_C"+urlParams.get('curriculum')+"_CH"+urlParams.get('challenge')+"_D"+currDate;
         return fileName+fileExtension;
