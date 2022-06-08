@@ -72,7 +72,6 @@
     let submitChallengeForm = document.getElementById("submitChallengeForm");
     let fileInputElement = document.getElementById("fileInputElement");
 
-    let recordingTimeMS = 10000;
 
     loadRecordingStream(switchCameraButton.dataset.facing);
 
@@ -87,57 +86,70 @@
     },false);
 
     function loadRecordingStream(cameraFacing){
+        log("LoadStream: "+cameraFacing);
         navigator.mediaDevices.getUserMedia({video: {facingMode:cameraFacing}, audio:true}).then(stream => {
+            preview.src = null;
             preview.srcObject = stream;
             preview.captureStream = preview.captureStream || preview.mozCaptureStream;
             return new Promise(resolve => preview.onplaying = resolve);
         });
+        logPreview();
+        log("Stream Loaded!");
     }
 
     function log(msg){
         console.log("LOGMSG: "+msg);
     }
-    function wait(delayInMS){
-        return new Promise(resolve => setTimeout(resolve,delayInMS));
+
+    function logPreview(){
+        console.log("- - - - - PREVIEW-srcObject: "+preview.srcObject);
+        console.log("- - - - - PREVIEW-src: "+preview.src);
+        console.log("- - - - - PREVIEW-captureStream: "+preview.captureStream);
     }
-    function startRecording(stream,lengthInMS){
+    
+    function startRecording(stream){
+        log("Start Recording of stream: "+stream+"...")
+        logPreview();
         Toggle_playstop();
         let recorder = new MediaRecorder(stream);
         let data = [];
 
         recorder.ondataavailable = event => data.push(event.data);
         recorder.start();
-        log(recorder.state + " for " + (lengthInMS/1000) + " seconds...");
+        log("Record State: "+recorder.state);
 
         let stopped = new Promise((resolve, reject) => {
             recorder.onstop = resolve;
             recorder.onerror = event => reject(event.name);
         });
-
-        // let recorded = wait(lengthInMS).then(() => recorder.state == "recording" && recorder.stop()
-        // );
-
         return Promise.all([stopped]).then(() => data);
-        // return Promise.all([stopped,recorded]).then(() => data);
     }
 
     function stop(stream) {
+        log("Stop Recording");
         stream.getTracks().forEach(track => track.stop());
+        logPreview();
     }
 
     startButton.addEventListener("click", function() {
-        startRecording(preview.captureStream(), recordingTimeMS)
+        if(preview.srcObject == null) {
+            log("Reconnect VideoPlayer to Camera Stream");
+            loadRecordingStream(switchCameraButton.dataset.facing);
+        }
+        startRecording(preview.captureStream())
         .then (recordedChunks => {
+            log("Preview CaptureStream has ended. Gathering Recorded Chunks...");
             let recordedBlob = new Blob(recordedChunks, {type:"video/webm"});
             preview.srcObject = null;
             preview.src = URL.createObjectURL(recordedBlob);
 
-            log("Successfully recorded "+recordedBlob.size + " bytes of " + recordedBlob.type + " media.");
+            log("- - Recorded "+recordedBlob.size + " bytes of " + recordedBlob.type + " media.");
 
             file = new File([recordedBlob],BuildRecordingFileName(".webm"),{type:"video/webm",lastModified:new Date().getTime()});
             container = new DataTransfer();
             container.items.add(file);
             fileInputElement.files = container.files;
+            log("Recording Chunks have been compiled. Successfully Added Recording to fileInputElement");
         })
         .catch(log);
     },false);
