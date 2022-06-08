@@ -134,7 +134,6 @@
                             <div id="startButton" class=" active"></div><!--Changes to Stop button-->
                             <div id="stopButton" ></div>
                             <div id="switchCameraButton" data-facing="environment" ></div>
-                            <div hidden class="button" style="float:left;width:30%"><a id="downloadButton">Save Recording</a></div><!--Is Disabled until a video recording file exists-->                
                             <div style="clear:both"></div>
                         </div>
                     </div>
@@ -173,7 +172,6 @@
     let startButton = document.getElementById("startButton");
     let stopButton = document.getElementById("stopButton");
     let switchCameraButton = document.getElementById("switchCameraButton");
-    let downloadButton = document.getElementById("downloadButton");
     let submitChallengeForm = document.getElementById("submitChallengeForm");
     let fileInputElement = document.getElementById("fileInputElement");
 
@@ -239,8 +237,6 @@
             let recordedBlob = new Blob(recordedChunks, {type:"video/webm"});
             preview.srcObject = null;
             preview.src = URL.createObjectURL(recordedBlob);
-            downloadButton.href = preview.src;
-            downloadButton.download = BuildRecordingFileName(".webm");
 
             log("Successfully recorded "+recordedBlob.size + " bytes of " + recordedBlob.type + " media.");
 
