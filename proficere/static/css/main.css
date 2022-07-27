@@ -1,7 +1,7 @@
-#logo {   
-    width: 100%; 
-    height: 100%; 
-    object-fit: contain; 
+#logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 body {
@@ -10,104 +10,59 @@ body {
 
 .button {
     text-align: center;
-    padding:5px;
-    width:90%;
-    color:#000 !important;
+    padding: 5px;
+    width: 90%;
+    color: #000 !important;
     background-color: #fff !important;
-    border:1px solid #ccc !important;
-    cursor:pointer;
-    border-radius:16px;
+    border: 1px solid #ccc !important;
+    cursor: pointer;
+    border-radius: 16px;
 }
 
 /* START - Radio Button Slider */
 .switch-field {
-	display: flex;
-	margin-bottom: 36px;
-	overflow: hidden;
+    display: flex;
+    margin-bottom: 36px;
+    overflow: hidden;
 }
 
 .switch-field input {
-	position: absolute !important;
-	clip: rect(0, 0, 0, 0);
-	height: 1px;
-	width: 1px;
-	border: 0;
-	overflow: hidden;
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
 }
 
 .switch-field label {
-	background-color: #e4e4e4;
-	color: rgba(0, 0, 0, 0.6);
-	font-size: 14px;
-	line-height: 1;
-	text-align: center;
-	padding: 8px 16px;
-	margin-right: -1px;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-	transition: all 0.1s ease-in-out;
+    background-color: #e4e4e4;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    padding: 8px 16px;
+    margin-right: -1px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.1s ease-in-out;
 }
 
 .switch-field label:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
-.switch-field input:checked + label {
-	background-color: #a5dc86;
-	box-shadow: none;
+.switch-field input:checked+label {
+    background-color: #a5dc86;
+    box-shadow: none;
 }
 
 .switch-field label:first-of-type {
-	border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
 }
 
 .switch-field label:last-of-type {
-	border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;
 }
-/* END - Radio Button Slider*/
 
-/* START - Video Recorder*/
-.video_recorder_controls_bkg {
-    margin-top:-10px;
-    background-color: #020202;
-}
-.video_recorder_controls {
-    margin-left: auto;
-    margin-right: auto;
-    width:max-content;
-}
-#startButton {
-    background: url("/static/images/VideoPlayerIcons/record_icon.png") no-repeat center;
-    background-size:50px 50px;
-    color: white;
-}
-#stopButton {
-    background: url("/static/images/VideoPlayerIcons/stop_icon.png") no-repeat center;
-    background-size:50px 50px;
-    color: white;
-}
-#switchCameraButton {
-    background: url("/static/images/VideoPlayerIcons/switch_camera_icon.png") no-repeat center;
-    background-size:50px 50px;
-    color: white;
-    display:block;
-}
-#startButton,#stopButton,#switchCameraButton {
-    cursor:pointer;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50px;
-    height: 50px;
-    float:left;
-}
-#startButton,#stopButton {
-    display:none;
-}
-#startButton:hover,#stopButton:hover,#switchCameraButton:hover {
-    background-color: #ccc;
-}
-#startButton.active,#stopButton.active {
-    display:block;
-    
-}
-/* END - Video Recorder*/
+/* END - Radio Button Slider*/
