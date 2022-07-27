@@ -1,0 +1,60 @@
+/* START - Video Recorder*/
+.video_recorder_controls_bkg {
+    margin-top: -10px;
+    background-color: #020202;
+}
+
+.video_recorder_controls {
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+}
+
+#startButton {
+    background: url("/static/images/VideoPlayerIcons/record_icon.png") no-repeat center;
+    background-size: 50px 50px;
+    color: white;
+}
+
+#stopButton {
+    background: url("/static/images/VideoPlayerIcons/stop_icon.png") no-repeat center;
+    background-size: 50px 50px;
+    color: white;
+}
+
+#switchCameraButton {
+    background: url("/static/images/VideoPlayerIcons/switch_camera_icon.png") no-repeat center;
+    background-size: 50px 50px;
+    color: white;
+    display: block;
+}
+
+#startButton,
+#stopButton,
+#switchCameraButton {
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+#startButton,
+#stopButton {
+    display: none;
+}
+
+#startButton:hover,
+#stopButton:hover,
+#switchCameraButton:hover {
+    background-color: #ccc;
+}
+
+#startButton.active,
+#stopButton.active {
+    display: block;
+
+}
+
+/* END - Video Recorder*/
