@@ -8,8 +8,10 @@
 <table class="table table-sm">
 	<tr>
 		<th>Challenge</th>
-		<th>Type of Review</th>
+		<th>Type</th>
+<!--
 		<th>Type of Answer</th>
+-->
 		<th>Hints</th>
 		<th>HintsVideo</th>
 	</tr>
@@ -17,7 +19,9 @@
 	<tr>
 		<td>{{challenge.challengeid.longname}}</td>
 		<td>{{challenge.challengeid.challengetypeid}}</td>
+<!--
 		<td>{{challenge.challengeid.answertypeid}}</td>
+-->
 		<td>{{challenge.challengeid.hints}}</td>
 		<td>{% if challenge.challengeid.hintsvideo%}
 			{% include 'instruct/VideoPlayerModal.html' with videoId=challenge.challengeid.id videoUrl=challenge.challengeid.hintsvideo.url videoTitle=challenge.challengeid.shortname videoDescription=challenge.challengeid.hints %}
