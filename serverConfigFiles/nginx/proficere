@@ -27,6 +27,12 @@ server {
         #root /home/ubuntu/Proficere/proficere;
     }
 
+    location /media/ {
+        autoindex on;
+        alias /home/ubuntu/Proficere/proficere/media/;
+        #root /home/ubuntu/Proficere/proficere;
+    }
+
     location / {
         include proxy_params;
         proxy_pass http://unix:/home/ubuntu/Proficere/proficere/proficere.sock;
