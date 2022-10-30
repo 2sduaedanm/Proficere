@@ -76,7 +76,7 @@ table.sce_try_again {
 			<th>Action</th>
 		</tr>
 		{% for student in studentList %}
-		<tr>
+		<tr class="selectable" data-id="{{student.id}}">
 			<td>{{student.username}}</td>
 			<td>{{student.last_name}}, {{student.first_name}}</td>
 <!--
