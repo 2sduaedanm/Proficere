@@ -65,4 +65,14 @@ body {
     border-radius: 0 4px 4px 0;
 }
 
-/* END - Radio Button Slider*/
+/* END - Radio Button Slider */
+
+/* clickable-table */
+.clickable-row:hover {
+    background-color: #071c3c5d;
+    cursor: pointer;
+}
+.clickable-row:active {
+    background-color: #071c3ce2;
+    color:white
+}

@@ -73,22 +73,14 @@ table.sce_try_again {
 <!--
 				<th>Email</th>
 -->
-			<th>Action</th>
 		</tr>
 		{% for student in studentList %}
-		<tr>
+		<tr class="clickable-row" data-href="{% url 'instructStudentChallenge_select' %}?student={{student.id}}">
 			<td>{{student.username}}</td>
 			<td>{{student.last_name}}, {{student.first_name}}</td>
 <!--
 			<td>{{student.email}}</td>
 -->
-			<td>
-				<form method='get' action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}">
-					{% csrf_token %}
-					<input type="text" name="student" value="{{student.id}}" hidden> 
-					<button class="edit-user" type="submit">Select</button>
-				</form>
-			</td>
 		</tr>
 		{% endfor %}
 	</table>
@@ -112,23 +104,14 @@ table.sce_try_again {
 <!--
 			<th>Current Progress</th>
 -->
-			<th>Action</th>
 		</tr>
 		{% for curriculum in curriculumList %}
-		<tr>
+		<tr class="clickable-row" data-href="{% url 'instructStudentChallenge_select' %}?student={{student.id}}&curriculum={{curriculum.id}}">
 			<td>{{curriculum.progressionid.shortname}}</td>
 			<td>{{curriculum.shortname}}</td>
 <!--
 			<td>Fake %</td>
 -->
-			<td>
-				<form method='get' action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}&curriculum={{curriculum.id}}">
-					{% csrf_token %}
-					<input type="text" name="student" value="{{student.id}}" hidden>
-					<input type="text" name="curriculum" value="{{curriculum.id}}" hidden>
-					<button class="edit-user" type="submit">Select</button>
-				</form>
-			</td>
 		</tr>
 		{% endfor %}
 	</table>
@@ -155,7 +138,7 @@ table.sce_try_again {
 -->
 		</tr>
 		{% for challenge in challengeList %}
-		<tr>
+		<tr class="clickable-row" data-href="{% url 'instructStudentChallenge' %}?student={{student.id}}&curriculum={{curriculum.id}}&challenge={{challenge.id}}">
 			<td>{{challenge.longname}}</td>
 <!--
 			<td>{{challenge.challengetypeid}}</td>

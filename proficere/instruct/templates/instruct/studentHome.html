@@ -11,20 +11,16 @@
 		<th>Status</th>
 	</tr>
 	{% for currentProgression in currentProgressions %}
-	<tr>
+	<tr class="clickable-row" data-href="{% url 'display_curriculum_challenges' currentProgression.curriculumid.id %}">
 		<td>{{currentProgression.progressionid}}</td>
-		<td><a class="nav-link"
-				href="{% url 'display_curriculum_challenges' currentProgression.curriculumid.id %}">{{currentProgression.curriculumid}}</a>
-		</td>
+		<td>{{currentProgression.curriculumid}}</td>
 		<td>{{currentProgression.statusid.shortname}}</td>
 	</tr>
 	{% endfor %}
 	{% for pastProgression in pastProgressions %}
-	<tr>
+	<tr class="clickable-row" data-href="{% url 'display_curriculum_challenges' pastProgression.curriculumid.id %}">
 		<td>{{pastProgression.progressionid}}</td>
-		<td><a class="nav-link"
-				href="{% url 'display_curriculum_challenges' pastProgression.curriculumid.id %}">{{pastProgression.curriculumid}}</a>
-		</td>
+		<td>{{pastProgression.curriculumid}}</td>
 		<td>{{pastProgression.statusid.shortname}}</td>
 	</tr>
 	{% endfor %}
