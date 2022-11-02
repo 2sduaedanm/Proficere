@@ -11,7 +11,10 @@
 <!--Body-->
 <div>
     <!--Challenge Info-->
+    <div>
+<!--
     <div class="w-50" style="float:left">
+-->
         <h2>{{challenge.longname}}</h2>
         <p>Challenge Type: {{challenge.challengetypeid}}</p>
         <p>Answer Type: {{challenge.answertypeid}}</p>
@@ -21,12 +24,20 @@
             {% endif %}</p>
     </div>
     <!--Assessment Form-->
+    <div>
+<!--
     <div class="w-50" style="float:right">
+-->
         <div>
             <div>
                 <h2>Video Capture the Assessment</h2>
+<!--
                 <p>Record up to 10 seconds of footage</p>
+-->
+                <div style="padding:0 2.5%;">
+<!--
                 <div style="padding:2.5% 10% 0 10%;">
+-->
                     <video id="preview" width="100%" autoplay muted controls></video>
                     <div class="video_recorder_controls_bkg">
                         <div class="video_recorder_controls">
