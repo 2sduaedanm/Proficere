@@ -16,12 +16,14 @@
     <div class="w-50" style="float:left">
 -->
         <h2>{{challenge.longname}}</h2>
-        <p>Challenge Type: {{challenge.challengetypeid}}</p>
-        <p>Answer Type: {{challenge.answertypeid}}</p>
-        <p>Hints: {{challenge.hints}}</p>
-        <p>HintsVideo: {% if challenge.hintsvideo%}
-            {% include 'instruct/VideoPlayerModal.html' with videoId=challenge.id videoUrl=challenge.hintsvideo.url videoTitle=challenge.shortname videoDescription=challenge.hints %}
-            {% endif %}</p>
+        <div style="padding:0.5rem 2.5%">
+            <p>Challenge Type: {{challenge.challengetypeid}}</p>
+            <p>Answer Type: {{challenge.answertypeid}}</p>
+            <p>Hints: {{challenge.hints}}</p>
+            <p>HintsVideo: {% if challenge.hintsvideo%}
+                {% include 'instruct/VideoPlayerModal.html' with videoId=challenge.id videoUrl=challenge.hintsvideo.url videoTitle=challenge.shortname videoDescription=challenge.hints %}
+                {% endif %}</p>
+        </div>
     </div>
     <!--Assessment Form-->
     <div>
@@ -66,11 +68,10 @@
                         <input type="radio" id="radio-two" name="resultCode" value="try-again" checked />
                         <label for="radio-two">Try-Again</label>
                     </div>
+                    <textarea name="assessment_comments" placeholder="Enter Comments Here..." rows="5" style="width:100%;max-width:100%"></textarea>
                 </div>
-                <textarea name="assessment_comments" placeholder="Enter Comments Here..." rows="5" cols="50"></textarea>
-                <br/>
                 <input hidden id="fileInputElement" type="file" name="recordingBlob">
-                <input type="submit" name="submit_assessment_button" value="Complete Assessment"/>
+                <input type="submit" name="submit_assessment_button" value="Complete Assessment" style="margin-left:2.5%;"/>
             </form>
         </div>
     </div>

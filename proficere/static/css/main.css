@@ -22,7 +22,7 @@ body {
 /* START - Radio Button Slider */
 .switch-field {
     display: flex;
-    margin-bottom: 36px;
+    margin-bottom: 1rem;
     overflow: hidden;
 }
 
