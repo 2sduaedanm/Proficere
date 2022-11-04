@@ -8,12 +8,15 @@
 <div id="videoModal-{{videoId}}" class="videoModal">
     <div class="videoModal-content">
         <span class="close" data-id="{{videoId}}" onclick="CloseVideoModal(this)">&times;</span>
-        <video width="500" height="500" controls controlsList="nodownload">
+        <div style="clear:both"></div>
+        <div class="videoModal-content-description">
+            <h1>{{videoTitle}}</h1>
+        </div>
+        <video width="100%" controls controlsList="nodownload">
             <source src="{{videoUrl}}" type="video/mp4">
             <b>{{videoTitle}}</b>
         </video>
         <div class="videoModal-content-description">
-            <h1>{{videoTitle}}</h1>
             <p>{{videoDescription}}</p>
         </div>
     </div>
