@@ -133,11 +133,13 @@ table.sce_try_again {
 	<div class="search_error_box">
 		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
 	</div>
+<!--
 	<h2>Select a Challenge for {{student.first_name}} {{student.last_name}} > {{curriculum.progressionid.shortname}} > {{curriculum.shortname}}</h2>
+-->
 	<table class="table table-sm">
 		<tr>
+			<!--
 			<th>Challenge</th>
-<!--
 			<th>Type of Review</th>
 			<th>Type of Answer</th>
 			<th>Recent Status</th>
@@ -165,7 +167,9 @@ table.sce_try_again {
 					<input type="text" name="student" value="{{student.id}}" hidden>
 					<input type="text" name="curriculum" value="{{curriculum.id}}" hidden>
 					<input type="text" name="challenge" value="{{challenge.id}}" hidden>
+<!--
 					<button class="edit-user" type="submit">Assess</button>
+-->
 <!--
 					<button class="edit-user" type="submit">Start New Assessment</button>
 -->
