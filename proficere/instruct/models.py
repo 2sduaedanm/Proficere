@@ -73,6 +73,8 @@ class Challenge (models.Model):
     displayorder = models.IntegerField(blank=True, null=True)
     hints = models.CharField(max_length=255, blank=True)
     hintsvideo = models.FileField(blank=True, upload_to='hintsVideos/')
+#    allowhomework = models.BooleanField(default=False)
+#    allowvideorecord = models.BooleanField(default=True)
     active = models.BooleanField(default=True)
     startdate = models.DateTimeField(default=datetime.now)
     enddate = models.DateTimeField(

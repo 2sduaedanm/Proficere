@@ -65,18 +65,24 @@ table.sce_try_again {
 	<div class="search_error_box">
 		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
 	</div>
+<!--
 	<h2>Select a Student</h2>
+-->
 	<table class="table table-sm">
 		<tr>
+<!--
 			<th>Username</th>
 			<th>Name</th>
+-->
 <!--
 				<th>Email</th>
 -->
 		</tr>
 		{% for student in studentList %}
 		<tr class="clickable-row" data-href="{% url 'instructStudentChallenge_select' %}?student={{student.id}}">
+<!--
 			<td>{{student.username}}</td>
+-->
 			<td>{{student.last_name}}, {{student.first_name}}</td>
 <!--
 			<td>{{student.email}}</td>
