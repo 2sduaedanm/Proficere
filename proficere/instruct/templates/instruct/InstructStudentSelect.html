@@ -156,8 +156,10 @@ table.sce_try_again {
 				{% if sce.challengeid.id == challenge.id %}
 					<table class="{%if sce.resultcode %}sce_passed{% else %}sce_try_again{% endif %}">
 						<tr>
+<!--
 							<td>{{sce.instructorid.username}}</td>
-							<td>{{sce.assessdate}}</td>
+-->
+							<td>{{sce.assessdate|date:'M-d-Y'}}</td>
 						</tr>
 					</table>
 				{% endif %}
