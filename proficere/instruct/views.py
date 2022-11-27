@@ -107,22 +107,22 @@ def instructStudentChallenge_select(request):
 	if(studentid):
 		student = User.objects.get(id=studentid)
 		if searched:
-			currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(studentid= student.id, statusid__in = [1,2])).filter(Q(longname__icontains = searched)).order_by('progressionid')
+			currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(studentid= student.id, statusid__in = [1,2])).filter(Q(longname__icontains = searched)).order_by('progressionid','displayorder')
 			if (not curriculumid) & (not currentCurriculumList):
-				currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(studentid= student.id, statusid__in = [1,2])).order_by('progressionid')
+				currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(studentid= student.id, statusid__in = [1,2])).order_by('progressionid','displayorder')
 				context.update({"search_error":searched})
 		else:
-			currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(studentid= student.id, statusid__in = [1,2])).order_by('progressionid')
+			currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(studentid= student.id, statusid__in = [1,2])).order_by('progressionid','displayorder')
 		context.update({"student":student,"curriculumList":currentCurriculumList})
 	if(curriculumid):
 		curriculum = Curriculum.objects.get(id=curriculumid)
 		if searched:
-			challengeList = Challenge.objects.filter(challengecurriculums__curriculumid=curriculum.id).filter(longname__icontains = searched)
+			challengeList = Challenge.objects.filter(challengecurriculums__curriculumid=curriculum.id).filter(longname__icontains = searched).order_by('displayorder')
 			if (not challengeList):
-				challengeList = Challenge.objects.filter(challengecurriculums__curriculumid=curriculum.id)
+				challengeList = Challenge.objects.filter(challengecurriculums__curriculumid=curriculum.id).order_by('displayorder')
 				context.update({"search_error":searched})
 		else:
-			challengeList = Challenge.objects.filter(challengecurriculums__curriculumid=curriculum.id)
+			challengeList = Challenge.objects.filter(challengecurriculums__curriculumid=curriculum.id).order_by('displayorder')
 		sce_list = StudentChallengeEvent.objects.filter(studentid=studentid, curriculumid=curriculumid, progressionid=curriculum.progressionid).order_by('challengeid','-assessdate').distinct('challengeid')
 		context.update({"curriculum":curriculum, "challengeList":challengeList,"sce_list":sce_list})
 		
