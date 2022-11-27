@@ -49,9 +49,13 @@ class ChallengeTypeAdmin(admin.ModelAdmin):
 @admin.register(Challenge)
 class ChallengeAdmin(admin.ModelAdmin):
     fields = ['displayorder', 'shortname', 'longname', 'challengetypeid',
-              'hints', 'hintsvideo', 'active', 'startdate', 'enddate']
+              'hints', 'hintsvideo',
+              #              'allowhomework', 'allowvideorecord',
+              'active', 'startdate', 'enddate']
     list_display = ('shortname', 'longname', 'displayorder', 'challengetypeid',
-                    'hints', 'hintsvideo', 'active', 'lastmodifydate', 'lastmodifyby')
+                    'hints', 'hintsvideo',
+                    #                    'allowhomework', 'allowvideorecord',
+                    'active', 'lastmodifydate', 'lastmodifyby')
     search_fields = ['shortname', 'longname', 'challengetypeid__shortname']
     ordering = ('displayorder',)
     list_filter = ('active', 'startdate', 'hintsvideo',)

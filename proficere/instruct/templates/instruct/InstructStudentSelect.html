@@ -3,11 +3,11 @@
 {% block content %}
 <style>
 	
-table.sce_passed {
+tr:has(> td > table.sce_passed) {
     background-color: #84cc7a;
 }
 
-table.sce_try_again {
+tr:has(> td > table.sce_try_again) {
     background-color: #cc7a7a;
 }
 </style>
@@ -53,7 +53,6 @@ table.sce_try_again {
 </form>
 -->
 
-
 <div id="studentsearchtable">
 	<div>
 		<form class="d-flex" method=POST action="{% url 'instructStudentChallenge_select' %}">
@@ -65,18 +64,22 @@ table.sce_try_again {
 	<div class="search_error_box">
 		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
 	</div>
+<!--
 	<h2>Select a Student</h2>
+-->
 	<table class="table table-sm">
+<!--
 		<tr>
 			<th>Username</th>
 			<th>Name</th>
-<!--
-				<th>Email</th>
--->
+			<th>Email</th>
 		</tr>
+-->
 		{% for student in studentList %}
 		<tr class="clickable-row" data-href="{% url 'instructStudentChallenge_select' %}?student={{student.id}}">
+<!--
 			<td>{{student.username}}</td>
+-->
 			<td>{{student.last_name}}, {{student.first_name}}</td>
 <!--
 			<td>{{student.email}}</td>
@@ -96,15 +99,17 @@ table.sce_try_again {
 	<div class="search_error_box">
 		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
 	</div>
-	<h2>Select a Curriculum for {{student.first_name}} {{student.last_name}}</h2>
+	<!--<h2>Select a Curriculum for {{student.first_name}} {{student.last_name}}</h2>-->
 	<table class="table table-sm">
+		<!--
 		<tr>
 			<th>Progression</th>
 			<th>Curriculum</th>
-<!--
+
 			<th>Current Progress</th>
--->
+
 		</tr>
+		-->
 		{% for curriculum in curriculumList %}
 		<tr class="clickable-row" data-href="{% url 'instructStudentChallenge_select' %}?student={{student.id}}&curriculum={{curriculum.id}}">
 			<td>{{curriculum.progressionid.shortname}}</td>
@@ -127,16 +132,20 @@ table.sce_try_again {
 	<div class="search_error_box">
 		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
 	</div>
-	<h2>Select a Challenge for {{student.first_name}} {{student.last_name}} > {{curriculum.progressionid.shortname}} > {{curriculum.shortname}}</h2>
-	<table class="table table-sm">
-		<tr>
-			<th>Challenge</th>
 <!--
+	<h2>Select a Challenge for {{student.first_name}} {{student.last_name}} > {{curriculum.progressionid.shortname}} > {{curriculum.shortname}}</h2>
+-->
+	<table class="table table-sm">
+		<!--
+		<tr>
+			
+			<th>Challenge</th>
 			<th>Type of Review</th>
 			<th>Type of Answer</th>
 			<th>Recent Status</th>
--->
+
 		</tr>
+		-->
 		{% for challenge in challengeList %}
 		<tr class="clickable-row" data-href="{% url 'instructStudentChallenge' %}?student={{student.id}}&curriculum={{curriculum.id}}&challenge={{challenge.id}}">
 			<td>{{challenge.longname}}</td>
@@ -148,8 +157,10 @@ table.sce_try_again {
 				{% if sce.challengeid.id == challenge.id %}
 					<table class="{%if sce.resultcode %}sce_passed{% else %}sce_try_again{% endif %}">
 						<tr>
+<!--
 							<td>{{sce.instructorid.username}}</td>
-							<td>{{sce.assessdate}}</td>
+-->
+							<td>{{sce.assessdate|date:'M-d-Y'}}</td>
 						</tr>
 					</table>
 				{% endif %}
@@ -159,7 +170,9 @@ table.sce_try_again {
 					<input type="text" name="student" value="{{student.id}}" hidden>
 					<input type="text" name="curriculum" value="{{curriculum.id}}" hidden>
 					<input type="text" name="challenge" value="{{challenge.id}}" hidden>
+<!--
 					<button class="edit-user" type="submit">Assess</button>
+-->
 <!--
 					<button class="edit-user" type="submit">Start New Assessment</button>
 -->

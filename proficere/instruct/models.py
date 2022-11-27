@@ -31,7 +31,9 @@ class Progression(models.Model):
 class Curriculum (models.Model):
     shortname = models.CharField(max_length=60)
     longname = models.CharField(max_length=255)
-    belt = models.CharField(max_length=100, blank=True)  # image
+    belt = models.ImageField(
+        upload_to='images', null=True, blank=True)
+#    belt = models.CharField(max_length=100, blank=True)  # image
     progressionid = models.ForeignKey(
         Progression, default=1, on_delete=models.CASCADE)
     displayorder = models.IntegerField(blank=True, null=True)
@@ -71,6 +73,8 @@ class Challenge (models.Model):
     displayorder = models.IntegerField(blank=True, null=True)
     hints = models.CharField(max_length=255, blank=True)
     hintsvideo = models.FileField(blank=True, upload_to='hintsVideos/')
+#    allowhomework = models.BooleanField(default=False)
+#    allowvideorecord = models.BooleanField(default=True)
     active = models.BooleanField(default=True)
     startdate = models.DateTimeField(default=datetime.now)
     enddate = models.DateTimeField(
