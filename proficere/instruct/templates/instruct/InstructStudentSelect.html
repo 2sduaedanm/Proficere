@@ -135,12 +135,16 @@ tr:has(> td > table.sce_try_again) {
 	<div class="search_error_box">
 		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
 	</div>
+	<br/>
+
+	<h4>Table Filters: </h4>
+
 	<div class="table-filters">
-		<h4>Table Filters </h4>
 		<div class="form-check" onclick="toggleTableFilter()">
-			<input type="checkbox" class="form-check-input" id="hidePassedCheckbox" value="">
-			<label class="form-check-label" for="hidePassedCheckbox">Hide Passed Challenges</label><br>
+			<input type="checkbox" class="form-check-input{}" id="hidePassedCheckbox" value="">
+			<label class="form-check-label" for="hidePassedCheckbox"><h6>Hide Passed Challenges</h6></label><br>
 		</div>
+		<br/>
 	</div>
 	<table class="table table-sm">
 		<!--
