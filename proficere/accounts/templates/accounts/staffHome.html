@@ -2,9 +2,13 @@
 
 {% block content %}
 <h2>This is Staff Home Page html</h2>
-<br />
 <div>
-	<a href="{% url 'register' %}">Sign Up</a>
+	<a href="{% url 'register' %}"><br/><button type="button" class="btn btn-primary">New User Signup</button></a>
+<!--
+	<a href="{% url 'register' %}">Sign Them Up</a>
+-->
+	<br/>
+	<a href="{% url 'signUpClass' %}"><br/><button type="button" class="btn btn-primary">Assign Student Curriculum</button></a>
 </div>
 <!--
 <br/>

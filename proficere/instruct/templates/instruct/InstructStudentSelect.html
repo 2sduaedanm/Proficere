@@ -7,6 +7,10 @@ tr:has(> td > table.sce_passed) {
     background-color: #84cc7a;
 }
 
+tr.clickable-row.filter_hide {
+	display: none;
+}
+
 tr:has(> td > table.sce_try_again) {
     background-color: #cc7a7a;
 }
@@ -64,9 +68,7 @@ tr:has(> td > table.sce_try_again) {
 	<div class="search_error_box">
 		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
 	</div>
-<!--
-	<h2>Select a Student</h2>
--->
+
 	<table class="table table-sm">
 <!--
 		<tr>
@@ -90,6 +92,7 @@ tr:has(> td > table.sce_try_again) {
 </div>
 <div id="curriculumsearchtable">
 	<div>
+		<h2>{{student.first_name}} {{student.last_name}} > ...</h2>
 		<form class="d-flex" method=POST action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}">
 			{% csrf_token %}
 			<input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
@@ -99,7 +102,6 @@ tr:has(> td > table.sce_try_again) {
 	<div class="search_error_box">
 		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
 	</div>
-	<!--<h2>Select a Curriculum for {{student.first_name}} {{student.last_name}}</h2>-->
 	<table class="table table-sm">
 		<!--
 		<tr>
@@ -123,6 +125,7 @@ tr:has(> td > table.sce_try_again) {
 </div>
 <div id="challengesearchtable">
 	<div>
+		<h2>{{student.first_name}} {{student.last_name}} > {{curriculum.progressionid.shortname}} > {{curriculum.shortname}} > ...</h2>
 		<form class="d-flex" method=POST action="{% url 'instructStudentChallenge_select' %}?student={{student.id}}&curriculum={{curriculum.id}}">
 			{% csrf_token %}
 			<input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
@@ -132,9 +135,17 @@ tr:has(> td > table.sce_try_again) {
 	<div class="search_error_box">
 		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
 	</div>
-<!--
-	<h2>Select a Challenge for {{student.first_name}} {{student.last_name}} > {{curriculum.progressionid.shortname}} > {{curriculum.shortname}}</h2>
--->
+	<br/>
+
+	<h4>Table Filters: </h4>
+
+	<div class="table-filters">
+		<div class="form-check" onclick="toggleTableFilter()">
+			<input type="checkbox" class="form-check-input{}" id="hidePassedCheckbox" value="">
+			<label class="form-check-label" for="hidePassedCheckbox"><h6>Hide Passed Challenges</h6></label><br>
+		</div>
+		<br/>
+	</div>
 	<table class="table table-sm">
 		<!--
 		<tr>
@@ -202,5 +213,16 @@ tr:has(> td > table.sce_try_again) {
 		curriculumsearch.style.display = "none";
 		challengesearch.style.display = "none";
 	}
+
+
+    function toggleTableFilter() {
+        var checkboxElement = document.getElementById("hidePassedCheckbox");
+		var passedElements = document.getElementsByClassName("sce_passed");
+        if(checkboxElement.checked){
+			$('.sce_passed').parent('td').parent('tr.clickable-row').addClass("filter_hide");
+        } else {
+			$('.sce_passed').parent('td').parent('tr.clickable-row').removeClass("filter_hide");
+		}
+    }
 </script>
 {% endblock %}
