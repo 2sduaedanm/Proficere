@@ -227,10 +227,13 @@ def instructStudentChallenge_Submit(request):
 def signUpClassView(request):
     context = {}
 
-    form = signUpClassForm(request.POST or None, request.FILES or None)
+    form = signUpClassForm(request.POST or None, request.FILES or None, initial={
+                           'lastmodifyby': request.user, 'statusid': 1})
 
     if form.is_valid():
-        form.save()
+        newstudentcurriculum = form.save(commit=False)
+        newstudentcurriculum.lastmodifyby = request.user
+        newstudentcurriculum.save()
 
     context['form'] = form
     return render(request, "instruct/signUpClass.html", context)

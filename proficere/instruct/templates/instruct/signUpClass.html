@@ -12,17 +12,17 @@
 
             <div class="d-flex justify-content-center form_container">
                 <form method="POST" action="">
-                    {{ form.as_p }}
-<!--
-                    studentid = forms.ChoiceField()
-                    curriculumid = forms.ChoiceField()
-                    progressionid = forms.ChoiceField()
-                    active = forms.BooleanField()
-                    statusid = forms.ChoiceField()
-                    startdate = forms.DateField()
-                    enddate = forms.DateField()
-                    curriculumid = forms.DateField()
--->
+                    {{ form.as_ul }}
+                    <!--
+                                        studentid = forms.ChoiceField()
+                                        curriculumid = forms.ChoiceField()
+                                        progressionid = forms.ChoiceField()
+                                        active = forms.BooleanField()
+                                        statusid = forms.ChoiceField()
+                                        startdate = forms.DateField()
+                                        enddate = forms.DateField()
+                                        curriculumid = forms.DateField()
+                    -->
                     {% csrf_token %}
 
                     <div class="d-flex justify-content-center mt-3 login_container">

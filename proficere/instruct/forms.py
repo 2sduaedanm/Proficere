@@ -17,3 +17,4 @@ class signUpClassForm(forms.ModelForm):
     class Meta:
         model = StudentCurriculum
         fields = "__all__"
+        exclude = ('startdate', 'enddate', 'lastmodifyby',)
