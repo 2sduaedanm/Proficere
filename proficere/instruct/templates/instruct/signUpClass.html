@@ -1,0 +1,38 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/register.css' %}">
+
+            <div class="d-flex justify-content-center">
+                <h4 id="form-title">REGISTER STUDENT CLASS</h4>
+            </div>
+            <br/>
+
+            <div class="d-flex justify-content-center form_container">
+                <form method="POST" action="">
+                    {{ form.as_p }}
+<!--
+                    studentid = forms.ChoiceField()
+                    curriculumid = forms.ChoiceField()
+                    progressionid = forms.ChoiceField()
+                    active = forms.BooleanField()
+                    statusid = forms.ChoiceField()
+                    startdate = forms.DateField()
+                    enddate = forms.DateField()
+                    curriculumid = forms.DateField()
+-->
+                    {% csrf_token %}
+
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <input class="btn login_btn" type="submit" value="Register Class">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {{form.errors}}
+
+
+{% endblock %}
