@@ -1,0 +1,131 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+<style>
+	
+tr:has(> td > table.sce_passed) {
+    background-color: #84cc7a;
+}
+
+tr.clickable-row.filter_hide {
+	display: none;
+}
+
+tr:has(> td > table.sce_try_again) {
+    background-color: #cc7a7a;
+}
+</style>
+{% if search_error %}
+<style>
+.search_error_box {
+	display:block;
+}
+</style>
+{% else %}
+<style>
+.search_error_box {
+	display:none;
+}
+</style>
+{% endif %}
+
+<div id="studentsearchtable">
+	<div>
+		<form class="d-flex" method=POST action="{% url 'signUpClassStudent' %}">
+			{% csrf_token %}
+			<input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
+			<button class="btn btn-outline-success" type="submit">Search</button>
+		</form>
+	</div>
+	<div class="search_error_box">
+		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
+	</div>
+
+	<table class="table table-sm">
+<!--
+		<tr>
+			<th>Username</th>
+			<th>Name</th>
+			<th>Email</th>
+		</tr>
+-->
+		{% for student in studentList %}
+		<tr class="clickable-row" data-href="{% url 'signUpClassStudent' %}?student={{student.id}}">
+<!--
+			<td>{{student.username}}</td>
+-->
+			<td>{{student.last_name}}, {{student.first_name}}</td>
+<!--
+			<td>{{student.email}}</td>
+-->
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+<div id="curriculumsearchtable">
+	<div>
+		<h2>{{student.first_name}} {{student.last_name}} > ...</h2>
+		<form class="d-flex" method=POST action="{% url 'signUpClassStudent' %}?student={{student.id}}">
+			{% csrf_token %}
+			<input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
+			<button class="btn btn-outline-success" type="submit">Search</button>
+		</form>
+	</div>
+	<div class="search_error_box">
+		<p>No results found when searching for <b style='color:red'>{{search_error}}</b></p>
+	</div>
+	<table class="table table-sm">
+		<!--
+		<tr>
+			<th>Progression</th>
+			<th>Curriculum</th>
+
+			<th>Current Progress</th>
+
+		</tr>
+		-->
+		{% for curriculum in curriculumList %}
+		<tr class="clickable-row" data-href="{% url 'signUpClassStudent' %}?student={{student.id}}&curriculum={{curriculum.id}}">
+			<td>{{curriculum.progressionid.shortname}}</td>
+			<td>{{curriculum.shortname}}</td>
+<!--
+			<td>Fake %</td>
+-->
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+
+<script type="text/javascript">
+	var studentsearch = document.getElementById("studentsearchtable");
+	var curriculumsearch = document.getElementById("curriculumsearchtable");
+	var challengesearch = document.getElementById("challengesearchtable");
+	
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	if((urlParams.get('student')) && (urlParams.get('curriculum'))) {
+		studentsearch.style.display = "none";
+		curriculumsearch.style.display = "none";
+		challengesearch.style.display = "block";
+	} else if(urlParams.get('student')) {
+		studentsearch.style.display = "none";
+		curriculumsearch.style.display = "block";
+		challengesearch.style.display = "none";
+	} else {
+		studentsearch.style.display = "block";
+		curriculumsearch.style.display = "none";
+		challengesearch.style.display = "none";
+	}
+
+
+    function toggleTableFilter() {
+        var checkboxElement = document.getElementById("hidePassedCheckbox");
+		var passedElements = document.getElementsByClassName("sce_passed");
+        if(checkboxElement.checked){
+			$('.sce_passed').parent('td').parent('tr.clickable-row').addClass("filter_hide");
+        } else {
+			$('.sce_passed').parent('td').parent('tr.clickable-row').removeClass("filter_hide");
+		}
+    }
+</script>
+{% endblock %}

@@ -5,7 +5,6 @@ from django.contrib import admin
 
 from . import views
 
-
 urlpatterns = [
     path('', views.home, name="home"),
     # ex: /instruct/curriculum/1
@@ -20,6 +19,8 @@ urlpatterns = [
     path('InstructStudentChallenge_Submit', views.instructStudentChallenge_Submit,
          name="instructStudentChallenge_Submit"),
     path('instruct/signUpClass', views.signUpClassView, name="signUpClass"),
+    path('instruct/signupClassStudent_select',
+         views.signupClassStudentView, name="signUpClassStudent"),
 
 
 ]

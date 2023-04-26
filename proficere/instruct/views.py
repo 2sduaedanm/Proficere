@@ -227,8 +227,10 @@ def instructStudentChallenge_Submit(request):
 def signUpClassView(request):
     context = {}
 
-    form = signUpClassForm(request.POST or None, request.FILES or None, initial={
-                           'lastmodifyby': request.user, 'statusid': 1})
+    initial_data = {'lastmodifyby': request.user, 'statusid': 1}
+    initial_data['studentid'] = request.POST.get('student', 2)
+    form = signUpClassForm(request.POST or None,
+                           request.FILES or None, initial=initial_data)
 
     if form.is_valid():
         newstudentcurriculum = form.save(commit=False)
@@ -237,3 +239,58 @@ def signUpClassView(request):
 
     context['form'] = form
     return render(request, "instruct/signUpClass.html", context)
+
+
+@login_required(login_url='login')
+def signupClassStudentView(request):
+    context = {}
+    curriculumid = request.GET.get('curriculum')
+    studentid = request.GET.get('student')
+    searched = request.POST.get('searched')
+
+    # If no curriculumid is present, get and show the list of curriculum for that student
+    if (studentid):
+        student = User.objects.get(id=studentid)
+        if searched:
+            currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(
+                studentid=student.id, statusid__in=[1, 2])).filter(Q(longname__icontains=searched)).order_by('progressionid', 'displayorder')
+            if (not curriculumid) & (not currentCurriculumList):
+                currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(
+                    studentid=student.id, statusid__in=[1, 2])).order_by('progressionid', 'displayorder')
+                context.update({"search_error": searched})
+        else:
+            currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(
+                studentid=student.id, statusid__in=[1, 2])).order_by('progressionid', 'displayorder')
+        context.update(
+            {"student": student, "curriculumList": currentCurriculumList})
+    if (curriculumid):
+        curriculum = Curriculum.objects.get(id=curriculumid)
+        if searched:
+            challengeList = Challenge.objects.filter(challengecurriculums__curriculumid=curriculum.id).filter(
+                longname__icontains=searched).order_by('displayorder')
+            if (not challengeList):
+                challengeList = Challenge.objects.filter(
+                    challengecurriculums__curriculumid=curriculum.id).order_by('displayorder')
+                context.update({"search_error": searched})
+        else:
+            challengeList = Challenge.objects.filter(
+                challengecurriculums__curriculumid=curriculum.id).order_by('displayorder')
+        sce_list = StudentChallengeEvent.objects.filter(studentid=studentid, curriculumid=curriculumid, progressionid=curriculum.progressionid).order_by(
+            'challengeid', '-assessdate').distinct('challengeid')
+        context.update({"curriculum": curriculum,
+                       "challengeList": challengeList, "sce_list": sce_list})
+
+    # If no studentid is present, get and show the list of students
+    if searched:
+        studentList = User.objects.filter(groups__name='Student').filter(Q(username__icontains=searched) | Q(
+            last_name__icontains=searched) | Q(first_name__icontains=searched)).order_by('last_name', 'first_name')
+        if (not studentid) & (not curriculumid) & (not studentList):
+            studentList = User.objects.filter(
+                groups__name='Student').order_by('last_name', 'first_name')
+            context.update({"search_error": searched})
+    else:
+        studentList = User.objects.filter(
+            groups__name='Student').order_by('last_name', 'first_name')
+    context.update({"studentList": studentList})
+
+    return render(request, 'instruct/SignupClassStudentSelect.html', context)

@@ -73,16 +73,12 @@ def registerPage(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
+            newuser = form.save()
             user = form.cleaned_data.get('username')
             messages.success(request, 'Account was created for ' + user)
-            return redirect('login')
+            request.POST = request.POST.copy()
+            request.POST['student'] = newuser
+            return redirect('signUpClass')
 
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
-
-
-@login_required(login_url='login')
-def signUpClass(request):
-    context = {}
-    return render(request, 'accounts/signUpClass.html', context)
