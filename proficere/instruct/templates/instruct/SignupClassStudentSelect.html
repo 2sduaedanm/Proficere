@@ -87,7 +87,8 @@ tr:has(> td > table.sce_try_again) {
 		{% for curriculum in curriculumList %}
 		<tr class="clickable-row" data-href="{% url 'signUpClassStudent' %}?student={{student.id}}&curriculum={{curriculum.id}}">
 			<td>{{curriculum.progressionid.shortname}}</td>
-			<td>{{curriculum.shortname}}</td>
+			<td>{{curriculum.curriculumid.shortname}}</td>
+			<td>{{curriculum.statusid}}</td>
 <!--
 			<td>Fake %</td>
 -->

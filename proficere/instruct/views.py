@@ -252,17 +252,17 @@ def signupClassStudentView(request):
     if (studentid):
         student = User.objects.get(id=studentid)
         if searched:
-            currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(
-                studentid=student.id, statusid__in=[1, 2])).filter(Q(longname__icontains=searched)).order_by('progressionid', 'displayorder')
-            if (not curriculumid) & (not currentCurriculumList):
-                currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(
-                    studentid=student.id, statusid__in=[1, 2])).order_by('progressionid', 'displayorder')
+            currentStudentCurriculumList = StudentCurriculum.objects.filter(
+                studentid=student.id).filter(Q(curriculumid__longname__icontains=searched)).order_by('progressionid', '-curriculumid__displayorder')
+            if (not curriculumid) & (not currentStudentCurriculumList):
+                currentStudentCurriculumList = StudentCurriculum.objects.filter(
+                    studentid=student.id).order_by('progressionid', '-curriculumid__displayorder')
                 context.update({"search_error": searched})
         else:
-            currentCurriculumList = Curriculum.objects.filter(studentcurriculum__in=StudentCurriculum.objects.filter(
-                studentid=student.id, statusid__in=[1, 2])).order_by('progressionid', 'displayorder')
+            currentStudentCurriculumList = StudentCurriculum.objects.filter(
+                studentid=student.id).order_by('progressionid', '-curriculumid__displayorder')
         context.update(
-            {"student": student, "curriculumList": currentCurriculumList})
+            {"student": student, "curriculumList": currentStudentCurriculumList})
     if (curriculumid):
         curriculum = Curriculum.objects.get(id=curriculumid)
         if searched:
